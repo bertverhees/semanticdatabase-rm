@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/masagroup/soft.go/ecore"
+	"github.com/bertverhees/semanticdatabase-rm/ecore"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
