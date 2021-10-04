@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rmdesigner"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bmmesigner"
   nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Definitions" eSuperTypes="#//BasicDefintions">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Definitions" eSuperTypes="#//BasicDefintions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Definitions used by all RMD packages"/>
+      <details key="documentation" value="Definitions used by all bmm packages"/>
     </eAnnotations>
-    <eOperations name="anyClass" lowerBound="1" eType="#//RMD_SimpleClass">
+    <eOperations name="anyClass" lowerBound="1" eType="#//BMM_SimpleClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="built-in class definition corresponding to the top `Any' class."/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="anyType" lowerBound="1" eType="#//RMD_SimpleType">
+    <eOperations name="anyType" lowerBound="1" eType="#//BMM_SimpleType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Built-in type definition corresponding to the top `Any' type."/>
       </eAnnotations>
@@ -25,9 +24,9 @@
       <eParameters name="aSchemaName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="aModelRelease" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rmdInternalVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bmmInternalVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Current internal version of RMD meta-model, used todetermine if a given schema can be processed by a givenimplementation of the model."/>
+        <details key="documentation" value="Current internal version of bmm meta-model, used todetermine if a given schema can be processed by a givenimplementation of the model."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemanameDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="::">
@@ -90,42 +89,42 @@
         <details key="documentation" value="Right delimiter used in serial form of instance constrainedenumeration."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataRMDVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rmdVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadatabmmVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="bmmVersion">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'rmd_version' in .rmdschema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'bmm_version' in .bmmschema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="schemaName">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'schema_name' in .rmdschema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'schema_name' in .bmmschema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataRMPublisher" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rmPublisher">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'rm_publisher' in .rmdschema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'rm_publisher' in .bmmschema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataRMRelease" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rmRelease">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'rm_release' in .rmdschema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'rm_release' in .bmmschema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaRevision" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
       defaultValueLiteral="schemaRevision">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'schema_revision' in .rmdschema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'schema_revision' in .bmmschema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaLifecycleState" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
       defaultValueLiteral="schemaLifecycleState">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'schema_lifecycle_state' in.rmd schema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'schema_lifecycle_state' in.bmm schema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaDescription" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
       defaultValueLiteral="schemaDescription">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Attribute name of logical attribute 'schema_description' in.rmd schema file."/>
+        <details key="documentation" value="Attribute name of logical attribute 'schema_description' in.bmm schema file."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaPath" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="schemaPath">
@@ -134,48 +133,50 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ModelAccess">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelAccess">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Access to RMD models that have been loaded and validated from one or more schema sets."/>
+      <details key="documentation" value="Access to bmm models that have been loaded and validated from one or more schema sets."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaDirectories" ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of directories where all the schemas loaded here arefound."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allSchemas" eType="#//StringToRMD_SchemaDescriptor" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allSchemas" eType="#//StringToBMM_SchemaDescriptor" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="All schemas found and loaded from schema_directory . Keyedby schema_id ."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rmdModels" eType="#//StringToRMD_Model" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bmmModels" eType="#//StringToBMM_Model" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Top-level (root) models in use, keyed by model_id ."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_SchemaDescriptor" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_SchemaDescriptor" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Descriptor for a RMD schema. Contains a meta-data table of attributes obtained from a mini-ODINparse of the schema file"></details>
+      <details key="documentation" value="Descriptor for a bmm schema. Contains a meta-data table of attributes obtained from a mini-ODINparse of the schema file"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rmdSchema" eType="#//RMD_Schema">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bmmSchema" eType="#//BMM_Schema">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Persistent form of model."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rmdModel" eType="#//RMD_Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bmmModel" eType="#//BMM_Model">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Computable form of model"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Schema id, formed by {RMD_DEFINITIONS}.create_schema_id(meta_data.item({RMD_DEFINITIONS}.Metadata_model_publisher),meta_data.item({RMD_DEFINITIONS}.Metadata_schema_name),meta_data.item({RMD_DEFINITIONS}.Metadata_model_release) e.g. openehr_rm_1.0.3 , openehr_test_1.0.1 , iso_13606_1_2008_2.1.2 ."/>
+        <details key="documentation"
+          value="Schema id, formed by {BMM_DEFINITIONS}.create_schema_id(meta_data.item({BMM_DEFINITIONS}.Metadata_model_publisher),meta_data.item({BMM_DEFINITIONS}.Metadata_schema_name),meta_data.item({BMM_DEFINITIONS}.Metadata_model_release) e.g. openehr_rm_1.0.3 , openehr_test_1.0.1 , iso_13606_1_2008_2.1.2 ."
+        />
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metaData" eType="#//StringToString" lowerBound="1" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Table of {key, value} of schema meta-data, keys are stringvalues defined by {RMD_DEFINITIONS}.Metadata_* constants"/>
+        <details key="documentation" value="Table of {key, value} of schema meta-data, keys are stringvalues defined by {BMM_DEFINITIONS}.Metadata_* constants"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1" name="includes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -185,17 +186,17 @@
     </eStructuralFeatures>
     <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isTopLevel" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="True if this is a top-level schema, i.e. is the root schema of a'model'. True if rmd_schema /= Void and then  /= Void"/>
+        <details key="documentation" value="True if this is a top-level schema, i.e. is the root schema of a'model'. True if bmm_schema /= Void and then  /= Void"/>
       </eAnnotations>
     </eOperations>
-    <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isRMDCompatible" lowerBound="1">
+    <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isbmmCompatible" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="True if the RMD version found in the schema (or assumed, ifnone) is compatible with that in this software."/>
+        <details key="documentation" value="True if the bmm version found in the schema (or assumed, ifnone) is compatible with that in this software."/>
       </eAnnotations>
     </eOperations>
     <eOperations name="load">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Load schema into in-memory form, i.e. a P_RMD_SCHEMA instance,if structurally valid. If successful, p_schema will be set"/>
+        <details key="documentation" value="Load schema into in-memory form, i.e. a P_BMM_SCHEMA instance,if structurally valid. If successful, p_schema will be set"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="validateMerged">
@@ -211,628 +212,716 @@
     </eOperations>
     <eOperations name="createModel">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Create schema, i.e. the RMD_MODEL from one P_RMD_SCHEMA schema."/>
+        <details key="documentation" value="Create schema, i.e. the BMM_MODEL from one P_BMM_SCHEMA schema."/>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ModelMetadata">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelMetadata">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Core properties of RMD_MODEL , may be used in a serial representation as well, such as P_RMD_SCHEMA."></details>
+      <details key="documentation" value="Core properties of BMM_MODEL , may be used in a serial representation as well, such as P_BMM_SCHEMA."/>
     </eAnnotations>
     <eStructuralFeatures name="rmPublisher" lowerBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Publisher of model expressed in the schema"></details>
+        <details key="documentation" value="Publisher of model expressed in the schema"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="rmRelease" lowerBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Release of model expressed in the schema as a 3-part numeric,e.g. 3.1.0"></details>
+        <details key="documentation" value="Release of model expressed in the schema as a 3-part numeric,e.g. 3.1.0"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Schema" eSuperTypes="#//RMD_ModelMetadata" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Schema" eSuperTypes="#//BMM_ModelMetadata" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Abstract parent of any persistable form of a RMD model, e.g. P_RMD_SCHEMA"></details>
+      <details key="documentation" value="Abstract parent of any persistable form of a bmm model, e.g. P_BMM_SCHEMA"/>
     </eAnnotations>
-    <eStructuralFeatures name="rmdVersion" xsi:type="ecore:EAttribute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures name="bmmVersion" xsi:type="ecore:EAttribute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Version of RMD model, enabling schema evolutionreasoning. Persisted attribute"></details>
+        <details key="documentation" value="Version of bmm model, enabling schema evolutionreasoning. Persisted attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="includes" xsi:type="ecore:EReference" eType="#//StringToRMD_IncludeSpec" upperBound="-1">
+    <eStructuralFeatures name="includes" xsi:type="ecore:EReference" eType="#//StringToBMM_IncludeSpec" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Inclusion list of any form of RMD model, in theform of a hash of individual include specifications,each of which at least specifies the id of anotherschema, and may specify a namespace via whichtypes from the included schemas are known in thisschema. Persisted attribute."></details>
+        <details key="documentation"
+          value="Inclusion list of any form of bmm model, in theform of a hash of individual include specifications,each of which at least specifies the id of anotherschema, and may specify a namespace via whichtypes from the included schemas are known in thisschema. Persisted attribute."
+        />
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="rmdModel" xsi:type="ecore:EReference" eType="#//RMD_Model">
+    <eStructuralFeatures name="bmmModel" xsi:type="ecore:EReference" eType="#//BMM_Model">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation"  value="Generated by create_rmd_model from persisted elements."></details>
+        <details key="documentation" value="Generated by create_bmm_model from persisted elements."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="state" xsi:type="ecore:EReference" eType="#//RMD_SchemaState" lowerBound="1">
+    <eStructuralFeatures name="state" xsi:type="ecore:EReference" eType="#//BMM_SchemaState" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Current processing state"></details>
+        <details key="documentation" value="Current processing state"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="modelName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Name of this model, if this schema is a model rootpoint. Not set for sub-schemas that are notconsidered models on their own."></details>
+        <details key="documentation" value="Name of this model, if this schema is a model rootpoint. Not set for sub-schemas that are notconsidered models on their own."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Name of model expressed in schema; a 'schema'usually contains all of the packages of one 'model'of a publisher. A publisher with more than onemodel can have multiple schemas."></details>
+        <details key="documentation"
+          value="Name of model expressed in schema; a 'schema'usually contains all of the packages of one 'model'of a publisher. A publisher with more than onemodel can have multiple schemas."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaRevision" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Revision of schema"></details>
+        <details key="documentation" value="Revision of schema"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaLifecycleState" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Schema development lifecycle state"></details>
+        <details key="documentation" value="Schema development lifecycle state"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaAuthor" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Primary author of schema"></details>
+        <details key="documentation" value="Primary author of schema"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaDescription" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Description of schema"></details>
+        <details key="documentation" value="Description of schema"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures name="schemaContributors" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Contributing authors of schema"></details>
+        <details key="documentation" value="Contributing authors of schema"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eOperations name="validateCreated" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+          value="Do some basic validation post initial creation: -)check that package structure is regular: --only top-level packages can have qualifiednames --no top-level package name can be a directparent or child of another (child packagemust be declared under the parent) -)check that all classes are mentioned in thepackage structure -)check that all models refer to valid packages :Pre_state:  state = State_created, Post_state: passed implies state =State_validated_created"
+        />
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="loadFinalise" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+          value="Finalisation work: convert packages to canonical form, i.e. fullhierarchy with no packages with names likeaa.bb.cc set up include processing list: Pre_state:state = State_includes_pending, Post_state: state = State_includes_processedor state = State_includes_pending"
+        />
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="merge" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+          value="Merge in class and package definitions from other, except where the current schema already has a definition for the given type or package. Pre_state:state = State_validated_created, Pre_other_valid: includes_to_process.has(included_schema.schema_id)"
+        />
+      </eAnnotations>
+      <eParameters name="other" eType="#//BMM_Schema" lowerBound="1" upperBound="1" />
+    </eOperations>
+    <eOperations name="validate" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Main validation prior to generation of bmm_model ." />
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="createBMMModel" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Populate bmm_model from schema. Pre_state: state =PbmmPackageState.State_includes_processed" />
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="readToValidate" abstract="true" eType="#//EBoolean"  lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True when validation may be commenced: Post_state: state = State_includes_processed" />
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="schemaId" abstract="true" eType="#//EString"  lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Identifier of this schema, used for statinginclusions and identifying files. Formed as: {BMM_Definitions}.create_schema_id (rm_publisher,schema_name,rm_release) E.g. 'openehr_rm_ehr_1.0.4'" />
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="RMD_SchemaState">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Enumeration of processing states of a RMD_SCHEMA used by creation and validation routines in RMD_SCHEMA."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="BMM_SchemaState">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enumeration of processing states of a BMM_SCHEMA used by creation and validation routines in BMM_SCHEMA."/>
+    </eAnnotations>
     <eLiterals name="State_created" value="1">
       <eAnnotations>
-        <details key="documentation" value="Initial state directly after instantiation of schema"></details>
+        <details key="documentation" value="Initial state directly after instantiation of schema"/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="State_validated_created" value="2">
       <eAnnotations>
-        <details key="documentation" value="Initial validation pass after instantiation"></details>
+        <details key="documentation" value="Initial validation pass after instantiation"/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="State_includes_pending" value="3">
       <eAnnotations>
-        <details key="documentation" value="State of schema processing if there are still included schemasto process."></details>
+        <details key="documentation" value="State of schema processing if there are still included schemasto process."/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="State_includes_processed" value="4">
       <eAnnotations>
-        <details key="documentation" value="State when all included schemas have been processed"></details>
+        <details key="documentation" value="State when all included schemas have been processed"/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IncludeSpec">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Schema inclusion structure"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IncludeSpec">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Schema inclusion structure"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ModelElement" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Abstract meta-type of RMD declared model elements. A declaration is a an element of a model within acontext, which defines the scope of the element. Thus, a class definition and its property and routinedefinitions are model elements, but Types are not, since they are derived from model elements"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelElement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Abstract meta-type of bmm declared model elements. A declaration is a an element of a model within acontext, which defines the scope of the element. Thus, a class definition and its property and routinedefinitions are model elements, but Types are not, since they are derived from model elements"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_PackageContainer" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="A RMD model component that contains packages and classes"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A bmm model component that contains packages and classes"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Package">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Abstraction of a package as a tree structure whose nodes can contain other packages and classes. The name may be qualified if it is a top-level package."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Package">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstraction of a package as a tree structure whose nodes can contain other packages and classes. The name may be qualified if it is a top-level package."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Model">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of the root of a RMD model (along with what is inherited from RMD_SCHEMA_CORE )."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of the root of a bmm model (along with what is inherited from BMM_SCHEMA_CORE )."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Module" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type defining a generalised module concept. Descendants define actual structure and contents"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type defining a generalised module concept. Descendants define actual structure and contents"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Type" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Type" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_UnitaryType" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Parent of meta-types that may be used as the type of any instantiated object that is not a containerobject."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryType" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Parent of meta-types that may be used as the type of any instantiated object that is not a containerobject."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_EffectiveType" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type for a concrete, unitary type that can be used as an actual parameter type in a generic typedeclaration."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_EffectiveType" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for a concrete, unitary type that can be used as an actual parameter type in a generic typedeclaration."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ParameterType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of a generic parameter in a class definition of a generic type"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of a generic parameter in a class definition of a generic type"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ModelType" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="A type that is defined by a class (or classes) in the model."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelType" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A type that is defined by a class (or classes) in the model."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_SimpleType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Type reference to a single type i.e. not generic or container type."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Type reference to a single type i.e. not generic or container type."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_GenericType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type based on a non-container generic class, e.g. Packet[Header]"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type based on a non-container generic class, e.g. Packet[Header]"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_TupleType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Built-in meta-type representing the type of a tuple, i.e. an array of any number of other types. Thisincludes both container and unitary types, since tuple instances represent concrete objects. Note that both open and closed generic parameters are allowed, as with any generic type, but opengeneric parameters are only valid within the scope of a generic class."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_TupleType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Built-in meta-type representing the type of a tuple, i.e. an array of any number of other types. Thisincludes both container and unitary types, since tuple instances represent concrete objects. Note that both open and closed generic parameters are allowed, as with any generic type, but opengeneric parameters are only valid within the scope of a generic class."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Signature">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Signature">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ProcedureSignature">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Form of signature specific to procedures, with the result type being the special Status meta-type"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ProcedureSignature">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Form of signature specific to procedures, with the result type being the special Status meta-type"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_StatusType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Built-in meta-type representing action status, e.g. result of a call invocation"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_StatusType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Built-in meta-type representing action status, e.g. result of a call invocation"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ContainerType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as List[T], Set[T] etc."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as List[T], Set[T] etc."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IndexedContainerType">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type of linear container type that indexes the contained items in the manner of a standard Hashtable, map or dictionary"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type of linear container type that indexes the contained items in the manner of a standard Hashtable, map or dictionary"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Class" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type corresponding a class definition in an object model. Inheritance is specified by the ancestors attribute, which contains a list of types rather than classes. Inheritance is thus understood in RMD as astated relationship between classes. The equivalent relationship between types is conformance. unlike UML, the name is just the root name, even if the class is generic. Use type_name() to obtain the qualified type name"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Class" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Meta-type corresponding a class definition in an object model. Inheritance is specified by the ancestors attribute, which contains a list of types rather than classes. Inheritance is thus understood in bmm as astated relationship between classes. The equivalent relationship between types is conformance. unlike UML, the name is just the root name, even if the class is generic. Use type_name() to obtain the qualified type name"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_SimpleClass">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of a simple class, i.e. a class that has no generic parameters and is 1:1 with the type it generates."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleClass">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of a simple class, i.e. a class that has no generic parameters and is 1:1 with the type it generates."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_GenericClass">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of a generic class in an object model"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericClass">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of a generic class in an object model"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Enumeration">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of an enumeration class, understood as a class whose value range is constrainedextensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraintis applied. The common notion of a set of literals with no explicit defined values is represented as the degeneratesubtype RMD_ENUMERATION_INTEGER , whose values are 0, 1, …"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Definition of an enumeration class, understood as a class whose value range is constrainedextensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraintis applied. The common notion of a set of literals with no explicit defined values is represented as the degeneratesubtype BMM_ENUMERATION_INTEGER , whose values are 0, 1, …"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_EnumerationString">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="String-based enumeration meta-type"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationString">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="String-based enumeration meta-type"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_EnumerationInteger">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Integer-based enumeration meta-type."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationInteger">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Integer-based enumeration meta-type."/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RMM_ValueSpec">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Definition of a range-constrained class whose value range is defined by reference to a 'value set' withinan external resource, e.g. a reference data service."/>
-	</eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of a range-constrained class whose value range is defined by reference to a 'value set' withinan external resource, e.g. a reference data service."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_FormalElement" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="formal element having a type and a type-based signature."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_FormalElement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="formal element having a type and a type-based signature."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Feature" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="A module-scoped formal element"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Feature" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A module-scoped formal element"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_FeatureGroup">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="A logical group of features, with a name and set of properties that applies to the group"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_FeatureGroup">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A logical group of features, with a name and set of properties that applies to the group"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Visibility" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Abstract parent of visibility representation. TODO: define schemes; probably need to support C++/Java scheme as well as better type-basedschemes."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Visibility" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent of visibility representation. TODO: define schemes; probably need to support C++/Java scheme as well as better type-basedschemes."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IntantiableFeature" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="Meta-type representing instantiable features, i.e. features that are created as value objects"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IntantiableFeature" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type representing instantiable features, i.e. features that are created as value objects"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Constant">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value="An immutable, static value-returning element scoped to a class. The value is the result of the evaluationof the generator, which may be as simple as a literal value, or may be any expression, including afunction call."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Constant">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="An immutable, static value-returning element scoped to a class. The value is the result of the evaluationof the generator, which may be as simple as a literal value, or may be any expression, including afunction call."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Property" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Property" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_UnitaryProperty">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type of for properties of unitary type"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryProperty">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type of for properties of unitary type"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ContainerProperty">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type of for properties of linear container type, such as List[T] etc."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerProperty">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type of for properties of linear container type, such as List[T] etc."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IndexedContainerProperty">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type of for properties of linear container type, such as Hash[Index_type, T] etc."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerProperty">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type of for properties of linear container type, such as Hash[Index_type, T] etc."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Routine" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A feature defining a routine, scoped to a class."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Routine" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A feature defining a routine, scoped to a class."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Function">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A formal element with signature of the form: name ({arg:TArg}*):TResult. A function is a computed(rather than data) element, generally assumed to be non-state-changing."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Function">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="A formal element with signature of the form: name ({arg:TArg}*):TResult. A function is a computed(rather than data) element, generally assumed to be non-state-changing."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Operator">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Definition of a symbolic operator associated with a function"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Operator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Definition of a symbolic operator associated with a function"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="RMD_OperatorPosition">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Enumeration of possible position of operator in a syntactic representation for operators associatedwith 1- and 2- degree functions"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="BMM_OperatorPosition">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enumeration of possible position of operator in a syntactic representation for operators associatedwith 1- and 2- degree functions"/>
+    </eAnnotations>
     <eLiterals name="prefix" value="1">
       <eAnnotations>
-        <details key="documentation" value="Prefix operator position: operator comes before operand"></details>
+        <details key="documentation" value="Prefix operator position: operator comes before operand"/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="postfix" value="2">
       <eAnnotations>
-        <details key="documentation" value="Infix operator position: operator comes between left and right operands"></details>
+        <details key="documentation" value="Infix operator position: operator comes between left and right operands"/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Procedure">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A formal element with signature of the form: name ({arg:TArg}*):TStatus, where TStatus is the built-in type  .. A procedure is a computed (rather than data) element, generally assumed tobe state-changing, and is usually called in the form name ({arg:TArg}*)"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Procedure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="A formal element with signature of the form: name ({arg:TArg}*):TStatus, where TStatus is the built-in type  .. A procedure is a computed (rather than data) element, generally assumed tobe state-changing, and is usually called in the form name ({arg:TArg}*)"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Variable" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A routine-scoped formal element"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Variable" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A routine-scoped formal element"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Local">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A routine local variable"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Local">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A routine local variable"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Parameter">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A routine parameter variable"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Parameter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A routine parameter variable"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Result">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Automatically declared variable representing result instance of a Function call."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Result">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Automatically declared variable representing result instance of a Function call."/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ParameterDirection">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Enumeration of parameter read/write direction values.Enumeration of parameter read/write direction values."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterDirection">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enumeration of parameter read/write direction values.Enumeration of parameter read/write direction values."/>
+    </eAnnotations>
     <eLiterals name="in" value="1">
       <eAnnotations>
-        <details key="documentation" value="Parameter is an input parameter, and treated as readonly bythe receiving routine"></details>
+        <details key="documentation" value="Parameter is an input parameter, and treated as readonly bythe receiving routine"/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="out" value="2">
       <eAnnotations>
-        <details key="documentation" value="Parameter is an output parameter, and treated as a reference toan entity writeable by the receiving routine"></details>
+        <details key="documentation" value="Parameter is an output parameter, and treated as a reference toan entity writeable by the receiving routine"/>
       </eAnnotations>
     </eLiterals>
     <eLiterals name="in_out" value="3">
       <eAnnotations>
-        <details key="documentation" value="Parameter is an input and output parameter, and treated as areference to an entity readable and writeable by the receiving routine."></details>
+        <details key="documentation" value="Parameter is an input and output parameter, and treated as areference to an entity readable and writeable by the receiving routine."/>
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_RoutineBody" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract ancestor of routine body meta-types"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_RoutineExternal">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_LiteralValue" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literal instance values declared in a model. Instance values may be inline values ofprimitive types in the usual fashion or complex objects in syntax form, e.g. JSON."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ContainerValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literals whose concrete type is a linear container type, i.e. array, list or set."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IndexedContainerValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literals whose concrete type is an indexed container, i.e. Hash table, Map etc."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_UnitaryValue" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literals whose concrete type is a unitary type in the RMD sense."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_PrimitiveValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literals whose concrete type is a primitive type."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_StringValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the RMD_TYPE representing String and value."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IntegerValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the RMD_TYPE representing Integer and value  Integer."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_BooleanValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the RMD_TYPE representing Boolean and value  Boolean."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_IntervalValue">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for literal intervals of type Interval[Ordered]."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElExpression" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElConstrained" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract parent for second-order or constrained forms of first-order expression meta-types."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElBooleanExpression">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Boolean-returning expression"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElOperator" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract parent of operator types"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElUnaryOperator">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Unary operator expression node"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElBinaryOperator">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Binary operator expression node"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElSimple" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Simple expression type that is either a terminal or an operator expression ultimately of terminals"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElTerminal" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Expression terminal entity, representing one of: a reference to a literal value of any type; a reference to an instance of any instantiable type, i.e. variable, property or constant;  a function call."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElPredicate" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Parent type of predicate of any object reference"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElDefined">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A predicate taking one external variable reference argument, that returns true if the reference isresolvable, i.e. the external value is obtainable"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElAttached">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A predicate on any object reference (including function call) that returns True if the reference isattached, i.e. non-Void"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElInstanceRef" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A reference to a formal element (RMD_FORMAL_ELEMENT) that at runtime represents an instance or else atype (RMD_TYPE). This may be via computation (e.g. function call) or static representation"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElSelfRef">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Special meta-type used to represent a reference that may appear in any routine, pre- or post-condition,or invariant, and resolves to the current object within which feature references are scoped; correspondsto 'self', 'this' or 'Current' in various programming languages"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElTypeRef">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Meta-type for reference to a non-abstract type as an object. Assumed to be accessible at run-time.Typically represented syntactically as TypeName or {TypeName}. May be used as a value, or as the qualifier for a function or constant access."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElLiteral">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Literal value of any type known in the model, including primitive types. Defined via a RMD_LITERAL_VALUE"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElScopedRef" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A reference that is scoped by a containing entity and requires a context qualifier if it is not the currentlyscoping entity"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElInstantiableRef" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Reference to a directly instantiable feature, i.e. a variable or instantiable class feature"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElVariableRef">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Reference to a variable"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElInstantiableFeatureRef">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Reference to an instantiable feature, i.e. constant or property."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElAgentCall" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A call made to a 'closed' agent, i.e. one with no remaining open arguments"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElFunctionCall">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function inLambda calculus."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElAgent" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_RoutineBody" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A delayed routine call, whose arguments may be open, partially closed or closed. Instances may includeclosed delayed calls like calculate_age (dob='1987-09-13', today='2019-06-03') but also partiallyopen calls such as format_structure (struct=?, style=3) , where struct is an open argument.  RMD_SIGNATURE"></details>
+      <details key="documentation" value="Abstract ancestor of routine body meta-types"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElFunctionAgent">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_RoutineExternal">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_LiteralValue" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Meta-type for literal instance values declared in a model. Instance values may be inline values ofprimitive types in the usual fashion or complex objects in syntax form, e.g. JSON."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for literals whose concrete type is a linear container type, i.e. array, list or set."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for literals whose concrete type is an indexed container, i.e. Hash table, Map etc."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryValue" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for literals whose concrete type is a unitary type in the bmm sense."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_PrimitiveValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for literals whose concrete type is a primitive type."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_StringValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the BMM_TYPE representing String and value."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IntegerValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the BMM_TYPE representing Integer and value  Integer."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_BooleanValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the BMM_TYPE representing Boolean and value  Boolean."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_IntervalValue">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Meta-type for literal intervals of type Interval[Ordered]."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElExpression" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent for second-order or constrained forms of first-order expression meta-types."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBooleanExpression">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Boolean-returning expression"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent of operator types"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElUnaryOperator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Unary operator expression node"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBinaryOperator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Binary operator expression node"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSimple" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Simple expression type that is either a terminal or an operator expression ultimately of terminals"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTerminal" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Expression terminal entity, representing one of: a reference to a literal value of any type; a reference to an instance of any instantiable type, i.e. variable, property or constant;  a function call."
+      />
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElPredicate" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Parent type of predicate of any object reference"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDefined">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A predicate taking one external variable reference argument, that returns true if the reference isresolvable, i.e. the external value is obtainable"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAttached">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A predicate on any object reference (including function call) that returns True if the reference isattached, i.e. non-Void"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstanceRef" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="A reference to a formal element (BMM_FORMAL_ELEMENT) that at runtime represents an instance or else atype (BMM_TYPE). This may be via computation (e.g. function call) or static representation"
+      />
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSelfRef">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Special meta-type used to represent a reference that may appear in any routine, pre- or post-condition,or invariant, and resolves to the current object within which feature references are scoped; correspondsto 'self', 'this' or 'Current' in various programming languages"
+      />
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTypeRef">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Meta-type for reference to a non-abstract type as an object. Assumed to be accessible at run-time.Typically represented syntactically as TypeName or {TypeName}. May be used as a value, or as the qualifier for a function or constant access."
+      />
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElLiteral">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Literal value of any type known in the model, including primitive types. Defined via a BMM_LITERAL_VALUE"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElScopedRef" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A reference that is scoped by a containing entity and requires a context qualifier if it is not the currentlyscoping entity"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableRef" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Reference to a directly instantiable feature, i.e. a variable or instantiable class feature"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElVariableRef">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Reference to a variable"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableFeatureRef">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Reference to an instantiable feature, i.e. constant or property."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgentCall" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A call made to a 'closed' agent, i.e. one with no remaining open arguments"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionCall">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function inLambda calculus."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgent" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="A delayed routine call, whose arguments may be open, partially closed or closed. Instances may includeclosed delayed calls like calculate_age (dob='1987-09-13', today='2019-06-03') but also partiallyopen calls such as format_structure (struct=?, style=3) , where struct is an open argument.  BMM_SIGNATURE"
+      />
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionAgent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An agent whose signature is of a function, i.e. has a result type."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElProcedureAgent">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="An agent whose signature is of a procedure, i.e. has no result type."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElTuple">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Defines an array of optionally named items each of any type. "/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElTupleItem">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A single tuple item, with an optional name"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElDecisionTable" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Complex expression structure representing a logical decision table. Generic on the meta-type of the result attribute of the branches, to allow specialised forms of if/else and case structures to be created"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElDecisionBranche" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value=""/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElConditionChain">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Compound expression consisting of a chain of condition-gated expressions, and an ungated else member that as a whole, represents an if/then/elseif/else chains. Evaluated by iterating through items and for each one, evaluating its condition, which if True, causesthe evaluation result of the chain to be that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ELConditionExpression">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Conditional structure used in condition chain expressions. Evaluated by evaluating its condition,which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of expression"/>
-	</eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElCaseTable">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElProcedureAgent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Compound expression consisting of a list of value-range / expression pairs, and an else member thatas a whole, represents a case statement flavour of decision table. Evaluated by iterating through items and for each one, comparing input to the item value_range. If the input is in the range, the evaluation result of the table is that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."/>
+      <details key="documentation" value="An agent whose signature is of a procedure, i.e. has no result type."/>
     </eAnnotations>
-  </eClassifiers><eClassifiers xsi:type="ecore:EClass" name="RMD_ElCaseStatement">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value=""/>
-	</eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ElCase">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-		<details key="documentation" value=""/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTuple">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines an array of optionally named items each of any type. "/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_StatementItem" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract parent of statement types representing a locally defined routine body"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTupleItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A single tuple item, with an optional name"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_StatementBlock">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A statement 'block' corresponding to the programming language concept of the same name. May beused to establish scope in specific languages"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionTable" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Complex expression structure representing a logical decision table. Generic on the meta-type of the result attribute of the branches, to allow specialised forms of if/else and case structures to be created"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Statement" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Abstract parent of 'statement' types that may be defined to implement RMD Routines"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionBranche" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value=""/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_SimpleStatement" abstract="true">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Simple statement, i.e. statement with one logical element - a single expression, procedure call etc."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConditionChain">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Compound expression consisting of a chain of condition-gated expressions, and an ungated else member that as a whole, represents an if/then/elseif/else chains. Evaluated by iterating through items and for each one, evaluating its condition, which if True, causesthe evaluation result of the chain to be that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ProcedureCall">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A call made on a closed procedure agent"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ELConditionExpression">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Conditional structure used in condition chain expressions. Evaluated by evaluating its condition,which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of expression"
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Assignment">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Statement type representing an assignment from a value-generating source to a writable entity, i.e. avariable reference or property."/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="Compound expression consisting of a list of value-range / expression pairs, and an else member thatas a whole, represents a case statement flavour of decision table. Evaluated by iterating through items and for each one, comparing input to the item value_range. If the input is in the range, the evaluation result of the table is that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
+      />
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_Assertion">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings). May be rendered in syntax as assert condition or similar"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseStatement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value=""/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ActionTable">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Multi-branch conditional statement structure"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCase">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value=""/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RMD_ActionDecisionTable">
-	<eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-	  <details key="documentation" value="Specialised form of Decision Table that allows only procedure call agents (lambdas) as the result of branches"/>
-	</eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent of statement types representing a locally defined routine body"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementBlock">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A statement 'block' corresponding to the programming language concept of the same name. May beused to establish scope in specific languages"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Statement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract parent of 'statement' types that may be defined to implement bmm Routines"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleStatement" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Simple statement, i.e. statement with one logical element - a single expression, procedure call etc."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ProcedureCall">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A call made on a closed procedure agent"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Assignment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Statement type representing an assignment from a value-generating source to a writable entity, i.e. avariable reference or property."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Assertion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation"
+        value="A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings). May be rendered in syntax as assert condition or similar"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionTable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Multi-branch conditional statement structure"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionDecisionTable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specialised form of Decision Table that allows only procedure call agents (lambdas) as the result of branches"/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicDefintions">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CR" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="15"/>
@@ -852,23 +941,23 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToRMD_SchemaDescriptor" instanceTypeName="Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_SchemaDescriptor" instanceTypeName="Map$Entry">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All schemas found and loaded from schema_directory . Keyedby schema_id ."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//RMD_SchemaDescriptor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_SchemaDescriptor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToRMD_Model" instanceTypeName="Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Model" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//RMD_Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Model" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToRMD_IncludeSpec" instanceTypeName="Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_IncludeSpec" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//RMD_IncludeSpec" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_IncludeSpec" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
