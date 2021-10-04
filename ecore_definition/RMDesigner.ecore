@@ -365,6 +365,11 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Schema inclusion structure"/>
     </eAnnotations>
+    <eStructuralFeatures name="id"  xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Full identifier of the included schema, e.g. 'openehr_primitive_types_1.0.2' ."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelElement" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -372,6 +377,31 @@
         value="Abstract meta-type of bmm declared model elements. A declaration is a an element of a model within acontext, which defines the scope of the element. Thus, a class definition and its property and routinedefinitions are model elements, but Types are not, since they are derived from model elements"
       />
     </eAnnotations>
+    <eStructuralFeatures name="name"   xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details value="Name of this model element." key="documentation"></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="documentation" lowerBound="0" upperBound="-1" xsi:type="EReference" eType="#//StringToObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional documentation of this element, as a keyed list. It is strongly recommended to use the following key /typecombinations for the relevant purposes: 'purpose': String, 'keywords': List[String], 'use': String, 'misuse': String, 'references': String, Other keys and value types may be freely added."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//BMM_ModelElement" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Model element within which an element is declared."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="extensions" lowerBound="0" upperBound="-1" xsi:type="EReference" eType="#//StringToObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional meta-data of this element, as a keyed list. May be usedto extend the meta-model."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eOperations name="isRootScope" eType="#//EBoolean" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if this model element is the root of a model structurehierarchy."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -955,6 +985,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToObject" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_IncludeSpec" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
