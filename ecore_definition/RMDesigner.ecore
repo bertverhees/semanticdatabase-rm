@@ -407,6 +407,34 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bmm model component that contains packages and classes"/>
     </eAnnotations>
+    <eStructuralFeatures name="packages" xsi:type="EReference" eType="#//StringToBMM_Package" lowerBound="0" upperBound="-1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Child packages."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="scope" xsi:type="EReference" eType="#//BMM_PackageContainer" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Model element within which a referenceable element is known."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eOperations name="packageAtPath" eType="#//BMM_Package" lowerBound="0" upperBound="1">
+      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Package at the path a_path."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="doRecursivePackages" lowerBound="0" upperBound="1">
+      <eParameters name="action" eType="#//BMM_ElProcedureAgent" lowerBound="1" upperBound="1"></eParameters>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Recursively execute action, which is a procedure taking a BMM_PACKAGE argument, on all members of packages"></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="hasPackagePath" eType="#//EBoolean" lowerBound="1" upperBound="1">
+      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if there is a package at the path a_path; paths are delimited with delimiter {BMM_DEFINITIONS}_Package_name_delimiter_."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_Package">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -978,9 +1006,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_SchemaDescriptor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Model" instanceTypeName="Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Package" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Package" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
