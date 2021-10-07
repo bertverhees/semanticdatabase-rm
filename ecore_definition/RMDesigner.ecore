@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bmmesigner"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bmmdesigner"
   nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
   <eClassifiers xsi:type="ecore:EClass" name="BMM_Definitions" eSuperTypes="#//BasicDefintions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -403,7 +403,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true" eSuperTypes="#//BMM_ModelEelement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bmm model component that contains packages and classes"/>
     </eAnnotations>
@@ -436,15 +436,165 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Package">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Package" eSuperTypes="#//BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstraction of a package as a tree structure whose nodes can contain other packages and classes. The name may be qualified if it is a top-level package."/>
     </eAnnotations>
+    <eStructuralFeatures name="members" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1"  eType="#//BMM_Module">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Member modules in this package."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eOperations name="rootClasses" lowerBound="0" upperBound="-1" eType="#//BMM_Class">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Obtain the set of top-level classes in this package, either from this package itself or by recursing into the structure until classes are obtained from child packages. Recurse into each child only far enough to find the first level of classes."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="path" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Full path of this package back to root package."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//BMM_ModelMetadata, #//BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of the root of a bmm model (along with what is inherited from BMM_SCHEMA_CORE )."/>
     </eAnnotations>
+    <eStructuralFeatures lowerBound="0" upperBound="-1" name="classDefinitions" eType="#//StringToBMM_Class" xsi:type="ecore:EReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="All classes in this model, keyed by type name."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures lowerBound="0" upperBound="-1" name="usedModels" xsi:type="ecore:EReference" eType="#//BMM_Model">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of other models 'used' (i.e. 'imported' by this model). Classes in the current model may refer to classes in a used model by specifying the other class’s scope meta-attribute."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures lowerBound="0" upperBound="-1" name="modules" xsi:type="ecore:EReference" eType="#//StringToBMM_Module">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="All classes in this model, keyed by type name."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="modelId">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Identifier of this model, lower-case, formed from: [rm_publisher]_[model_name]_[rm_release] E.g. 'openehr_ehr_1.0.4'."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Class" name="classDefintion">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the class definition corresponding to a_type_name (which may contain a generic part)."></details>
+      </eAnnotations>
+      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Class" name="typeDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the class definition corresponding to a_type_name. If it contains a generic part, this will be removed if it is a fully open generic name, otherwise it will remain intact, i.e. if it is an effective generic name that identifies a BMM_GENERIC_CLASS_EFFECTIVE."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasTypeDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if a_type_name is already concretely known in the system, including if it is generic, which may be open, partially open or closed."></details>
+      </eAnnotations>
+      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasClassDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if a_class_name has a class definition in the model"></details>
+      </eAnnotations>
+      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasEnumerationDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if a_class_name has enumeration definition."></details>
+      </eAnnotations>
+      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Enumeration" name="enumerationDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the enumeration definition corresponding to a_type_name."></details>
+      </eAnnotations>
+      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="primitiveTypes">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of keys in class_definitions of items marked as primitive types."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="enumerationTypes">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of keys in class_definitions of items that are enumeration types."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Property" name="propertyDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the property definition for a_prop_name in flattened class corresponding to a_type_name."></details>
+      </eAnnotations>
+      <eParameters name="aPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="msConformantPropertyType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if a_ms_property_type is a valid 'MS' dynamic type for a_property in BMM type a_bmm_type_name. 'MS' conformance means 'model-semantic' conformance, which abstracts away container types like List[] Set[]etc and compares the dynamic type with the relation target type in the UML sense, i.e. regardless of whether there is single or multiple containment."></details>
+      </eAnnotations>
+      <eParameters name="aBmmTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aBmmPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aMSPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Property" name="propertyDefinitionAtPath">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the property definition for a_property_path in flattened class corresponding to a_type_name."></details>
+      </eAnnotations>
+      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Class" name="classDefinitionAtPath">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Retrieve the class definition for the class that owns the terminal attribute in a_prop_path in flattened class corresponding to a_type_name"></details>
+      </eAnnotations>
+      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="allAncestorClasses">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Return all ancestor types of a_class_name up to root class (usually Any, Object or something similar). Does not include current class. Returns empty list if none."></details>
+      </eAnnotations>
+      <eParameters name="aClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isDescendantOf">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True if a_class_name is a descendant in the model of a_parent_class_name."></details>
+      </eAnnotations>
+      <eParameters name="aClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aParentClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="typeConformsTo">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Check conformance of a_desc_type to an_anc_type; the types may be generic, and may contain open generic parameters like 'T' etc. These are replaced with their appropriate constrainer types, or Any during the conformance testing process. Conformance is found if: - [base class test] types are non-generic, and either type names are identical, or else a_desc_type has an_anc_type in its ancestors; - both types are generic and pass base class test; number of generic params matches, and each generic parameter type, after 'open parameter' substitution, recursively passes; type_name_conforms_to test descendant type is generic and ancestor type is not, and they pass base classes test."></details>
+      </eAnnotations>
+      <eParameters name="aDescType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="anAncType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="subTypes">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Generate type substitutions for the supplied type, which may be simple, generic (closed, open or partially open), or a container type. In the generic and container cases, the result is the permutation of the base class type and type substitutions of all generic parameters. Parameters: a_type: Name of a type."></details>
+      </eAnnotations>
+      <eParameters name="aType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleClass" name="anyClassDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="BMM_SIMPLE_CLASS instance for the Any class. This may be defined in the BMM schema, but if not, use BMM_DEFINITIONS.any_class."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleType" name="anyTypeDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="BMM_SIMPLE_TYPE instance for the Any type."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleType" name="booleanTypeDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="BMM_SIMPLE_TYPE instance for the Boolean type."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1009,6 +1159,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Package" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Class" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Class" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Module" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Module" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
