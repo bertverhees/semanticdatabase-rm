@@ -596,10 +596,25 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true" eSuperTypes="#//BMM_ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Meta-type defining a generalised module concept. Descendants define actual structure and contents"/>
     </eAnnotations>
+    <eStructuralFeatures lowerBound="0" upperBound="-1" xsi:type="ecore:EReference" eType="#//BMM_FeatureGroup">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of feature groups in this class."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures lowerBound="0" upperBound="-1" xsi:type="ecore:EReference" eType="#//BMM_FormalElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Features of this module."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_Model" name="scope">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Model within which module is defined."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_Type" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
