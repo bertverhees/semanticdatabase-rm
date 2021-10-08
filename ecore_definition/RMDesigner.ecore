@@ -622,16 +622,66 @@
         value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"
       />
     </eAnnotations>
+    <eOperations abstract="true" name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Formal string form of the type as per UML."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Signature form of the type name, which for generics includes generic parameter constrainer types E.g. Interval[T:Ordered]. Defaults to the value of type_name()."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations abstract="true" name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, indicates a type based on an abstract class, i.e. a type that cannot be directly instantiated."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations abstract="true" name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If True, indicates that a type based solely on primitive classes."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations abstract="true" name="unitaryType" lowerBound="1" upperBound="1" eType="#//BMM_UnitaryType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Type with any container abstracted away; may be a formal generic type."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations abstract="true" name="effectiveType" lowerBound="1" upperBound="1" eType="#//BMM_EffectiveType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Type with any container abstracted away, and any formal parameter replaced by its effective constraint type."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations abstract="true" name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Completely flattened list of type names, flattening out all generic parameters."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryType" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryType" abstract="true" eSuperTypes="#//BMM_Type">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Parent of meta-types that may be used as the type of any instantiated object that is not a containerobject."/>
     </eAnnotations>
+    <eOperations eType="#//BMM_UnitaryType" name="unitaryType" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result = self."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_EffectiveType" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_EffectiveType" abstract="true" eSuperTypes="#//BMM_UnitaryType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Meta-type for a concrete, unitary type that can be used as an actual parameter type in a generic typedeclaration."/>
     </eAnnotations>
+    <eOperations eType="#//BMM_EffectiveType" name="effectiveType" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result = self."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="typeBaseName" lowerBound="1" upperBound="1" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of base generator type, i.e. excluding any generic parts if present."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
