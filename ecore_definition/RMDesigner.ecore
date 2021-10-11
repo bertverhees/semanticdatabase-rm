@@ -683,10 +683,60 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterType">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterType" eSuperTypes="#//BMM_UnitaryType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of a generic parameter in a class definition of a generic type"/>
     </eAnnotations>
+    <eStructuralFeatures name="name" lowerBound="1" upperBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and upper-case."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="typeConstraint" lowerBound="0" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_EffectiveType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Optional conformance constraint that must be the name of a defined type."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures name="inheritancePrecursor" lowerBound="0" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_ParameterType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If set, is the corresponding generic parameter definition in an ancestor class."></details>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Signature form of the open type, including constrainer type if there is one, e.g. T:Ordered."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result = False - generic parameters are understood by definition to be non-abstract."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result = False - generic parameters are understood by definition to be non-primitive."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="effectiveType" lowerBound="1" upperBound="1" eType="#//BMM_EffectiveType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Generate ultimate conformance type, which is either flattened_conforms_to_type or if not set, 'Any'."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result is either flattened_conforms_to_type.flattened_type_list or the Any type."></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="return name"></details>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="flattenedConformsToType" eType="#//BMM_EffectiveType" lowerBound="1" upperBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Result is either conforms_to_type or inheritance_precursor.flattened_conforms_to_type."></details>
+      </eAnnotations>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_ModelType" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
