@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bmmdesigner"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+                name="bmmdesigner"
+                xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore file://Ecore.xsd"
   nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
   <eClassifiers xsi:type="ecore:EClass" name="BMM_Definitions" eSuperTypes="#//BasicDefintions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -293,46 +297,67 @@
         <details key="documentation" value="Contributing authors of schema"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eOperations name="validateCreated" abstract="true">
+    <eOperations name="validateCreated">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
           value="Do some basic validation post initial creation: -)check that package structure is regular: --only top-level packages can have qualifiednames --no top-level package name can be a directparent or child of another (child packagemust be declared under the parent) -)check that all classes are mentioned in thepackage structure -)check that all models refer to valid packages :Pre_state:  state = State_created, Post_state: passed implies state =State_validated_created"
         />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
     </eOperations>
-    <eOperations name="loadFinalise" abstract="true">
+    <eOperations name="loadFinalise" >
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
           value="Finalisation work: convert packages to canonical form, i.e. fullhierarchy with no packages with names likeaa.bb.cc set up include processing list: Pre_state:state = State_includes_pending, Post_state: state = State_includes_processedor state = State_includes_pending"
         />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
     </eOperations>
-    <eOperations name="merge" abstract="true">
+    <eOperations name="merge" >
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
           value="Merge in class and package definitions from other, except where the current schema already has a definition for the given type or package. Pre_state:state = State_validated_created, Pre_other_valid: includes_to_process.has(included_schema.schema_id)"
         />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
       <eParameters name="other" eType="#//BMM_Schema" lowerBound="1" upperBound="1" />
     </eOperations>
-    <eOperations name="validate" abstract="true">
+    <eOperations name="validate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Main validation prior to generation of bmm_model ." />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
     </eOperations>
-    <eOperations name="createBMMModel" abstract="true">
+    <eOperations name="createBMMModel" >
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Populate bmm_model from schema. Pre_state: state =PbmmPackageState.State_includes_processed" />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
     </eOperations>
-    <eOperations name="readToValidate" abstract="true" eType="#//EBoolean"  lowerBound="1" upperBound="1">
+    <eOperations name="readToValidate" eType="#//EBoolean"  lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True when validation may be commenced: Post_state: state = State_includes_processed" />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
+      </eAnnotations>
     </eOperations>
-    <eOperations name="schemaId" abstract="true" eType="#//EString"  lowerBound="1" upperBound="1">
+    <eOperations name="schemaId" eType="#//EString"  lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of this schema, used for statinginclusions and identifying files. Formed as: {BMM_Definitions}.create_schema_id (rm_publisher,schema_name,rm_release) E.g. 'openehr_rm_ehr_1.0.4'" />
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="abstract=true" />
       </eAnnotations>
     </eOperations>
   </eClassifiers>
@@ -382,7 +407,7 @@
         <details value="Name of this model element." key="documentation"></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="documentation" lowerBound="0" upperBound="-1" xsi:type="EReference" eType="#//StringToObject">
+    <eStructuralFeatures name="documentation" lowerBound="0" upperBound="-1" xsi:type="ecore:EReference" eType="#//StringToObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional documentation of this element, as a keyed list. It is strongly recommended to use the following key /typecombinations for the relevant purposes: 'purpose': String, 'keywords': List[String], 'use': String, 'misuse': String, 'references': String, Other keys and value types may be freely added."></details>
       </eAnnotations>
@@ -392,7 +417,7 @@
         <details key="documentation" value="Model element within which an element is declared."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="extensions" lowerBound="0" upperBound="-1" xsi:type="EReference" eType="#//StringToObject">
+    <eStructuralFeatures name="extensions" lowerBound="0" upperBound="-1" xsi:type="ecore:EReference" eType="#//StringToObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional meta-data of this element, as a keyed list. May be usedto extend the meta-model."></details>
       </eAnnotations>
@@ -407,12 +432,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bmm model component that contains packages and classes"/>
     </eAnnotations>
-    <eStructuralFeatures name="packages" xsi:type="EReference" eType="#//StringToBMM_Package" lowerBound="0" upperBound="-1">
+    <eStructuralFeatures name="packages" xsi:type="ecore:EReference" eType="#//StringToBMM_Package" lowerBound="0" upperBound="-1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Child packages."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="scope" xsi:type="EReference" eType="#//BMM_PackageContainer" lowerBound="1" upperBound="1">
+    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//BMM_PackageContainer" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Model element within which a referenceable element is known."></details>
       </eAnnotations>
@@ -767,6 +792,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Type reference to a single type i.e. not generic or container type."/>
     </eAnnotations>
+    <eStructuralFeatures name="baseClass" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_SimpleClass">
+
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
