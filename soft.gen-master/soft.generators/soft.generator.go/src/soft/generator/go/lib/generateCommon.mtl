@@ -1,0 +1,101 @@
+[**
+ * This file is part of soft.generator.go, a project for go code 
+ * generation of an ecore model
+ *
+ * Copyright(c) 2021 MASA Group
+ *	
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+**/]
+
+[comment encoding = UTF-8 /]
+[module generateCommon('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import soft::generator::common::generateCommon/]
+[import soft::generator::go::generateCommon/]
+[import soft::generator::go::generateType/]
+
+[query public isReflectiveDelegation(anPackage : EPackage ) : Boolean = anPackage.hasKey('featureDelegation') and anPackage.valueKey('featureDelegation') = 'Reflective'/]
+
+[query public isReflectiveDelegation(aClass : EClass) : Boolean = aClass.ePackage.isReflectiveDelegation()/]
+
+[query public isReflectiveDelegation(anFeature : EStructuralFeature ) : Boolean = anFeature.eContainingClass.isReflectiveDelegation()/]
+
+[query public getOutputDirectory( anPackage : EPackage ) : String = 
+    let property : OclAny = getProperty('library.output.dir') in 
+    if property.oclIsUndefined() or property = '' then 
+        anPackage.name 
+    else 
+        property 
+    endif
+/]
+
+[query public getReceiverName(aClass : EClass) : String = aClass.name.toLowerFirst()/]
+
+[template public generateFunctionImplementationReceiver(aClass : EClass)]
+func ([aClass.getReceiverName()/] *[aClass.getImplementationName()/])
+[/template]
+
+[template public generateFunctionMockReceiver(aClass : EClass)]
+func ([aClass.getReceiverName()/] *[aClass.getMockName()/])
+[/template]
+
+
+[**
+ * Classes Onthology
+*/]
+[query public getInterfaceExtends(aClass : EClass ) : Sequence(String) =
+	let aPackage : EPackage = aClass.ePackage in 
+	if ( aClass.isMapEntry() ) then
+		Sequence{'ecore.EObject', 'ecore.EMapEntry'}
+    else if ( aClass.eSuperTypes->isEmpty() ) then
+        if ( aClass.name = 'EObject' ) then
+            Sequence{'ecore.ENotifier'}
+        else if ( aPackage.hasKey('rootExtendsInterface') ) then
+			Sequence{aPackage.valueKey('rootExtendsInterface')}
+		else
+            Sequence{'ecore.EObject'}
+        endif endif
+    else
+        aClass.eSuperTypes->iterate( cl ; res : Sequence(String) = Sequence{} | res->append(cl.getQualifiedInterfaceName()))
+    endif endif
+/]
+
+[query public getClassExtends(aClass : EClass ) : String =
+    let aPackage : EPackage = aClass.ePackage in 
+    let extendsClass : EClass = aClass.getClassExtendsClass() in
+    if ( extendsClass.oclIsUndefined() ) then
+        if ( aClass.name = 'EObject' ) then
+            'ecore.BasicEObjectImpl'
+		else if ( aPackage.hasKey('rootExtendsClass') ) then
+			aPackage.valueKey('rootExtendsClass')
+		else if ( aPackage.isReflectiveDelegation() ) then
+			'ecore.ReflectiveEObjectImpl'
+		else
+            'ecore.EObjectImpl'
+        endif endif endif 
+    else
+        if ( extendsClass.hasExtension() ) then
+            extendsClass.getQualifiedExtensionName()
+        else
+            extendsClass.getQualifiedImplementationName()
+        endif
+    endif
+/]
+
+[query private isUpperFirst( aString : String ) : Boolean = aString.toUpperFirst() = aString /]
+
+[query public getConstructorName( aClass : EClass ) : String = getConstructorName(aClass.getImplementationName())/]
+[query public getConstructorName( aQualifiedName : String ) : String =
+    let index : Integer = aQualifiedName.index('.') in
+    let className : String = if index = -1 then aQualifiedName else aQualifiedName.substring( index + 1 ) endif in
+    let new : String = if isUpperFirst( className ) then 'New' else 'new' endif in
+    if index = -1 then new + className.toUpperFirst() else aQualifiedName.substring(1, index - 1) + '.' + new + className.toUpperFirst() endif
+/]
+[query public getConstructorExtensionName( aClass : EClass ) : String = getConstructorName(aClass.getExtensionName())/]
+
+[query public getVariableName( aFeature : EStructuralFeature ) : String = 
+if aFeature.eType.getType() = 'bool' then 'is' + aFeature.name.toUpperFirst() 
+else if getReservedKeywords()->exists(s  | s = aFeature.name) then aFeature.name + '_' 
+else aFeature.name endif endif/]

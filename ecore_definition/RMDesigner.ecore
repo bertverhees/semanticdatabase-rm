@@ -915,9 +915,28 @@
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Signature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
-                 value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form."
-        />
+                 value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form." />
       </eAnnotations>
+      <eStructuralFeatures name="baseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="base_name: String = 'Signature' Base name (built-in)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="argumentTypes" eType="#//BMM_TupleType" lowerBound="0" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="resultType" eType="#//BMM_Type" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Result type of signature."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return the logical set (i.e. unique items) consisting of argument_types.flattened_type_list() and result_type.flattened_type_list()."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_ProcedureSignature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

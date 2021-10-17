@@ -1,0 +1,65 @@
+[**
+ * This file is part of soft.generator.go, a project for go code 
+ * generation of an ecore model
+ *
+ * Copyright(c) 2021 MASA Group
+ *	
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+**/]
+
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import soft::generator::go::lib::generateEnum/]
+[import soft::generator::go::lib::generateInterface/]
+[import soft::generator::go::lib::generateImplementation/]
+[import soft::generator::go::lib::pack::generatePackage/]
+[import soft::generator::go::lib::factory::generateFactory/]
+[import soft::generator::go::tests::generateImplementationTests/]
+[import soft::generator::go::tests::generateFactoryTests/]
+[import soft::generator::go::tests::generateMock/]
+[import soft::generator::go::tests::generateMockTests/]
+[import soft::generator::go::tests::generatePackageTests/]
+
+[template public generateModel(aPackage : EPackage)]
+[comment @main/]
+[for (aClass : EClass | aPackage.eAllContents(EClass))]
+    [aClass.generateInterface()/]
+	[if not aClass.interface]	
+    	[aClass.generateImplementation()/]
+	[/if]
+[/for]
+[for (anEEnum : EEnum | aPackage.eAllContents(EEnum))]
+    [anEEnum.generateEnum()/]
+[/for]
+[aPackage.generatePackage()/]
+[aPackage.generateFactory()/]
+[/template]
+
+[template public generateTests(aPackage : EPackage)]
+[comment @main/]
+[for (aClass : EClass | aPackage.eAllContents(EClass))]
+	[if not aClass.interface]
+		[aClass.generateImplementationTests()/]
+	[/if]
+[/for]
+[aPackage.generateFactoryTests()/]
+[aPackage.generatePackageTests()/]
+[/template]
+
+[template public generateMocks(aPackage : EPackage)]
+[comment @main/]
+[for (aClass : EClass | aPackage.eAllContents(EClass))]
+	[aClass.generateMock()/]
+[/for]
+[/template]
+
+[template public generateMocksTests(aPackage : EPackage)]
+[comment @main/]
+[for (aClass : EClass | aPackage.eAllContents(EClass))]
+	[aClass.generateMockTests()/]
+[/for]
+[/template]
+

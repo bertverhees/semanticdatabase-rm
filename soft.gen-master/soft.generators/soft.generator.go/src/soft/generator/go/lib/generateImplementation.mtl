@@ -1,0 +1,128 @@
+[**
+ * This file is part of soft.generator.go, a project for go code 
+ * generation of an ecore model
+ *
+ * Copyright(c) 2021 MASA Group
+ *	
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+**/]
+
+[comment encoding = UTF-8 /]
+[module generateImplementation('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import soft::generator::common::generateCommon/]
+[import soft::generator::common::generateElement/]
+[import soft::generator::common::generateStructuralFeature/]
+[import soft::generator::go::generateCommon/]
+[import soft::generator::go::generateElement/]
+[import soft::generator::go::generateType/]
+[import soft::generator::go::lib::generateCommon/]
+[import soft::generator::go::lib::generateOperation/]
+[import soft::generator::go::lib::generateStructuralFeature/]
+[import soft::generator::go::lib::generateReflectives/]
+
+[template public generateImplementation(aClass : EClass) { 
+	implementationName : String = aClass.getImplementationName(); 
+	aPackage : EPackage = aClass.ePackage; 
+	classExtend : String = aClass.getClassExtends();
+	features : Collection(EStructuralFeature) = aClass.getImplementedFeatures()->sortedBy( getVariableName() );
+	variableFeatures : Collection(EStructuralFeature) = features->select(isField());
+	initializerFeatures : Collection(EStructuralFeature) = features->select(hasInitializationMethod());
+	operations : Collection(EOperation) = aClass.getImplementedOperations()->sortedBy( getOperationName() );
+}]
+[file (aPackage.getOutputDirectory() + '/' + aClass.getImplementationFileName( aClass.name ), false, 'UTF-8')]
+[fileComment()/]
+
+package [aPackage.name/]
+
+[let imports : OrderedSet(String) = Set { if not aPackage.isEcorePackage() then Set{ aPackage.getImportForPackage('ecore') } else Set{} endif
+										, Set { aPackage.getImportForType(classExtend) }
+									    , aClass.getInterfaceExtends()->collect( extend | aPackage.getImportForType( extend ) )->asSet()
+                                        , aClass.getReferencedTypes()->collect( cls | aPackage.getImport(cls) )->asSet()
+                                        }->flatten()->select( s | s <> '')->asOrderedSet()->sortedBy( s | s) ]
+[for ( i : String | imports )]
+import "[i/]"
+[/for]
+[/let]
+
+
+// [implementationName/] is the implementation of the model object '[aClass.name/]'
+type [implementationName/] struct {
+    [getShortQualifiedName( classExtend ,aPackage.name)/]
+[if not aClass.isReflectiveDelegation()]
+[let dataDeclarationFeatures : OrderedSet(EStructuralFeature) = features->select( isField() )]
+    [ dataDeclarationFeatures.generateVariableDeclaration()/]
+[/let]
+[/if]
+}
+[if initializerFeatures->notEmpty()]
+type [aClass.getInitializersInterface()/] interface {
+    [initializerFeatures.generateVariableInitializationMethodDeclaration()/]
+}
+[/if]
+
+// [aClass.getConstructorName()/] is the constructor of a [aClass.getImplementationName()/]
+func [aClass.getConstructorName()/]() *[aClass.getImplementationName()/] {
+    [aClass.getReceiverName()/] := new([aClass.getImplementationName()/])
+	[aClass.getReceiverName()/].SetInterfaces([aClass.getReceiverName()/])
+	[aClass.getReceiverName()/].Initialize()
+    return [aClass.getReceiverName()/]
+}
+
+[if variableFeatures->notEmpty() and not aClass.isReflectiveDelegation()]
+[aClass.generateFunctionImplementationReceiver()/] Initialize() {
+	[aClass.getReceiverName()/].[getUnQualifiedName(classExtend)/].Initialize()
+	[variableFeatures.generateVariableInitialization(aClass)/]
+}
+[/if]
+
+[let interfaceName : String = aClass.getInterfaceName()]
+[aClass.generateFunctionImplementationReceiver()/] as[interfaceName/]() [interfaceName/] {
+	return [aClass.getReceiverName()/].GetInterfaces().([interfaceName/])
+}
+[/let]
+
+[if initializerFeatures->notEmpty()]
+[aClass.generateFunctionImplementationReceiver()/] asInitializers() [aClass.getInitializersInterface()/] {
+    return [aClass.getReceiverName()/].AsEObject().([aClass.getInitializersInterface()/])
+}
+[/if]
+
+[aClass.generateFunctionImplementationReceiver()/] EStaticClass() [if not aPackage.isEcorePackage()]ecore.[/if]EClass {
+    return GetPackage().[aClass.getReflectiveGetterName()/]()
+}
+
+[aClass.generateFunctionImplementationReceiver()/] EStaticFeatureCount() int {
+    return [if aClass.isReflectiveDelegation()]0[else][aClass.getFeatureCountIDName()/][/if]
+}
+[if aClass.isMapEntry()]
+
+[aClass.generateFunctionImplementationReceiver()/] GetKey() interface{} {
+    return [aClass.getReceiverName()/].[aClass.getEStructuralFeature('key').getGetterName()/]()
+}
+
+[aClass.generateFunctionImplementationReceiver()/] SetKey(key interface{}) {
+[let anStructFeature : EStructuralFeature =  aClass.getEStructuralFeature('key')]
+    [aClass.getReceiverName()/].[anStructFeature.getSetterName()/](key[if anStructFeature.eType.getType() <> 'interface{}'].([anStructFeature.generateType()/])[/if])
+[/let]
+}
+
+[aClass.generateFunctionImplementationReceiver()/] GetValue() interface{} {
+    return [aClass.getReceiverName()/].[aClass.getEStructuralFeature('value').getGetterName()/]()
+}
+
+[aClass.generateFunctionImplementationReceiver()/] SetValue(value interface{}) {
+[let anStructFeature : EStructuralFeature =  aClass.getEStructuralFeature('value')]
+    [aClass.getReceiverName()/].[anStructFeature.getSetterName()/](value[if anStructFeature.eType.getType() <> 'interface{}'].([anStructFeature.generateType()/])[/if])
+[/let]
+}
+[/if]
+
+[operations.generateImplementation(aClass)/]
+[features.generateImplementation(aClass)/]
+[initializerFeatures.generateVariableInitializationMethodDefinition(aClass)/]
+[aClass.generateReflectivesDefinition()/]
+[/file]
+[/template]

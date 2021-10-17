@@ -1,0 +1,671 @@
+[**
+ * This file is part of soft.generator.go, a project for go code 
+ * generation of an ecore model
+ *
+ * Copyright(c) 2021 MASA Group
+ *	
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+**/]
+
+[comment encoding = UTF-8 /]
+[module generateStructuralFeature('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import soft::generator::common::generateCommon/]
+[import soft::generator::common::generateStructuralFeature/]
+[import soft::generator::go::generateCommon/]
+[import soft::generator::go::generateType/]
+[import soft::generator::go::lib::generateCommon/]
+
+[query public isInitializationDefered( aStructuralFeature : EStructuralFeature ) : Boolean = isListType() or isProxy()/]
+
+[query public getInitializersInterface( aClass : EClass ) : String = aClass.getImplementationName() + 'Initializers'/]
+
+[template public generateDeclaration(aStructuralFeature : EStructuralFeature)]
+[if isGet()]
+[aStructuralFeature.generateGetDeclaration()/]
+[/if]
+[if isSet()]
+[aStructuralFeature.generateSetDeclaration()/]
+[/if]
+[if isUnSet()]
+[aStructuralFeature.generateUnSetDeclaration()/]
+[/if]
+
+[/template]
+
+[template public generateGetDeclaration(aStructuralFeature : EStructuralFeature)]
+[aStructuralFeature.getGetterName()/]() [aStructuralFeature.generateType()/]
+[/template]
+
+[template public generateSetDeclaration(aStructuralFeature : EStructuralFeature)]
+[aStructuralFeature.getSetterName()/]( [aStructuralFeature.generateType()/] )
+[/template]
+
+[template public generateUnSetDeclaration(aStructuralFeature : EStructuralFeature)]
+[aStructuralFeature.getUnSetterName()/]()
+[/template]
+
+[template private getMapConstructor( aStructuralFeature : EStructuralFeature, aClass : EClass) post(trim())]
+[let aPackage : EPackage = aClass.ePackage]
+[if not aPackage.isEcorePackage()]ecore.[/if]NewBasicEObjectMap([if aStructuralFeature.eType.ePackage.name <> aPackage.name][aStructuralFeature.eType.ePackage.name/].[/if]GetPackage().[aStructuralFeature.eType.getReflectiveGetterName()/]())
+[/let]
+[/template]
+
+[template private getListConstructor( anEAttribute : EStructuralFeature , aClass : EClass) post(trim())]
+[/template]
+
+[template private getListConstructor( anEAttribute : EAttribute , aClass : EClass ) ? (not anEAttribute.isFeatureMapType()) post(trim()) ]
+[let aPackage : EPackage = aClass.ePackage]
+[if not aPackage.isEcorePackage()]ecore.[/if]New[if anEAttribute.unique]Unique[/if]BasicEList(['['/][']'/]interface{}{})
+[/let]
+[/template]
+
+[template private getListConstructor( anEAttribute : EAttribute , aClass : EClass ) ? (anEAttribute.isFeatureMapType()) post(trim()) ]
+nil
+[/template]
+
+
+[template private getListConstructor( anEReference : EReference , aClass : EClass ) post(trim())]
+[let aPackage : EPackage = aClass.ePackage]
+[let receiverName : String = aClass.getReceiverName()]
+[if (anEReference.containment)]
+    [if anEReference.eOpposite.oclIsUndefined() ]
+[if not aPackage.isEcorePackage()]ecore.[/if]NewBasicEObjectList([receiverName/].AsEObjectInternal() , [aClass.getFeatureIDName(anEReference)/] , -1, true , true , false , [anEReference.isProxy()/] , [anEReference.isUnSettable()/] )
+    [else]
+        [let reverseFeature :EReference = anEReference.eOpposite ]
+        [let reverseClass :EClass = reverseFeature.eContainingClass ]
+[if not aPackage.isEcorePackage()]ecore.[/if]NewBasicEObjectList([receiverName/].AsEObjectInternal() , [aClass.getFeatureIDName(anEReference)/] , [reverseClass.getFeatureIDName(reverseFeature)/], true , true , true , [anEReference.isProxy()/] , [anEReference.isUnSettable()/] )
+        [/let]
+        [/let]
+    [/if]
+[else]
+    [if anEReference.eOpposite.oclIsUndefined() ]
+        [let featureID : String = anEReference.eContainingClass.getFeatureIDName( anEReference )]
+[if not aPackage.isEcorePackage()]ecore.[/if]NewBasicEObjectList([receiverName/].AsEObjectInternal() , [featureID/] , -1 , false , false , false , [anEReference.isProxy()/] , [anEReference.isUnSettable()/] )
+        [/let]
+    [else]
+        [let reverseFeature :EReference = anEReference.eOpposite ]
+        [let reverseClass :EClass = reverseFeature.eContainingClass ]
+[if not aPackage.isEcorePackage()]ecore.[/if]NewBasicEObjectList([receiverName/].AsEObjectInternal() , [aClass.getFeatureIDName(anEReference)/] , [reverseClass.getFeatureIDName(reverseFeature)/] , false , true , true , [anEReference.isProxy()/] , [anEReference.isUnSettable()/]  )
+        [/let]
+        [/let]
+    [/if]
+[/if]
+[/let]
+[/let]
+[/template]
+
+[template public generateVariableDeclaration(aStructuralFeature : EStructuralFeature)]
+[aStructuralFeature.getVariableName()/] [aStructuralFeature.generateType()/]
+
+[/template]
+
+[template public generateVariableInitialization(aStructuralFeature : EStructuralFeature, aClass : EClass )]
+[/template]
+
+[template public generateVariableInitialization(aAttribute : EAttribute, aClass : EClass ) ]
+[let defaultValue : String = aAttribute.getDefaultValue(aClass)]
+[if defaultValue <> '']
+[aClass.getReceiverName()/].[aAttribute.getVariableName()/] = [defaultValue/]
+[/if]
+[/let]
+[/template]
+
+[template public generateVariableInitializationMethodDeclaration(aStructuralFeature : EStructuralFeature)]
+[aStructuralFeature.getInitializationMethodName()/]()[if aStructuralFeature.getLazy() = 'function'] [aStructuralFeature.generateType()/][/if]
+
+[/template]
+
+[template public generateVariableInitializationMethodDefinition(aStructuralFeature : EStructuralFeature, aClass : EClass) ? ( aStructuralFeature.getLazy() = 'function' )]
+[aClass.generateFunctionImplementationReceiver()/] [aStructuralFeature.getInitializationMethodName()/]() [aStructuralFeature.generateType()/] {
+[if isMapType()]
+	return [getMapConstructor(aClass)/];
+[elseif isListType()]
+    return [getListConstructor(aClass)/];
+[elseif aStructuralFeature.oclIsKindOf(EAttribute)]
+    return [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/];
+[else]
+    panic("[aStructuralFeature.getInitializationMethodName()/] not implemented")
+[/if]
+}
+
+
+[/template]
+
+[template public generateVariableInitializationMethodDefinition(aStructuralFeature : EStructuralFeature, aClass : EClass) ? ( aStructuralFeature.getLazy() = 'action' )]
+[aClass.generateFunctionImplementationReceiver()/] [aStructuralFeature.getInitializationMethodName()/]() {
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let receiverName : String = aStructuralFeature.eContainingClass.getReceiverName()]
+[if isMapType()]
+	[receiverName/].[varName/] = [getMapConstructor(aClass)/];
+[elseif isListType()]
+    [receiverName/].[varName/] = [getListConstructor(aClass)/];
+[elseif isProxy()]
+[elseif aStructuralFeature.oclIsKindOf(EAttribute)]
+    [receiverName/].[varName/] = [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/];
+[else]
+    panic("[aStructuralFeature.getInitializationMethodName()/] not implemented")
+[/if]
+}
+[/let]
+[/let]
+
+
+[/template]
+
+
+[template public generateImplementation(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[if isGet()]
+[aStructuralFeature.generateGetImplementation(aClass)/]
+[/if]
+[if isBasicGet() and not isReflectiveDelegation()]
+[aStructuralFeature.generateBasicGetImplementation(aClass)/]
+[/if]
+[if isSet()]
+[aStructuralFeature.generateSetImplementation(aClass)/]
+[/if]
+[if isBasicSet() and not isReflectiveDelegation()]
+[aStructuralFeature.generateBasicSetImplementation(aClass)/]
+[/if]
+[if isUnSet()]
+[aStructuralFeature.generateUnSetImplementation(aClass)/]
+[/if]
+[if isBasicUnSet() and not isReflectiveDelegation()]
+[aStructuralFeature.generateBasicUnSetImplementation(aClass)/]
+[/if]
+[/template]
+
+[template public generateMock(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[if isGet()]
+[aStructuralFeature.generateGetMock(aClass)/]
+[/if]
+[if isSet()]
+[aStructuralFeature.generateSetMock(aClass)/]
+[/if]
+[if isUnSet()]
+[aStructuralFeature.generateUnSetMock(aClass)/]
+[/if]
+[/template]
+
+[template public generateMockTests(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[if isGet()]
+[aStructuralFeature.generateGetMockTest(aClass)/]
+[/if]
+[if isSet()]
+[aStructuralFeature.generateSetMockTest(aClass)/]
+[/if]
+[if isUnSet()]
+[aStructuralFeature.generateUnSetMockTest(aClass)/]
+[/if]
+[/template]
+
+[template public generateGetMock(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[let methodName : String =aStructuralFeature.getGetterName()] 
+// [methodName/] get the value of [aStructuralFeature.getVariableName()/]
+[aClass.generateFunctionMockReceiver()/] [methodName/]() [aStructuralFeature.generateType()/] {
+	ret := [aClass.getReceiverName()/].Called()
+
+	var r [aStructuralFeature.generateType()/]
+	if rf, ok := ret.Get(0).(func() [aStructuralFeature.generateType()/]); ok {
+		r = rf()
+	} else {
+		if ret.Get(0) != nil {
+			r = ret.Get(0).([aStructuralFeature.generateType()/])
+		}
+	}
+
+	return r
+}
+[/let]
+[/template]
+
+[template public generateGetMockTest(aStructuralFeature : EStructuralFeature, aClass : EClass) ? (not isListType())]
+[let mockName : String = aClass.getMockName()]
+[let getterMethodName : String = aStructuralFeature.getGetterName()] 
+[let testMethodName : String = 'Test' + mockName + getterMethodName.toUpperFirst()]
+// [testMethodName/] tests method [getterMethodName/]
+func [testMethodName/](t *testing.T) {
+	o := &[mockName/]{}
+	r := [aStructuralFeature.eType.getTestValue(aClass.ePackage)/]
+	o.On("[getterMethodName/]").Once().Return(r)
+	o.On("[getterMethodName/]").Once().Return( func () [aStructuralFeature.generateType()/] {
+		return r
+	})
+	assert.Equal(t,r,o.[getterMethodName/]())
+	assert.Equal(t,r,o.[getterMethodName/]())
+	o.AssertExpectations(t)
+}
+[/let]
+[/let]
+[/let]
+[/template]
+
+[template public generateGetMockTest(aStructuralFeature : EStructuralFeature, aClass : EClass) ? (isListType())]
+[let mockName : String = aClass.getMockName()]
+[let getterMethodName : String = aStructuralFeature.getGetterName()] 
+[let testMethodName : String = 'Test' + mockName + getterMethodName.toUpperFirst()]
+// [testMethodName/] tests method [getterMethodName/]
+func [testMethodName/](t *testing.T) {
+	o := &[mockName/]{}
+	l := &[if not isEcorePackage(aClass.ePackage)]ecore.[/if][if isMapType()]MockEMap[else]MockEList[/if]{}
+	// return a value
+	o.On("[getterMethodName/]").Once().Return(l)
+	o.On("[getterMethodName/]").Once().Return( func () [aStructuralFeature.generateType()/] {
+		return l
+	})	
+	assert.Equal(t,l,o.[getterMethodName/]())
+	assert.Equal(t,l,o.[getterMethodName/]())
+	o.AssertExpectations(t)
+}
+[/let]
+[/let]
+[/let]
+[/template]
+
+[template public generateGetImplementation(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+// [aStructuralFeature.getGetterName()/] get the value of [aStructuralFeature.getVariableName()/]
+[aClass.generateFunctionImplementationReceiver()/] [aStructuralFeature.getGetterName()/]() [aStructuralFeature.generateType()/] {
+[let aPackage : EPackage =  aClass.ePackage ]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let receiverName : String = aClass.getReceiverName()]
+[if isReflectiveDelegation()]
+	result, _ := [receiverName/].EGetFromID([aClass.getFeatureIDName(aStructuralFeature)/] , true)[if aStructuralFeature.eType.getType() <> 'interface{}'].([aStructuralFeature.generateType()/])[/if]
+	return result 
+[elseif isContainer()]
+    if [receiverName/].EContainerFeatureID() == [aClass.getFeatureIDName(aStructuralFeature)/] {
+        return [receiverName/].EContainer().([aStructuralFeature.generateType()/]);
+    } 
+    return nil
+[elseif not isVolatile()]
+    [if not isListType() and isProxy()]
+    if [receiverName/].[varName/] != nil && [receiverName/].[varName/].EIsProxy() {
+        [let oldVarName : String = 'old' + varName.toUpperFirst()]
+        [let newVarName : String = 'new' + varName.toUpperFirst()]
+        [oldVarName/] := [receiverName/].[varName/]
+        [newVarName/] := [receiverName/].EResolveProxy([oldVarName/]).([aStructuralFeature.generateType()/])
+        [receiverName/].[varName/] = [newVarName/]
+        if [newVarName/] != [oldVarName/] {
+        [if isContains()]
+            var notifications [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain
+            [if not isBidirectional()]
+            notifications = [oldVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseRemove( [receiverName/], [if not aPackage.isEcorePackage()]ecore.[/if]EOPPOSITE_FEATURE_BASE - [aClass.getFeatureIDName(aStructuralFeature)/] , notifications )
+            [else]
+                [let reverseFeature : EStructuralFeature = aStructuralFeature.oclAsType(EReference).eOpposite]
+                [let reverseClass : EClass = reverseFeature.eContainingClass]
+            notifications = [oldVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseRemove( [receiverName/], [reverseClass.getFeatureIDName(reverseFeature)/] , notifications )
+                [/let]
+                [/let]
+            [/if]
+            if [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInternalContainer() == nil {
+            [if not isBidirectional()]
+            notifications = [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseAdd( [receiverName/], [if not aPackage.isEcorePackage()]ecore.[/if]EOPPOSITE_FEATURE_BASE - [aClass.getFeatureIDName(aStructuralFeature)/] , notifications )
+            [else]
+                [let reverseFeature : EStructuralFeature = aStructuralFeature.oclAsType(EReference).eOpposite]
+                [let reverseClass : EClass = reverseFeature.eContainingClass]
+            notifications = [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseAdd( [receiverName/], [reverseClass.getFeatureIDName(reverseFeature)/] , notifications )
+                [/let]
+                [/let]
+            [/if]
+            }
+            if notifications != nil {
+                notifications.Dispatch()
+            }
+        [/if]
+            if [receiverName/].ENotificationRequired() {
+                [receiverName/].ENotify( [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/], [if not aPackage.isEcorePackage()]ecore.[/if]RESOLVE, [aClass.getFeatureIDName(aStructuralFeature)/], [oldVarName/], [newVarName/], [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX) )
+            }
+        }
+        [/let]
+        [/let]
+    }
+    [elseif aStructuralFeature.isLazy()]
+        [let lazy : String = aStructuralFeature.getLazy()]
+        [if lazy <> 'no']
+            [if  lazy = 'function']
+                [if aStructuralFeature.oclIsKindOf(EAttribute)]
+    if [receiverName/].[varName/] == [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/] {
+                [else]
+    if [receiverName/].[varName/] == nil {
+                [/if]
+        [receiverName/].[varName/] = [receiverName/].asInitializers().[aStructuralFeature.getInitializationMethodName()/]()
+    }
+            [elseif lazy = 'action']
+    [receiverName/].asInitializers().[aStructuralFeature.getInitializationMethodName()/]()
+            [/if]
+        [/if]
+        [/let]
+	[elseif aStructuralFeature.isMapType()]
+	if [receiverName/].[varName/] == nil {
+		[receiverName/].[varName/] = [aStructuralFeature.getMapConstructor(aClass)/];
+	}
+	[elseif aStructuralFeature.isListType()]
+	if [receiverName/].[varName/] == nil {
+		[receiverName/].[varName/] = [aStructuralFeature.getListConstructor(aClass)/]
+	}
+	[/if]
+    return [receiverName/].[varName/]
+[elseif hasKey('getterBody')]
+    [valueKey('getterBody')/]
+[else]
+    panic("[aStructuralFeature.getGetterName()/] not implemented")
+[/if]
+[/let]
+[/let]
+[/let]
+}
+
+[/template]
+
+[template public generateBasicGetImplementation(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[aClass.generateFunctionImplementationReceiver()/] basic[aStructuralFeature.getGetterName().toUpperFirst()/]() [aStructuralFeature.generateType()/] {
+[let aPackage : EPackage =  aClass.ePackage ]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let receiverName : String = aClass.getReceiverName()]
+[if isContainer()]
+    if [receiverName/].EContainerFeatureID() == [aClass.getFeatureIDName(aStructuralFeature)/] {
+        return [receiverName/].EInternalContainer().([aStructuralFeature.generateType()/]);
+    } 
+    return nil
+[elseif not isVolatile()]
+    [let lazy : String = aStructuralFeature.getLazy()]
+    [if lazy <> 'no']
+        [if  lazy = 'function']
+            [if aStructuralFeature.oclIsKindOf(EAttribute)]
+    if [receiverName/].[varName/] == [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/] {
+            [else]
+    if [receiverName/].[varName/] == nil {
+            [/if]
+        [receiverName/].[varName/] = [receiverName/].asInitializers().[aStructuralFeature.getInitializationMethodName()/]()
+    }
+        [elseif lazy = 'action']
+    [receiverName/].asInitializers().[aStructuralFeature.getInitializationMethodName()/]()
+        [/if]
+    [/if]
+    [/let]
+    return [receiverName/].[varName/]
+[elseif hasKey('getterBody')]
+    [valueKey('getterBody')/]
+[else]
+    panic("[aStructuralFeature.getGetterName()/] not implemented")
+[/if]
+[/let]
+[/let]
+[/let]
+}
+
+[/template]
+
+
+[template public generateSetMock(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let newVarName : String = 'new' + varName.toUpperFirst() ]
+[let methodName : String = aStructuralFeature.getSetterName()]
+// [methodName/] provides mock implementation for setting the value of [aStructuralFeature.getVariableName()/]
+[aClass.generateFunctionMockReceiver()/] [methodName/]( [newVarName/] [aStructuralFeature.generateType()/] ) {
+	[aClass.getReceiverName()/].Called([newVarName/])
+}
+[/let]
+[/let]
+[/let]
+[/template]
+
+
+[template public generateSetMockTest(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[let mockName : String =aClass.getMockName()]
+[let setterMethodName : String =aStructuralFeature.getSetterName()] 
+[let testMethodName : String ='Test' + mockName + setterMethodName.toUpperFirst()]
+// [testMethodName/] tests method [setterMethodName/]
+func [testMethodName/](t *testing.T) {
+	o := &[mockName/]{}
+	v := [aStructuralFeature.eType.getTestValue(aClass.ePackage)/]
+	o.On("[setterMethodName/]",v).Once()
+	o.[setterMethodName/](v)
+	o.AssertExpectations(t)
+}
+[/let]
+[/let]
+[/let]
+[/template]
+
+
+[template public generateSetImplementation(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[let aPackage : EPackage = aClass.ePackage]
+[let methodName : String = aStructuralFeature.getSetterName()]
+[let receiverName : String = aClass.getReceiverName() ]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let newVarName : String = 'new' + varName.toUpperFirst() ]
+[let oldVarName : String = 'old' + varName.toUpperFirst() ]
+// [methodName/] set the value of [varName/]
+[aClass.generateFunctionImplementationReceiver()/] [methodName/]( [newVarName/] [aStructuralFeature.generateType()/] ) {
+[if isReflectiveDelegation()]
+	[receiverName/].ESetFromID([aClass.getFeatureIDName(aStructuralFeature)/],[newVarName/])
+[elseif not isVolatile()]
+    [if isContainer()]
+    if ( [newVarName/] != [receiverName/].EInternalContainer() || ([newVarName/] != nil && [receiverName/].EContainerFeatureID() !=  [aClass.getFeatureIDName(aStructuralFeature)/])) {
+        var notifications [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain
+        if ( [receiverName/].EInternalContainer() != nil) {
+            notifications = [receiverName/].EBasicRemoveFromContainer(notifications)
+        }
+        if [newVarName/]Internal , _ := [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal); [newVarName/]Internal != nil {
+		[let reverseFeature : EStructuralFeature = aStructuralFeature.oclAsType(EReference).eOpposite]
+        [let reverseClass : EClass = reverseFeature.eContainingClass]
+            notifications = [newVarName/]Internal.EInverseAdd( [receiverName/].AsEObject() , [reverseClass.getFeatureIDName(reverseFeature)/], notifications )
+		[/let]
+		[/let]
+        }
+        notifications = [receiverName/].basic[methodName.toUpperFirst()/]( [newVarName/], notifications )
+        if ( notifications != nil ) {
+            notifications.Dispatch()
+        }
+    } else if ( [receiverName/].ENotificationRequired() ) {
+        [receiverName/].ENotify( [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/], [if not aPackage.isEcorePackage()]ecore.[/if]SET, [aClass.getFeatureIDName(aStructuralFeature)/], [newVarName/], [newVarName/], [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX) )
+    }
+    [elseif isBidirectional() or isContains()]
+    if ( [newVarName/] != [receiverName/].[varName/] ) {
+        var notifications [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain
+        if  [oldVarName/]Internal , _ := [receiverName/].[varName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal); [oldVarName/]Internal != nil {
+        [if not isBidirectional()]
+            notifications = [oldVarName/]Internal.EInverseRemove( [receiverName/], [if not aPackage.isEcorePackage()]ecore.[/if]EOPPOSITE_FEATURE_BASE - [aClass.getFeatureIDName(aStructuralFeature)/] , notifications )
+        }
+        if [newVarName/]Internal , _ := [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal); [newVarName/]Internal != nil  {
+            notifications = [newVarName/]Internal.EInverseAdd( [receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]EOPPOSITE_FEATURE_BASE - [aClass.getFeatureIDName(aStructuralFeature)/] , notifications )
+        }
+        [else]
+            [let reverseFeature : EStructuralFeature = aStructuralFeature.oclAsType(EReference).eOpposite]
+            [let reverseClass : EClass = reverseFeature.eContainingClass]
+            notifications = [oldVarName/]Internal.EInverseRemove( [receiverName/], [reverseClass.getFeatureIDName(reverseFeature)/] , notifications )
+        }
+        if [newVarName/]Internal , _ := [newVarName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal); [newVarName/]Internal != nil {
+            notifications = [newVarName/]Internal.EInverseAdd( [receiverName/].AsEObject(), [reverseClass.getFeatureIDName(reverseFeature)/] , notifications )
+        }
+            [/let]
+            [/let]
+        [/if]
+        notifications = [receiverName/].basic[methodName.toUpperFirst()/]([newVarName/],notifications)
+        if (notifications != nil) {
+            notifications.Dispatch()
+        }
+    }
+        [if isUnSettable()]
+        [/if]
+    [else]
+    [oldVarName/] := [aClass.getReceiverName()/].[varName/]
+    [aClass.getReceiverName()/].[varName/] = [newVarName/]
+    if [aClass.getReceiverName()/].ENotificationRequired() {
+        [aClass.getReceiverName()/].ENotify([if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]SET, [aClass.getFeatureIDName(aStructuralFeature)/], [oldVarName/], [newVarName/], [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX))
+    }
+    [/if]
+[elseif hasKey('setterBody')]
+    [valueKey('setterBody')/]
+[else]
+    panic("[aStructuralFeature.getSetterName()/] not implemented")
+[/if]
+}
+[/let]
+[/let]
+[/let]
+[/let]
+[/let]
+[/let]
+
+[/template]
+
+[template public generateBasicSetImplementation(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[let aPackage : EPackage = aClass.ePackage]
+[let receiverName : String = aClass.getReceiverName() ]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let newVarName : String = 'new' + varName.toUpperFirst()]
+[aClass.generateFunctionImplementationReceiver()/] basic[aStructuralFeature.getSetterName().toUpperFirst()/]( [newVarName/] [aStructuralFeature.generateType()/] , msgs [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain )  [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain {
+[if isContainer()]
+    return [receiverName/].EBasicSetContainer([newVarName/],[aClass.getFeatureIDName(aStructuralFeature)/],msgs) 
+[elseif not isVolatile()]
+    [let oldVarName : String = 'old' + varName.toUpperFirst()]
+    [oldVarName/] := [receiverName/].[varName/]
+    [receiverName/].[varName/] = [newVarName/]
+    notifications := msgs
+    if ( [receiverName/].ENotificationRequired() ) {
+        notification := [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]SET, [aClass.getFeatureIDName(aStructuralFeature)/], [oldVarName/], [newVarName/], [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX)
+        if (notifications != nil ) {
+            notifications.Add( notification );
+        } else {
+            notifications = notification;
+        }
+    }
+    return notifications
+    [/let]
+[elseif (hasKey('setterBody'))]
+    [valueKey('setterBody')/]
+[else]
+    panic("[aStructuralFeature.getSetterName()/] not implemented")
+[/if]
+}
+[/let]
+[/let]
+[/let]
+[/let]
+[/template]
+
+[template public generateUnSetMock(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[let methodName : String = aStructuralFeature.getUnSetterName()]
+// [methodName/] provides mock implementation for unset the value of [aStructuralFeature.getVariableName()/]
+[aClass.generateFunctionMockReceiver()/] [methodName/]() {
+	[aClass.getReceiverName()/].Called()
+}
+[/let]
+[/template]
+
+[template public generateUnSetMockTest(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[let mockName : String =aClass.getMockName()]
+[let unsetMethodName : String =aStructuralFeature.getUnSetterName()] 
+[let testMethodName : String ='Test' + mockName + unsetMethodName.toUpperFirst()]
+// [testMethodName/] tests method [unsetMethodName/]
+func [testMethodName/](t *testing.T) {
+	o := &[mockName/]{}
+	o.On("[unsetMethodName/]").Once()
+	o.[unsetMethodName/]()
+	o.AssertExpectations(t)
+}
+[/let]
+[/let]
+[/let]
+[/template]
+
+[template public generateUnSetImplementation(aStructuralFeature : EStructuralFeature , aClass : EClass)]
+[let aPackage : EPackage = aClass.ePackage]
+[let receiverName : String = aClass.getReceiverName()]
+[let varName : String = aStructuralFeature.getVariableName() ]
+[let oldVarName : String = 'old' + aStructuralFeature.getVariableName().toUpperFirst() ]
+// [aStructuralFeature.getUnSetterName()/] unset the value of [varName/]
+[aClass.generateFunctionImplementationReceiver()/] [aStructuralFeature.getUnSetterName()/]() {
+[if isReflectiveDelegation()]
+	[receiverName/].EUnsetFromID([aClass.getFeatureIDName(aStructuralFeature)/])
+[elseif not isVolatile()]
+    [if isListType()]
+		[let lazy : String = aStructuralFeature.getLazy()]
+	    [if lazy = 'function']
+	        [if aStructuralFeature.oclIsKindOf(EAttribute)]
+	if [receiverName/].[varName/] == [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/] {
+		[else]
+	if [receiverName/].[varName/] != nil {
+		[/if]
+		[receiverName/].[varName/].Clear()
+	}
+		[else]
+        [receiverName/].[varName/].Clear()
+		[/if]
+	    [/let]
+    [elseif isBidirectional() or isContains()]
+    if [receiverName/].[varName/] != nil {
+        notifications [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain
+        [if not isBidirectional()]
+        notifications = [receiverName/].[varName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseRemove( [receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]EOPPOSITE_FEATURE_BASE - [aClass.getFeatureIDName(aStructuralFeature)/] , notifications )
+        [else]
+            [let reverseFeature : EStructuralFeature = aStructuralFeature.oclAsType(EReference).eOpposite]
+        notifications = [receiverName/].[varName/].([if not aPackage.isEcorePackage()]ecore.[/if]EObjectInternal).EInverseRemove( [receiverName/].AsEObject(), [reverseFeature.eContainingClass.getFeatureIDName(reverseFeature)/] , notifications )
+            [/let]
+        [/if]
+        notifications = basic[aStructuralFeature.getUnSetterName().toUpperFirst()/](notifications)
+        if notifications != nil {
+            notifications.Dispatch()
+        }
+    } else if [receiverName/].ENotificationRequired() {
+        [receiverName/].ENotify( [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]UNSET, [aClass.getFeatureIDName(aStructuralFeature)/],nil,nil, [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX))
+    }
+    [else]
+		[oldVarName/] := [receiverName/].[varName/]
+		[if aStructuralFeature.oclIsKindOf(EReference)]
+		[receiverName/].[varName/] = nil
+		[else]
+		[receiverName/].[varName/] = [aStructuralFeature.oclAsType(EAttribute).getDefaultValue(aClass)/]
+		[/if]
+		if [receiverName/].ENotificationRequired() {
+            [receiverName/].ENotify( [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]UNSET, [aClass.getFeatureIDName(aStructuralFeature)/],[oldVarName/],nil, [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX))
+        }
+    [/if]
+[elseif hasKey('unsetterBody')]
+    [valueKey('unsetterBody')/] 
+[else]
+    panic("[aStructuralFeature.getUnSetterName()/] not implemented")
+[/if]
+}
+[/let]
+[/let]
+[/let]
+[/let]
+
+[/template]
+
+[template public generateBasicUnSetImplementation(aStructuralFeature : EStructuralFeature, aClass : EClass)]
+[let aPackage : EPackage = aClass.ePackage]
+[let receiverName : String = aClass.getReceiverName()]
+[let varName : String = aStructuralFeature.getVariableName()]    
+[let oldVarName : String = 'old' + varName.toUpperFirst()]
+[aClass.generateFunctionImplementationReceiver()/] basic[aStructuralFeature.getUnSetterName().toUpperFirst()/]( msgs [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain )  [if not aPackage.isEcorePackage()]ecore.[/if]ENotificationChain {
+[if not isVolatile()]
+    [oldVarName/] := [receiverName/].[varName/]
+    [receiverName/].[varName/] = nil
+    notifications := msgs;
+    if [receiverName/].ENotificationRequired() {
+        notification := [if not aPackage.isEcorePackage()]ecore.[/if]NewNotificationByFeatureID([receiverName/].AsEObject(), [if not aPackage.isEcorePackage()]ecore.[/if]UNSET, [aClass.getFeatureIDName(aStructuralFeature)/], [oldVarName/], nil, [if not aPackage.isEcorePackage()]ecore.[/if]NO_INDEX)
+        if ( notifications != nil ) {
+            notifications.Add( notification )
+        } else {
+            notifications = notification
+        }
+    }
+    return notifications
+[else]
+    panic("basic[aStructuralFeature.getUnSetterName().toUpperFirst()/] not implemented")
+[/if] 
+}
+[/let]
+[/let]
+[/let]
+[/let]
+[/template]
+
+
+
+
