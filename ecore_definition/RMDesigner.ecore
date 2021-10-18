@@ -958,17 +958,75 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerType">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerType" eSuperTypes="#//BMM_Type">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation"
-                 value="Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as List[T], Set[T] etc."
-        />
+        <details key="documentation" value="Meta-type that specifies linear containers with a generic parameter corresponding to the type of contained item, and whose container type is a generic type such as List[T], Set[T] etc."/>
       </eAnnotations>
+      <eStructuralFeatures name="containerClass" eType="#//BMM_Type" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of the container. This converts to the root_type in BMM_GENERIC_TYPE."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="itemType" eType="#//BMM_UnitaryType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The container item type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValue="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="{default = true} True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValue="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="{default = false} True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return full type name, e.g. List<ELEMENT>."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Post_is_abstract: Result = container_type.is_abstract"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Post_result: Result = item_type.flattened_type_list. Flattened list of type names of item_type, i.e. item_type.flattened_type_list()."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="unitaryType" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_UnitaryType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return item_type."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Post_result: Result = item_type.is_primitive"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="effectiveType" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_EffectiveType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return item_type.effective_type()"/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerType">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerType" eSuperTypes="BMM_ContainerType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type of linear container type that indexes the contained items in the manner of a standard Hashtable, map or dictionary"/>
       </eAnnotations>
+      <eStructuralFeatures name="indexType" eType="#//BMM_SimpleType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Type of the element index, typically String or Integer, but may be a numeric type or indeed any type from which a hash value can be derived."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return full type name, e.g. HashMap<String, ELEMENT>."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
   </eSubpackages>
 
