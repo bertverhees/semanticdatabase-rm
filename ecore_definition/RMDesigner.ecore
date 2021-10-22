@@ -1106,7 +1106,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures name="feature" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Features of this module."/>
         </eAnnotations>
       </eStructuralFeatures>
       <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
