@@ -1054,57 +1054,57 @@
           <details key="documentation" value="Reference to original source schema defining this class. Useful for UI tools to determine which original schema file to open for a given class for manual editing."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="immediateDescendants" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="List of computed references to base classes of immediate inheritance descendants, derived when members of ancestors are attached at creation time."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isOverride" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this definition overrides a class of the same name in an included schema."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="constants" eType="#//StringToBMM_Constant" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Constants defined in this class (subset of features)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="functions" eType="#//StringToBMM_Function" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Functions defined in this class (subset of features)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="procedures" eType="#//StringToBMM_Procedure" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Procedures defined in this class (subset of features)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="{default = false} True if this class represents a type considered to be primitive in the type system, i.e. any typically built-in or standard library type such as String, Date, Hash<K,V> etc."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="{default = false} True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="invariants" eType="#//BMM_Assertion" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value=""/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="creators" eType="#//StringToBMM_Procedure" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Subset of procedures that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="convertors" eType="#//StringToBMM_Procedure" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Subset of creators that create a new instance from a single argument of another type."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="feature" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value=""/>
         </eAnnotations>
@@ -1672,6 +1672,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Package" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Constant" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Constant" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Function" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Function" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Procedure" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Procedure" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Type" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
