@@ -1109,74 +1109,69 @@
           <details key="documentation" value="Features of this module."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//BMM_ModelType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Generate a type object that represents the type for which this class is the definer"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="allAncestors" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="List of all inheritance parent class names, recursively."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="allDescendants" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Compute all descendants by following immediate_descendants"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="suppliers" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="List of names of immediate supplier classes, including concrete generic parameters, concrete descendants of abstract statically defined types, and inherited suppliers. (Where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="suppliersNonPrimitive" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Same as suppliers minus primitive types, as defined in input schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="suppliersClosure" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="packagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Fully qualified package name, of form: package.package."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="classPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Fully qualified class name, of form: package.package.CLASS with package path in lower-case and class in original case."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="True if this class is designated a primitive type within the overall type system of the schema. Set from schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="features" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="List of all feature definitions introduced in this class."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="flatFeatures" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="Consolidated list of all feature definitions from this class and all inheritance ancestors."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
+      <eOperations name="flatProperties" eType="#//BMM_Property" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
-        </eAnnotations>
-      </eOperations>
-      <eOperations name="" eType="" xsi:type="" lowerBound="1" upperBound="1">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value=""/>
+          <details key="documentation" value="List of all properties due to current and ancestor classes, keyed by property name."/>
         </eAnnotations>
       </eOperations>
     </eClassifiers>
