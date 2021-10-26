@@ -1179,16 +1179,42 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a simple class, i.e. a class that has no generic parameters and is 1:1 with the type it generates."/>
       </eAnnotations>
+      <eOperations name="type" eType="#//BMM_SimpleType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generate a type object that represents the type of this class. Can only be an instance of BMM_SIMPLE_TYPE or a descendant."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericClass" eSuperTypes="#//BMM_Class">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a generic class in an object model"/>
       </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration" eSuperTypes="#//BMM_SimpleClass">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Definition of an enumeration class, understood as a class whose value range is constrainedextensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraintis applied. The common notion of a set of literals with no explicit defined values is represented as the degeneratesubtype BMM_ENUMERATION_INTEGER , whose values are 0, 1, …"/>
-      </eAnnotations>
+      <eStructuralFeatures name="genericParameters" eType="#//StringToBMM_ParameterType" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="suppliers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Add suppliers from generic parameters."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="type" eType="#//BMM_GenericType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generate a fully open BMM_GENERIC_TYPE instance that corresponds to this class definition"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="genericParameterConformanceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="For a generic class, type to which generic parameter a_name conforms e.g. if this class is Interval <T:Comparable> then the Result will be the single type Comparable. For an unconstrained type T, the Result will be Any."/>
+        </eAnnotations>
+        <eParameters name="aName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration" eSuperTypes="#//BMM_SimpleClass">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Definition of an enumeration class, understood as a class whose value range is constrained extensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraint is applied. The common notion of a set of literals with no explicit defined values is represented as the degenerate subtype BMM_ENUMERATION_INTEGER, whose values are 0, 1, "/>
+        </eAnnotations>
+      </eClassifiers>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationString" eSuperTypes="#//BMM_Enumeration">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1667,6 +1693,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Package" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_ParameterType" instanceTypeName="Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_ParameterType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Constant" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
