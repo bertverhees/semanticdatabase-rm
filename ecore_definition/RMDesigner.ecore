@@ -728,7 +728,7 @@
           <details key="documentation" value="Result = self."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="typeBaseName" lowerBound="1" upperBound="1" abstract="true">
+      <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="typeBaseName" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of base generator type, i.e. excluding any generic parts if present."></details>
         </eAnnotations>
@@ -838,7 +838,7 @@
           <details key="documentation" value="Result is base_class.name ."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="effectiveBaseClass" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_SimpleClass">
+      <eOperations name="effectiveBaseClass" lowerBound="1" upperBound="1" eType="#//BMM_SimpleClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Main design class for this type, from which properties etc can be extracted."/>
         </eAnnotations>
@@ -860,7 +860,7 @@
       </eStructuralFeatures>
       <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Return the full name of the type including generic parameters, e.g. DV_INTERVAL<T>, TABLE<List<THING>,String>."/>
+          <details key="documentation" value="Return the full name of the type including generic parameters, e.g. DV_INTERVAL[T], TABLE[List[THING],String]."/>
         </eAnnotations>
       </eOperations>
       <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -875,14 +875,15 @@
       </eOperations>
       <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Signature form of the type, which for generics includes generic parameter constrainer types E.g. Interval<T:Ordered>."/>
+          <details key="documentation" value="Signature form of the type, which for generics includes generic parameter constrainer types E.g. Interval[T:Ordered]."/>
         </eAnnotations>
       </eOperations>
       <eOperations name="isPartiallyClosed" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Returns True if there is any substituted generic parameter."/>
         </eAnnotations>
-      <eOperations name="effectiveBaseClass" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_GenericClass">
+      </eOperations>
+      <eOperations name="effectiveBaseClass" lowerBound="1" upperBound="1" eType="#//BMM_GenericClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Effective underlying class for this type, abstracting away any container type."/>
         </eAnnotations>
@@ -998,7 +999,7 @@
           <details key="documentation" value="Post_result: Result = item_type.flattened_type_list. Flattened list of type names of item_type, i.e. item_type.flattened_type_list()."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="unitaryType" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_UnitaryType">
+      <eOperations name="unitaryType" lowerBound="1" upperBound="1" eType="#//BMM_UnitaryType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return item_type."/>
         </eAnnotations>
@@ -1008,7 +1009,7 @@
           <details key="documentation" value="Post_result: Result = item_type.is_primitive"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="effectiveType" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_EffectiveType">
+      <eOperations name="effectiveType" lowerBound="1" upperBound="1" eType="#//BMM_EffectiveType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return item_type.effective_type()"/>
         </eAnnotations>
@@ -1110,32 +1111,32 @@
           <details key="documentation" value="Features of this module."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="type" eType="#//BMM_ModelType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//BMM_ModelType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generate a type object that represents the type for which this class is the definer"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="allAncestors" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="allAncestors" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all inheritance parent class names, recursively."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="allDescendants" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="allDescendants" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Compute all descendants by following immediate_descendants"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliers" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliers" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of names of immediate supplier classes, including concrete generic parameters, concrete descendants of abstract statically defined types, and inherited suppliers. (Where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliersNonPrimitive" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliersNonPrimitive" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Same as suppliers minus primitive types, as defined in input schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliersClosure" eType="#//BMM_Class" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliersClosure" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
@@ -1160,17 +1161,17 @@
           <details key="documentation" value="True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="features" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="features" eType="#//BMM_Feature" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all feature definitions introduced in this class."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flatFeatures" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="flatFeatures" eType="#//BMM_Feature" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Consolidated list of all feature definitions from this class and all inheritance ancestors."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flatProperties" eType="#//BMM_Property" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
+      <eOperations name="flatProperties" eType="#//BMM_Property" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all properties due to current and ancestor classes, keyed by property name."/>
         </eAnnotations>
@@ -1180,7 +1181,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a simple class, i.e. a class that has no generic parameters and is 1:1 with the type it generates."/>
       </eAnnotations>
-      <eOperations name="type" eType="#//BMM_SimpleType" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//BMM_SimpleType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generate a type object that represents the type of this class. Can only be an instance of BMM_SIMPLE_TYPE or a descendant."/>
         </eAnnotations>
@@ -1385,7 +1386,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Enumeration of parameter read/write direction values.Enumeration of parameter read/write direction values."/>
       </eAnnotations>
-      -
+
       <eLiterals name="in" value="1">
         <eAnnotations>
           <details key="documentation" value="Parameter is an input parameter, and treated as readonly bythe receiving routine"/>
