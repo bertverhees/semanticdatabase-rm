@@ -898,7 +898,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Built-in meta-type representing the type of a tuple, i.e. an array of any number of other types. This includes both container and unitary types, since tuple instances represent concrete objects. Note that both open and closed generic parameters are allowed, as with any generic type, but opengeneric parameters are only valid within the scope of a generic class."/>
       </eAnnotations>
-      <eStructuralFeatures name="baseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Tuple' Base name (built-in)."/>
         </eAnnotations>
@@ -919,17 +919,17 @@
         <details key="documentation"
                  value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form." />
       </eAnnotations>
-      <eStructuralFeatures name="baseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Signature' Base name (built-in)."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="argumentTypes" eType="#//BMM_TupleType" lowerBound="0" upperBound="1">
+      <eStructuralFeatures name="argumentTypes" xsi:type="ecore:EReference" eType="#//BMM_TupleType" lowerBound="0" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Type of arguments in the signature, if any; represented as a type-tuple (list of arbitrary types)."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="resultType" eType="#//BMM_Type" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="resultType" xsi:type="ecore:EReference" eType="#//BMM_Type" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result type of signature."/>
         </eAnnotations>
@@ -944,7 +944,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Form of signature specific to procedures, with the result type being the special Status meta-type"/>
       </eAnnotations>
-      <eStructuralFeatures name="resultType" eType="#//BMM_StatusType" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="resultType" xsi:type="ecore:EReference" eType="#//BMM_StatusType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result type of a procedure."/>
         </eAnnotations>
@@ -954,7 +954,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Built-in meta-type representing action status, e.g. result of a call invocation"/>
       </eAnnotations>
-      <eStructuralFeatures name="baseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Status' Base name (built-in)."/>
         </eAnnotations>
@@ -974,19 +974,19 @@
           <details key="documentation" value="The container item type."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValue="true">
+      <eStructuralFeatures name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValueLiteral="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = true} True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValue="false">
+      <eStructuralFeatures name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" unsettable="false" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = false} True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics."/>
         </eAnnotations>
       </eStructuralFeatures>
       <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Return full type name, e.g. List<ELEMENT>."/>
+          <details key="documentation" value="Return full type name, e.g. List[ELEMENT]."/>
         </eAnnotations>
       </eOperations>
       <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1026,7 +1026,7 @@
       </eStructuralFeatures>
       <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Return full type name, e.g. HashMap<String, ELEMENT>."/>
+          <details key="documentation" value="Return full type name, e.g. HashMap[String, ELEMENT]."/>
         </eAnnotations>
       </eOperations>
     </eClassifiers>
@@ -1083,7 +1083,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="{default = false} True if this class represents a type considered to be primitive in the type system, i.e. any typically built-in or standard library type such as String, Date, Hash<K,V> etc."/>
+          <details key="documentation" value="{default = false} True if this class represents a type considered to be primitive in the type system, i.e. any typically built-in or standard library type such as String, Date, Hash[K,V] etc."/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
