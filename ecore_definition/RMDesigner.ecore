@@ -1141,22 +1141,22 @@
           <details key="documentation" value="List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="packagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eOperations name="packagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Fully qualified package name, of form: package.package."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="classPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eOperations name="classPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Fully qualified class name, of form: package.package.CLASS with package path in lower-case and class in original case."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this class is designated a primitive type within the overall type system of the schema. Set from schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eOperations name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time."/>
         </eAnnotations>
@@ -1208,7 +1208,7 @@
       </eOperations>
       <eOperations name="genericParameterConformanceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="For a generic class, type to which generic parameter a_name conforms e.g. if this class is Interval <T:Comparable> then the Result will be the single type Comparable. For an unconstrained type T, the Result will be Any."/>
+          <details key="documentation" value="For a generic class, type to which generic parameter a_name conforms e.g. if this class is Interval [T:Comparable] then the Result will be the single type Comparable. For an unconstrained type T, the Result will be Any."/>
         </eAnnotations>
         <eParameters name="aName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -1257,17 +1257,17 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a range-constrained class whose value range is defined by reference to a 'value set' withinan external resource, e.g. a reference data service." />
       </eAnnotations>
+      <eStructuralFeatures name="resourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Identifier of a resource (typically available as a service) that contains legal values of a specific type. This is typically a URI but need not be."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="valueSetId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Identifier of a value set within the resource identified by resource_id, which specifies the set of legal values of a type. This might be a URI, but need not be."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eStructuralFeatures name="resourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier of a resource (typically available as a service) that contains legal values of a specific type. This is typically a URI but need not be."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures name="valueSetId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Identifier of a value set within the resource identified by resource_id, which specifies the set of legal values of a type. This might be a URI, but need not be."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eSubpackages>
   <eSubpackages name="class_features">
     <eClassifiers xsi:type="ecore:EClass" name="BMM_FormalElement" abstract="true">
@@ -1386,22 +1386,21 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Enumeration of parameter read/write direction values.Enumeration of parameter read/write direction values."/>
       </eAnnotations>
-
-      <eLiterals name="in" value="1">
+      <eStructuralFeatures name="in" defaultValueLiteral="1">
         <eAnnotations>
           <details key="documentation" value="Parameter is an input parameter, and treated as readonly bythe receiving routine"/>
         </eAnnotations>
-      </eLiterals>
-      <eLiterals name="out" value="2">
+      </eStructuralFeatures>
+      <eStructuralFeatures name="out" defaultValueLiteral="2">
         <eAnnotations>
           <details key="documentation" value="Parameter is an output parameter, and treated as a reference toan entity writeable by the receiving routine"/>
         </eAnnotations>
-      </eLiterals>
-      <eLiterals name="in_out" value="3">
+      </eStructuralFeatures>
+      <eStructuralFeatures name="in_out" defaultValueLiteral="3">
         <eAnnotations>
           <details key="documentation" value="Parameter is an input and output parameter, and treated as areference to an entity readable and writeable by the receiving routine."/>
         </eAnnotations>
-      </eLiterals>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_RoutineBody" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
