@@ -11,12 +11,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definitions used by all bmm packages"/>
       </eAnnotations>
-      <eOperations name="anyClass" lowerBound="1" eType="#//BMM_SimpleClass">
+      <eOperations name="anyClass" lowerBound="1" eType="#//classes/BMM_SimpleClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="built-in class definition corresponding to the top `Any' class."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="anyType" lowerBound="1" eType="#//BMM_SimpleType">
+      <eOperations name="anyType" lowerBound="1" eType="#//types/BMM_SimpleType">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Built-in type definition corresponding to the top `Any' type."/>
         </eAnnotations>
@@ -1382,25 +1382,25 @@
         <details key="documentation" value="Automatically declared variable representing result instance of a Function call."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ParameterDirection">
+    <eClassifiers xsi:type="ecore:EEnum" name="BMM_ParameterDirection">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Enumeration of parameter read/write direction values.Enumeration of parameter read/write direction values."/>
       </eAnnotations>
-      <eStructuralFeatures name="in" defaultValueLiteral="1">
+      <eLiterals name="in" value="1">
         <eAnnotations>
           <details key="documentation" value="Parameter is an input parameter, and treated as readonly bythe receiving routine"/>
         </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="out" defaultValueLiteral="2">
+      </eLiterals>
+      <eLiterals name="out" value="2">
         <eAnnotations>
           <details key="documentation" value="Parameter is an output parameter, and treated as a reference toan entity writeable by the receiving routine"/>
         </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures name="in_out" defaultValueLiteral="3">
+      </eLiterals>
+      <eLiterals name="in_out" value="3">
         <eAnnotations>
           <details key="documentation" value="Parameter is an input and output parameter, and treated as areference to an entity readable and writeable by the receiving routine."/>
         </eAnnotations>
-      </eStructuralFeatures>
+      </eLiterals>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_RoutineBody" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1772,11 +1772,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToObject" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_IncludeSpec" instanceTypeName="Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
