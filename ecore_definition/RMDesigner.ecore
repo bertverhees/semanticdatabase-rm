@@ -150,22 +150,22 @@
           <details key="documentation" value="List of directories where all the schemas loaded here arefound."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="allSchemas" eType="#//StringToBMM_SchemaDescriptor" upperBound="-1">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allSchemas">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="All schemas found and loaded from schema_directory . Keyedby schema_id ."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eTypeParameter="K" />
-          <eTypeArguments eTypeParameter="V"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//model_access/BMM_Schema"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bmmModels" eType="#//StringToBMM_Model" upperBound="-1">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmModels" >
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Top-level (root) models in use, keyed by model_id ."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//model_structure/BMM_Model"/>
         </eGenericType>
       </eStructuralFeatures>
     </eClassifiers>
@@ -173,12 +173,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Descriptor for a bmm schema. Contains a meta-data table of attributes obtained from a mini-ODINparse of the schema file"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmSchema" eType="#//BMM_Schema">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmSchema" eType="#//model_access/BMM_Schema">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Persistent form of model."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmModel" eType="#//BMM_Model">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmModel" eType="#//model_structure/BMM_Model">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Computable form of model"/>
         </eAnnotations>
@@ -190,13 +190,13 @@
           />
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metaData" eType="#//StringToString" lowerBound="1" upperBound="-1">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metaData">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Table of {key, value} of schema meta-data, keys are stringvalues defined by {BMM_DEFINITIONS}.Metadata_* constants"/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1" name="includes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -251,7 +251,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Schema" eSuperTypes="#//BMM_ModelMetadata" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Schema" eSuperTypes="#//model_access/BMM_ModelMetadata" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract parent of any persistable form of a bmm model, e.g. P_BMM_SCHEMA"/>
       </eAnnotations>
@@ -260,23 +260,23 @@
           <details key="documentation" value="Version of bmm model, enabling schema evolutionreasoning. Persisted attribute"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="includes" xsi:type="ecore:EAttribute" eType="#//StringToBMM_IncludeSpec" upperBound="-1">
+      <eStructuralFeatures name="includes" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Inclusion list of any form of bmm model, in theform of a hash of individual include specifications,each of which at least specifies the id of anotherschema, and may specify a namespace via whichtypes from the included schemas are known in thisschema. Persisted attribute."
           />
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//model_access/BMM_IncludeSpec"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="bmmModel" xsi:type="ecore:EReference" eType="#//BMM_Model">
+      <eStructuralFeatures name="bmmModel" xsi:type="ecore:EReference" eType="#//model_structure/BMM_Model">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generated by create_bmm_model from persisted elements."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="state" xsi:type="ecore:EReference" eType="#//BMM_SchemaState" lowerBound="1">
+      <eStructuralFeatures name="state" xsi:type="ecore:EReference" eType="#//model_access/BMM_SchemaState" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Current processing state"/>
         </eAnnotations>
@@ -346,7 +346,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="abstract=true" />
         </eAnnotations>
-        <eParameters name="other" eType="#//BMM_Schema" lowerBound="1" upperBound="1" />
+        <eParameters name="other" eType="#//model_access/BMM_Schema" lowerBound="1" upperBound="1" />
       </eOperations>
       <eOperations name="validate">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -364,7 +364,7 @@
           <details key="documentation" value="abstract=true" />
         </eAnnotations>
       </eOperations>
-      <eOperations name="readToValidate" eType="#//EBoolean"  lowerBound="1" upperBound="1">
+      <eOperations name="readToValidate" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"  lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True when validation may be commenced: Post_state: state = State_includes_processed" />
         </eAnnotations>
@@ -372,7 +372,7 @@
           <details key="documentation" value="abstract=true" />
         </eAnnotations>
       </eOperations>
-      <eOperations name="schemaId" eType="#//EString"  lowerBound="1" upperBound="1">
+      <eOperations name="schemaId" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"  lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifier of this schema, used for statinginclusions and identifying files. Formed as: {BMM_Definitions}.create_schema_id (rm_publisher,schema_name,rm_release) E.g. 'openehr_rm_ehr_1.0.4'" />
         </eAnnotations>
@@ -429,54 +429,54 @@
         <details value="Name of this model element." key="documentation"></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="documentation" lowerBound="0" upperBound="-1" xsi:type="ecore:EAttribute" eType="#//StringToObject">
+    <eStructuralFeatures name="documentation" xsi:type="ecore:EReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional documentation of this element, as a keyed list. It is strongly recommended to use the following key /typecombinations for the relevant purposes: 'purpose': String, 'keywords': List[String], 'use': String, 'misuse': String, 'references': String, Other keys and value types may be freely added."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//BMM_ModelElement" lowerBound="1" upperBound="1">
+    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//model_structure/BMM_ModelElement" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Model element within which an element is declared."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures name="extensions" lowerBound="0" upperBound="-1" xsi:type="ecore:EAttribute" eType="#//StringToObject">
+    <eStructuralFeatures name="extensions" xsi:type="ecore:EReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Optional meta-data of this element, as a keyed list. May be usedto extend the meta-model."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eOperations name="isRootScope" eType="#//EBoolean" lowerBound="1" upperBound="1">
+    <eOperations name="isRootScope" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if this model element is the root of a model structurehierarchy."></details>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true" eSuperTypes="#//BMM_ModelEelement">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true" eSuperTypes="#//model_structure/BMM_ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bmm model component that contains packages and classes"/>
     </eAnnotations>
-    <eStructuralFeatures name="packages" xsi:type="ecore:EAttribute" eType="#//StringToBMM_Package" lowerBound="0" upperBound="-1">
+    <eStructuralFeatures name="packages" xsi:type="ecore:EReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Child packages."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//model_structure/BMM_Package"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//BMM_PackageContainer" lowerBound="1" upperBound="1">
+    <eStructuralFeatures name="scope" xsi:type="ecore:EReference" eType="#//model_structure/BMM_PackageContainer" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Model element within which a referenceable element is known."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eOperations name="packageAtPath" eType="#//BMM_Package" lowerBound="0" upperBound="1">
+    <eOperations name="packageAtPath" eType="#//model_structure/BMM_Package" lowerBound="0" upperBound="1">
       <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Package at the path a_path."></details>
@@ -495,16 +495,16 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Package" eSuperTypes="#//BMM_PackageContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Package" eSuperTypes="#//model_structure/BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstraction of a package as a tree structure whose nodes can contain other packages and classes. The name may be qualified if it is a top-level package."/>
     </eAnnotations>
-    <eStructuralFeatures name="members" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1"  eType="#//BMM_Module">
+    <eStructuralFeatures name="members" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1"  eType="#//model_structure/BMM_Module">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Member modules in this package."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eOperations name="rootClasses" lowerBound="0" upperBound="-1" eType="#//BMM_Class">
+    <eOperations name="rootClasses" lowerBound="0" upperBound="-1" eType="#//classes/BMM_Class">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Obtain the set of top-level classes in this package, either from this package itself or by recursing into the structure until classes are obtained from child packages. Recurse into each child only far enough to find the first level of classes."></details>
       </eAnnotations>
@@ -515,41 +515,45 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//BMM_ModelMetadata, #//BMM_PackageContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//model_structure/BMM_ModelMetadata, #//model_structure/BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of the root of a bmm model (along with what is inherited from BMM_SCHEMA_CORE )."/>
     </eAnnotations>
-    <eStructuralFeatures lowerBound="0" upperBound="-1" name="classDefinitions" eType="#//StringToBMM_Class" xsi:type="ecore:EAttribute">
+    <eStructuralFeatures name="classDefinitions" xsi:type="ecore:EReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="All classes in this model, keyed by type name."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments/>
-        <eTypeArguments/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//classes/BMM_Class"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures lowerBound="0" upperBound="-1" name="usedModels" xsi:type="ecore:EReference" eType="#//BMM_Model">
+    <eStructuralFeatures lowerBound="0" upperBound="-1" name="usedModels" xsi:type="ecore:EReference" eType="#//model_structure/BMM_Model">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of other models 'used' (i.e. 'imported' by this model). Classes in the current model may refer to classes in a used model by specifying the other class’s scope meta-attribute."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures lowerBound="0" upperBound="-1" name="modules" xsi:type="ecore:EAttribute" eType="#//StringToBMM_Module">
+    <eStructuralFeatures name="modules" xsi:type="ecore:EReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="All classes in this model, keyed by type name."></details>
       </eAnnotations>
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//model_structure/BMM_Module"/>
+      </eGenericType>
     </eStructuralFeatures>
     <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="modelId">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of this model, lower-case, formed from: [rm_publisher]_[model_name]_[rm_release] E.g. 'openehr_ehr_1.0.4'."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Class" name="classDefintion">
+    <eOperations lowerBound="0" upperBound="1" eType="#//classes/BMM_Class" name="classDefintion">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition corresponding to a_type_name (which may contain a generic part)."></details>
       </eAnnotations>
       <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Class" name="typeDefinition">
+    <eOperations lowerBound="0" upperBound="1" eType="#//classes/BMM_Class" name="typeDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition corresponding to a_type_name. If it contains a generic part, this will be removed if it is a fully open generic name, otherwise it will remain intact, i.e. if it is an effective generic name that identifies a BMM_GENERIC_CLASS_EFFECTIVE."></details>
       </eAnnotations>
@@ -572,7 +576,7 @@
       </eAnnotations>
       <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="1" eType="#//BMM_Enumeration" name="enumerationDefinition">
+    <eOperations lowerBound="0" upperBound="1" eType="#//classes/BMM_Enumeration" name="enumerationDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the enumeration definition corresponding to a_type_name."></details>
       </eAnnotations>
@@ -588,7 +592,7 @@
         <details key="documentation" value="List of keys in class_definitions of items that are enumeration types."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Property" name="propertyDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//class_features/BMM_Property" name="propertyDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the property definition for a_prop_name in flattened class corresponding to a_type_name."></details>
       </eAnnotations>
@@ -603,14 +607,14 @@
       <eParameters name="aBmmPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
       <eParameters name="aMSPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Property" name="propertyDefinitionAtPath">
+    <eOperations lowerBound="1" upperBound="1" eType="#//class_features/BMM_Property" name="propertyDefinitionAtPath">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the property definition for a_property_path in flattened class corresponding to a_type_name."></details>
       </eAnnotations>
       <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
       <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_Class" name="classDefinitionAtPath">
+    <eOperations lowerBound="1" upperBound="1" eType="#//class_features/BMM_Class" name="classDefinitionAtPath">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition for the class that owns the terminal attribute in a_prop_path in flattened class corresponding to a_type_name"></details>
       </eAnnotations>
@@ -643,23 +647,23 @@
       </eAnnotations>
       <eParameters name="aType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleClass" name="anyClassDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//classes/BMM_SimpleClass" name="anyClassDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="BMM_SIMPLE_CLASS instance for the Any class. This may be defined in the BMM schema, but if not, use BMM_DEFINITIONS.any_class."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleType" name="anyTypeDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//types/BMM_SimpleType" name="anyTypeDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="BMM_SIMPLE_TYPE instance for the Any type."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//BMM_SimpleType" name="booleanTypeDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//types/BMM_SimpleType" name="booleanTypeDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="BMM_SIMPLE_TYPE instance for the Boolean type."></details>
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true" eSuperTypes="#//BMM_ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Module" abstract="true" eSuperTypes="#//model_structure/BMM_ModelElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Meta-type defining a generalised module concept. Descendants define actual structure and contents"/>
     </eAnnotations>
@@ -673,7 +677,7 @@
         <details key="documentation" value="Features of this module."></details>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//BMM_Model" name="scope">
+    <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//model_structure/BMM_Model" name="scope">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Model within which module is defined."></details>
       </eAnnotations>
@@ -846,7 +850,7 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleType" eSuperTypes="#//BMM_ModelType">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleType" eSuperTypes="#//model_structure/BMM_ModelType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Type reference to a single type i.e. not generic or container type."/>
       </eAnnotations>
@@ -876,7 +880,7 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericType" eSuperTypes="#//BMM_ModelType">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericType" eSuperTypes="#//types/BMM_ModelType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type based on a non-container generic class, e.g. Packet[Header]"/>
       </eAnnotations>
@@ -935,10 +939,14 @@
           <details key="documentation" value="base_name: String = 'Tuple' Base name (built-in)."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="itemTypes" lowerBound="1" upperBound="-1" xsi:type="ecore:EAttribute" eType="#//StringToBMM_Type">
+      <eStructuralFeatures name="itemTypes" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of types of the items of the tuple, keyed by purpose in the tuple."/>
         </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//types/BMM_Type"/>
+        </eGenericType>
       </eStructuralFeatures>
       <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1068,13 +1076,13 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type corresponding a class definition in an object model. Inheritance is specified by the ancestors attribute, which contains a list of types rather than classes. Inheritance is thus understood in bmm as astated relationship between classes. The equivalent relationship between types is conformance. unlike UML, the name is just the root name, even if the class is generic. Use type_name() to obtain the qualified type name" />
       </eAnnotations>
-      <eStructuralFeatures name="ancestors" eType="#//StringToBMM_ModelType" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="ancestors" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of immediate inheritance parents."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//types/BMM_ModelType"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures name="package" eType="#//BMM_Package" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
@@ -1082,13 +1090,13 @@
           <details key="documentation" value="Package this class belongs to."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="properties" eType="#//StringToBMM_Property" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="properties" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Properties defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Property"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures name="sourceSchemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
@@ -1106,27 +1114,31 @@
           <details key="documentation" value="True if this definition overrides a class of the same name in an included schema."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="constants" eType="#//StringToBMM_Constant" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="constants" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Constants defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Constant"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="functions" eType="#//StringToBMM_Function" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="functions" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Functions defined in this class (subset of features)."/>
         </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Function"/>
+        </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="procedures" eType="#//StringToBMM_Procedure" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="procedures" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Procedures defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
@@ -1144,22 +1156,22 @@
           <details key="documentation" value=""/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="creators" eType="#//StringToBMM_Procedure" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="creators" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Subset of procedures that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="convertors" eType="#//StringToBMM_Procedure" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="convertors" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Subset of creators that create a new instance from a single argument of another type."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures name="feature" eType="#//BMM_Feature" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
@@ -1167,32 +1179,32 @@
           <details key="documentation" value="Features of this module."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="type" eType="#//BMM_ModelType" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//types/BMM_ModelType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generate a type object that represents the type for which this class is the definer"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="allAncestors" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
+      <eOperations name="allAncestors" eType="#//classes/BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all inheritance parent class names, recursively."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="allDescendants" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
+      <eOperations name="allDescendants" eType="#//classes/BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Compute all descendants by following immediate_descendants"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliers" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliers" eType="#//classes/BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of names of immediate supplier classes, including concrete generic parameters, concrete descendants of abstract statically defined types, and inherited suppliers. (Where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliersNonPrimitive" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliersNonPrimitive" eType="#//classes/BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Same as suppliers minus primitive types, as defined in input schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="suppliersClosure" eType="#//BMM_Class" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliersClosure" eType="#//classes/BMM_Class" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
@@ -1217,43 +1229,43 @@
           <details key="documentation" value="True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="features" eType="#//BMM_Feature" lowerBound="0" upperBound="-1">
+      <eOperations name="features" eType="#//class_features/BMM_Feature" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all feature definitions introduced in this class."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flatFeatures" eType="#//BMM_Feature" lowerBound="0" upperBound="-1">
+      <eOperations name="flatFeatures" eType="#//class_features/BMM_Feature" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Consolidated list of all feature definitions from this class and all inheritance ancestors."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flatProperties" eType="#//BMM_Property" lowerBound="0" upperBound="-1">
+      <eOperations name="flatProperties" eType="#//class_features/BMM_Property" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of all properties due to current and ancestor classes, keyed by property name."/>
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleClass" eSuperTypes="#//BMM_Class">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleClass" eSuperTypes="#//classes/BMM_Class">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a simple class, i.e. a class that has no generic parameters and is 1:1 with the type it generates."/>
       </eAnnotations>
-      <eOperations name="type" eType="#//BMM_SimpleType" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//types/BMM_SimpleType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generate a type object that represents the type of this class. Can only be an instance of BMM_SIMPLE_TYPE or a descendant."/>
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericClass" eSuperTypes="#//BMM_Class">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_GenericClass" eSuperTypes="#//classes/BMM_Class">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a generic class in an object model"/>
       </eAnnotations>
-      <eStructuralFeatures name="genericParameters" eType="#//StringToBMM_ParameterType" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+      <eStructuralFeatures name="genericParameters" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments/>
-          <eTypeArguments/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//types/BMM_ParameterType"/>
         </eGenericType>
       </eStructuralFeatures>
       <eOperations name="suppliers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="-1">
@@ -1261,7 +1273,7 @@
           <details key="documentation" value="Add suppliers from generic parameters."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="type" eType="#//BMM_GenericType" lowerBound="1" upperBound="1">
+      <eOperations name="type" eType="#//types/BMM_GenericType" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Generate a fully open BMM_GENERIC_TYPE instance that corresponds to this class definition"/>
         </eAnnotations>
@@ -1273,7 +1285,7 @@
         <eParameters name="aName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration" eSuperTypes="#//BMM_SimpleClass">
+      <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration" eSuperTypes="#//classes/BMM_SimpleClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Definition of an enumeration class, understood as a class whose value range is constrained extensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraint is applied. The common notion of a set of literals with no explicit defined values is represented as the degenerate subtype BMM_ENUMERATION_INTEGER, whose values are 0, 1, "/>
         </eAnnotations>
@@ -1287,17 +1299,17 @@
             <details key="documentation" value="Optional list of specific values. Must be 1:1 with item_names list"/>
           </eAnnotations>
         </eStructuralFeatures>
-        <eOperations name="type" eType="#//StringToString" lowerBound="0" upperBound="-1">
+        <eOperations name="type">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="Map of item_names to item_values (stringified)."/>
           </eAnnotations>
           <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments/>
-            <eTypeArguments/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eGenericType>
         </eOperations>
       </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationString" eSuperTypes="#//BMM_Enumeration">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationString" eSuperTypes="#//classes/BMM_Enumeration">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="String-based enumeration meta-type"/>
       </eAnnotations>
@@ -1307,7 +1319,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationInteger" eSuperTypes="#//BMM_Enumeration">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_EnumerationInteger" eSuperTypes="#//classes/BMM_Enumeration">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Integer-based enumeration meta-type."/>
       </eAnnotations>
@@ -1786,64 +1798,5 @@
         <details key="documentation" value=".*"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_SchemaDescriptor" instanceTypeName="Map$Entry">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="All schemas found and loaded from schema_directory . Keyedby schema_id ."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_SchemaDescriptor" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Package" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Package" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_ParameterType" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_ParameterType" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Constant" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Constant" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Function" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Function" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Procedure" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Procedure" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Type" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Type" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Class" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Class" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Module" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Module" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_ModelType" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_ModelType" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_Property" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_Property" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToString" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToObject" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringToBMM_IncludeSpec" instanceTypeName="Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//BMM_IncludeSpec" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
