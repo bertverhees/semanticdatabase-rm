@@ -452,7 +452,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true" eSuperTypes="#//model_structure/BMM_ModelElement">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_PackageContainer" abstract="true" eSuperTypes="#//model_structure/BMM_ModelElement" instanceClassName="BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bmm model component that contains packages and classes"/>
     </eAnnotations>
@@ -509,7 +509,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//model_access/BMM_ModelMetadata, #//model_structure/BMM_PackageContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//model_structure/BMM_PackageContainer #//model_access/BMM_ModelMetadata">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of the root of a bmm model (along with what is inherited from BMM_SCHEMA_CORE )."/>
     </eAnnotations>
@@ -608,7 +608,7 @@
       <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
       <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="#//class_features/BMM_Class" name="classDefinitionAtPath">
+    <eOperations lowerBound="1" upperBound="1" eType="#//classes/BMM_Class" name="classDefinitionAtPath">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition for the class that owns the terminal attribute in a_prop_path in flattened class corresponding to a_type_name"></details>
       </eAnnotations>
@@ -1358,7 +1358,7 @@
         <details key="documentation" value="Abstract parent of visibility representation. TODO: define schemes; probably need to support C++/Java scheme as well as better type-basedschemes."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntantiableFeature" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_InstantiableFeature" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type representing instantiable features, i.e. features that are created as value objects"/>
       </eAnnotations>
