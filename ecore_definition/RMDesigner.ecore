@@ -5,7 +5,7 @@
                 xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
                 name="bmmdesigner"
                 xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore file://Ecore.xsd"
-                nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
+                nsURI="http://www.rosa.nl/2021/bmmdesigner" nsPrefix="ecore">
   <eSubpackages name="overview">
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Definitions" eSuperTypes="#//BasicDefintions">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -364,20 +364,14 @@
           <details key="documentation" value="abstract=true" />
         </eAnnotations>
       </eOperations>
-      <eOperations name="readToValidate" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"  lowerBound="1" upperBound="1">
+      <eOperations name="readToValidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"  lowerBound="1" upperBound="1" >
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True when validation may be commenced: Post_state: state = State_includes_processed" />
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="abstract=true" />
-        </eAnnotations>
       </eOperations>
-      <eOperations name="schemaId" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"  lowerBound="1" upperBound="1">
+      <eOperations name="schemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"  lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifier of this schema, used for statinginclusions and identifying files. Formed as: {BMM_Definitions}.create_schema_id (rm_publisher,schema_name,rm_release) E.g. 'openehr_rm_ehr_1.0.4'" />
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="abstract=true" />
         </eAnnotations>
       </eOperations>
     </eClassifiers>
@@ -452,7 +446,7 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eOperations name="isRootScope" eType="#//ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+    <eOperations name="isRootScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if this model element is the root of a model structurehierarchy."></details>
       </eAnnotations>
@@ -488,7 +482,7 @@
         <details key="documentation" value="Recursively execute action, which is a procedure taking a BMM_PACKAGE argument, on all members of packages"></details>
       </eAnnotations>
     </eOperations>
-    <eOperations name="hasPackagePath" eType="#//EBoolean" lowerBound="1" upperBound="1">
+    <eOperations name="hasPackagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
       <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if there is a package at the path a_path; paths are delimited with delimiter {BMM_DEFINITIONS}_Package_name_delimiter_."></details>
@@ -515,7 +509,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//model_structure/BMM_ModelMetadata, #//model_structure/BMM_PackageContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="BMM_Model" eSuperTypes="#//model_access/BMM_ModelMetadata, #//model_structure/BMM_PackageContainer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Definition of the root of a bmm model (along with what is inherited from BMM_SCHEMA_CORE )."/>
     </eAnnotations>
@@ -687,9 +681,7 @@
   <eSubpackages name="types">
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Type" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation"
-                 value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"
-        />
+        <details key="documentation" value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"/>
       </eAnnotations>
       <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
