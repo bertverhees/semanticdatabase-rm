@@ -1338,10 +1338,30 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="class_features">
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_FormalElement" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_FormalElement" eSuperTypes="#//BMM_ModelElement" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="formal element having a type and a type-based signature."/>
       </eAnnotations>
+      <eStructuralFeatures name="type" eType="#//BMM_Type" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Declared or inferred static type of the entity."></details>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures name="isNullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes."></details>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="signature" eType="#//BMM_Signature" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Formal signature of this element, in the form: name [arg1_name: T_arg1, …][:T_value]. Specific implementations in descendants."></details>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isBoolean"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if type is notionally Boolean (i.e. a BMM_SIMPLE_TYPE with type_name() = 'Boolean'). Post_result: Result = type().equal( {BMM_MODEL}.boolean_type_definition())"/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Feature" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
