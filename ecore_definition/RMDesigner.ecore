@@ -1363,10 +1363,33 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Feature" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Feature" abstract="true" eSuperTypes="#//BMM_FormalElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A module-scoped formal element"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isSynthesisedGeneric" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter."
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="featureExtensions">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Extensions to feature-level meta-types."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+          <eTypeArguments eClassifier="#//BMM_FeatureExtension"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="group" eType="//BMM_FeatureGroup" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Group containing this feature."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="scope" eType="//BMM_Class" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Model element within which an element is declared."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_FeatureGroup">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
