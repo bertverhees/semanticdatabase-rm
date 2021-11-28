@@ -1428,19 +1428,34 @@
         <details key="documentation" value="Abstract parent of visibility representation. TODO: define schemes; probably need to support C++/Java scheme as well as better type-basedschemes."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_InstantiableFeature" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_InstantiableFeature" abstract="true" eSuperTypes="#//BMM_Feature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type representing instantiable features, i.e. features that are created as value objects"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Constant">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Constant" eSuperTypes="#//BMM_InstantiableFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="An immutable, static value-returning element scoped to a class. The value is the result of the evaluationof the generator, which may be as simple as a literal value, or may be any expression, including afunction call."
         />
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="invariant"
+                 value="Inv_not_nullable: is_nullable = False"
+        />
+      </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="generator" eType="#//EL_InstanceRef" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Generator expression for the constant value. In the degenerate case, this is just a literal value, but may also be any other expression valid in the context."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="scope" eType="#//BMM_Class" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Model element within which an element is declared."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property"  abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."
