@@ -6,6 +6,50 @@
                 name="bmmdesigner"
                 xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore file://Ecore.xsd"
                 nsURI="http://www.rosa.nl/2021/bmmdesigner" nsPrefix="ecore">
+  <eSubpackages name="foundation">
+    <eSubpackages name="primitive">
+
+    </eSubpackages>
+    <eSubpackages name="structure">
+
+    </eSubpackages>
+    <eSubpackages name="interval">
+      <eClassifiers xsi:type="ecore:EClass" name="MultiplicityInterval" eSuperTypes="#//foundation/interval/ProperInterval">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="An Interval of Integer, used to represent multiplicity, cardinality and optionality in models."/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ProperInterval" eSuperTypes="#//foundation/interval/Interval">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Type representing a 'proper' Interval, i.e. any two-sided or one-sided interval."/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="PointInterval" eSuperTypes="#//foundation/interval/Interval">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Type representing an Interval that happens to be a point value. Provides an efficient representation that is substitutable for Interval[T] where needed."/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interval">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Interval abstraction, featuring upper and lower limits that may be open or closed, included or not included. Interval of ordered items."/>
+        </eAnnotations>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Cardinality">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Express constraints on the cardinality of container objects which are the values of multiply-valued attributes, including uniqueness and ordering, providing the means to state that a container acts like a logical list, set or bag."/>
+        </eAnnotations>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="time">
+
+    </eSubpackages>
+    <eSubpackages name="terminology">
+
+    </eSubpackages>
+    <eSubpackages name="functional">
+
+    </eSubpackages>
+  </eSubpackages>
   <eSubpackages name="overview">
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Definitions" eSuperTypes="#//BasicDefintions">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1455,12 +1499,37 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property"  abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property"  abstract="true" eSuperTypes="#//BMM_InstantiableFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."
         />
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImRuntime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this property is marked with info model im_runtime property"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImInfrastructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this property was marked with info model im_infrastructure flag."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isComposition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="existence"  eType="#//foundation/interval/MultiplicityInterval" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Interval form of 0..1, 1..1 etc, derived from is_nullable."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Name of this property to display in UI."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryProperty">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
