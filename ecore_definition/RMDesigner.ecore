@@ -1499,7 +1499,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property"  abstract="true" eSuperTypes="#//BMM_InstantiableFeature">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Property"  abstract="true" eSuperTypes="#//class_features/BMM_InstantiableFeature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."
