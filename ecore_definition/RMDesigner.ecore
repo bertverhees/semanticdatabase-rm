@@ -1531,20 +1531,50 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryProperty">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryProperty" eSuperTypes="#//class_features/BMM_Property">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type of for properties of unitary type"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="type" eType="#//class_features/BMM_UnitaryProperty" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Declared or inferred static type of the entity."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerProperty">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerProperty" eSuperTypes="#//class_features/BMM_Property">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type of for properties of linear container type, such as List[T] etc."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="cardinality" eType="#//foundation/interval/MultiplicityInterval" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Cardinality of this container."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="type" eType="#//class_features/BMM_ContainerProperty" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Declared or inferred static type of the entity."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Name of this property in form name: ContainerTypeName[]."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerProperty">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerProperty" eSuperTypes="#//class_features/BMM_ContainerProperty">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type of for properties of linear container type, such as Hash[Index_type, T] etc."/>
       </eAnnotations>
+    <eStructuralFeatures lowerBound="1" upperBound="1" name="type" eType="#//class_features/BMM_IndexedContainerProperty" xsi:type="ecore:EReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Declared or inferred static type of the entity."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Name of this property in form name: ContainerTypeName[IndexTypeName, ...]"/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Routine" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
