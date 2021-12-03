@@ -1576,16 +1576,68 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Routine" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Routine" abstract="true" eSuperTypes="#//class_features/BMM_Feature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A feature defining a routine, scoped to a class."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="parameters">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Formal parameters of the routine."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+          <eTypeArguments eClassifier="#//BMM_Parameter"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="preConditions">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value=""/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+          <eTypeArguments eClassifier="#//BMM_Assertion"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="postConditions">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value=""/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+          <eTypeArguments eClassifier="#//BMM_Assertion"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="body" eType="#//class_features/BMM_RoutineBody" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Body of a routine, i.e. executable program."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="arity"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInteger" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return number of arguments of this routine."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Function">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Function" eSuperTypes="#//class_features/BMM_Routine">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="A formal element with signature of the form: name ({arg:TArg}*):TResult. A function is a computed(rather than data) element, generally assumed to be non-state-changing."/>
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="invariants"
+                 value="Operator_validity: operator_def /= Void implies arity in |1..2|"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="invariants"
+                 value="Inv_result_type: type = Result.type"/>
+      </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="operatorDefinition" eType="#//class_features/BMM_Operator" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional details enabling a function to be represented as an operator in a syntactic representation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="result" eType="#//class_features/BMM_Result" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Automatically created Result variable, usable in body and post-condition."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Operator">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
