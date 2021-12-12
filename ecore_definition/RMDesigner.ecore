@@ -1683,6 +1683,16 @@
                  value="A formal element with signature of the form: name ({arg:TArg}*):TStatus, where TStatus is the built-in type  .. A procedure is a computed (rather than data) element, generally assumed tobe state-changing, and is usually called in the form name ({arg:TArg}*)"
         />
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="#//BMM_StatusType" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Declared or inferred static type of the entity."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="signature"  eType="BMM_ProcedureSignature" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Formal signature of this element, in the form: name [arg1_name: T_arg1, ...][:T_value]. Specific implementations in descendants."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_Variable" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
