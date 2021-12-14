@@ -1709,15 +1709,25 @@
         <details key="documentation" value="A routine local variable"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Parameter" eSuperTypes="#//BMM_Variable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A routine parameter variable"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="direction" eType="#//BMM_ParameterDirection" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional read/write direction of the parameter. If none-supplied, the parameter is treated as in, i.e. readable."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Result">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_Result" eSuperTypes="#//BMM_Variable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Automatically declared variable representing result instance of a Function call."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Name of this model element."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="BMM_ParameterDirection">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1743,76 +1753,87 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract ancestor of routine body meta-types"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="locals">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Local variables of the routine, if there is a body defined."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+          <eTypeArguments eClassifier="#//BMM_Local"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_RoutineExternal">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="External routine placeholder, containing sufficient meta-data to enable a routine in an external library to be called"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="metaData">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="External call general meta-data, including target routine name, type mapping etc."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="argumentMapping">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional argument-mapping meta-data."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_LiteralValue" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Meta-type for literal instance values declared in a model. Instance values may be inline values ofprimitive types in the usual fashion or complex objects in syntax form, e.g. JSON."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for literals whose concrete type is a linear container type, i.e. array, list or set."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for literals whose concrete type is an indexed container, i.e. Hash table, Map etc."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryValue" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for literals whose concrete type is a unitary type in the bmm sense."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_PrimitiveValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for literals whose concrete type is a primitive type."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_StringValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the BMM_TYPE representing String and value."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_IntegerValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the BMM_TYPE representing Integer and value  Integer."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_BooleanValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the BMM_TYPE representing Boolean and value  Boolean."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_IntervalValue">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Meta-type for literal intervals of type Interval[Ordered]."/>
-    </eAnnotations>
-  </eClassifiers>
+  <eSubpackages name="literal_values">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_LiteralValue" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Meta-type for literal instance values declared in a model. Instance values may be inline values ofprimitive types in the usual fashion or complex objects in syntax form, e.g. JSON."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for literals whose concrete type is a linear container type, i.e. array, list or set."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IndexedContainerValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for literals whose concrete type is an indexed container, i.e. Hash table, Map etc."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_UnitaryValue" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for literals whose concrete type is a unitary type in the bmm sense."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_PrimitiveValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for literals whose concrete type is a primitive type."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_StringValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the BMM_TYPE representing String and value."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntegerValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the BMM_TYPE representing Integer and value  Integer."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_BooleanValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the BMM_TYPE representing Boolean and value  Boolean."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntervalValue">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Meta-type for literal intervals of type Interval[Ordered]."/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
   <eClassifiers xsi:type="ecore:EClass" name="BMM_ElExpression" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
