@@ -7,6 +7,9 @@
                 xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore file://Ecore.xsd"
                 nsURI="http://www.rosa.nl/2021/bmmdesigner" nsPrefix="ecore">
   <eSubpackages name="foundation">
+    <eClassifiers xsi:type="ecore:EClass" name="Any" abstract="true">
+
+    </eClassifiers>
     <eSubpackages name="primitive">
 
     </eSubpackages>
@@ -1792,6 +1795,26 @@
         <details key="documentation"
                  value="Meta-type for literal instance values declared in a model. Instance values may be inline values ofprimitive types in the usual fashion or complex objects in syntax form, e.g. JSON."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="valueLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A serial representation of the value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="value" eType="#//Any" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A native representation of the value, possibly derived by deserialising value_literal."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Optional specification of formalism of the value_literal attribute for complex values. Value may be any of json | json5 | yawl | xml | odin | rdf or another value agreed by the user community. If not set, json is assumed."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="type" eType="Generic" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Concrete type of this literal."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_ContainerValue">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
