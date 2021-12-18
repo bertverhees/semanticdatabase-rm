@@ -1912,210 +1912,228 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_StringValue">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_StringValue" eSuperTypes="#//literal_values/BMM_PrimitiveValue">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the BMM_TYPE representing String and value."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Native String value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntegerValue">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntegerValue" eSuperTypes="#//literal_values/BMM_PrimitiveValue">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the BMM_TYPE representing Integer and value  Integer."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Native Integer value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_BooleanValue">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_BooleanValue" eSuperTypes="#//literal_values/BMM_PrimitiveValue">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the BMM_TYPE representing Boolean and value  Boolean."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Native Boolean value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntervalValue">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_IntervalValue" eSuperTypes="#//literal_values/BMM_LiteralValue">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for literal intervals of type Interval[Ordered]."/>
       </eAnnotations>
     </eClassifiers>
   </eSubpackages>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElExpression" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Abstract parent for second-order or constrained forms of first-order expression meta-types."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBooleanExpression">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Boolean-returning expression"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Abstract parent of operator types"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElUnaryOperator">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Unary operator expression node"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBinaryOperator">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Binary operator expression node"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSimple" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Simple expression type that is either a terminal or an operator expression ultimately of terminals"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTerminal" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Expression terminal entity, representing one of: a reference to a literal value of any type; a reference to an instance of any instantiable type, i.e. variable, property or constant;  a function call."
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElPredicate" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Parent type of predicate of any object reference"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDefined">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A predicate taking one external variable reference argument, that returns true if the reference isresolvable, i.e. the external value is obtainable"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAttached">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A predicate on any object reference (including function call) that returns True if the reference isattached, i.e. non-Void"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstanceRef" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="A reference to a formal element (BMM_FORMAL_ELEMENT) that at runtime represents an instance or else atype (BMM_TYPE). This may be via computation (e.g. function call) or static representation"
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSelfRef">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Special meta-type used to represent a reference that may appear in any routine, pre- or post-condition,or invariant, and resolves to the current object within which feature references are scoped; correspondsto 'self', 'this' or 'Current' in various programming languages"
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTypeRef">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Meta-type for reference to a non-abstract type as an object. Assumed to be accessible at run-time.Typically represented syntactically as TypeName or {TypeName}. May be used as a value, or as the qualifier for a function or constant access."
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElLiteral">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Literal value of any type known in the model, including primitive types. Defined via a BMM_LITERAL_VALUE"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElScopedRef" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A reference that is scoped by a containing entity and requires a context qualifier if it is not the currentlyscoping entity"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableRef" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Reference to a directly instantiable feature, i.e. a variable or instantiable class feature"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElVariableRef">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Reference to a variable"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableFeatureRef">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Reference to an instantiable feature, i.e. constant or property."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgentCall" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A call made to a 'closed' agent, i.e. one with no remaining open arguments"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionCall">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function inLambda calculus."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgent" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="A delayed routine call, whose arguments may be open, partially closed or closed. Instances may includeclosed delayed calls like calculate_age (dob='1987-09-13', today='2019-06-03') but also partiallyopen calls such as format_structure (struct=?, style=3) , where struct is an open argument.  BMM_SIGNATURE"
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionAgent">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An agent whose signature is of a function, i.e. has a result type."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElProcedureAgent">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An agent whose signature is of a procedure, i.e. has no result type."/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTuple">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Defines an array of optionally named items each of any type. "/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTupleItem">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A single tuple item, with an optional name"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionTable" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Complex expression structure representing a logical decision table. Generic on the meta-type of the result attribute of the branches, to allow specialised forms of if/else and case structures to be created"
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionBranche" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value=""/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConditionChain">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Compound expression consisting of a chain of condition-gated expressions, and an ungated else member that as a whole, represents an if/then/elseif/else chains. Evaluated by iterating through items and for each one, evaluating its condition, which if True, causesthe evaluation result of the chain to be that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ELConditionExpression">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Conditional structure used in condition chain expressions. Evaluated by evaluating its condition,which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of expression"
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation"
-               value="Compound expression consisting of a list of value-range / expression pairs, and an else member thatas a whole, represents a case statement flavour of decision table. Evaluated by iterating through items and for each one, comparing input to the item value_range. If the input is in the range, the evaluation result of the table is that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
-      />
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseStatement">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value=""/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCase">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value=""/>
-    </eAnnotations>
-  </eClassifiers>
+  <eSubpackages name="expressions">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElExpression" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Abstract parent for second-order or constrained forms of first-order expression meta-types."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBooleanExpression">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Boolean-returning expression"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Abstract parent of operator types"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElUnaryOperator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unary operator expression node"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBinaryOperator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Binary operator expression node"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSimple" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Simple expression type that is either a terminal or an operator expression ultimately of terminals"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTerminal" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Expression terminal entity, representing one of: a reference to a literal value of any type; a reference to an instance of any instantiable type, i.e. variable, property or constant;  a function call."
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElPredicate" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Parent type of predicate of any object reference"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDefined">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A predicate taking one external variable reference argument, that returns true if the reference isresolvable, i.e. the external value is obtainable"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAttached">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A predicate on any object reference (including function call) that returns True if the reference isattached, i.e. non-Void"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstanceRef" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="A reference to a formal element (BMM_FORMAL_ELEMENT) that at runtime represents an instance or else atype (BMM_TYPE). This may be via computation (e.g. function call) or static representation"
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElSelfRef">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Special meta-type used to represent a reference that may appear in any routine, pre- or post-condition,or invariant, and resolves to the current object within which feature references are scoped; correspondsto 'self', 'this' or 'Current' in various programming languages"
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTypeRef">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Meta-type for reference to a non-abstract type as an object. Assumed to be accessible at run-time.Typically represented syntactically as TypeName or {TypeName}. May be used as a value, or as the qualifier for a function or constant access."
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElLiteral">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Literal value of any type known in the model, including primitive types. Defined via a BMM_LITERAL_VALUE"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElScopedRef" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A reference that is scoped by a containing entity and requires a context qualifier if it is not the currentlyscoping entity"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableRef" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to a directly instantiable feature, i.e. a variable or instantiable class feature"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElVariableRef">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to a variable"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableFeatureRef">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to an instantiable feature, i.e. constant or property."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgentCall" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A call made to a 'closed' agent, i.e. one with no remaining open arguments"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionCall">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function inLambda calculus."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgent" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="A delayed routine call, whose arguments may be open, partially closed or closed. Instances may includeclosed delayed calls like calculate_age (dob='1987-09-13', today='2019-06-03') but also partiallyopen calls such as format_structure (struct=?, style=3) , where struct is an open argument.  BMM_SIGNATURE"
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionAgent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An agent whose signature is of a function, i.e. has a result type."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElProcedureAgent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An agent whose signature is of a procedure, i.e. has no result type."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTuple">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines an array of optionally named items each of any type. "/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTupleItem">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A single tuple item, with an optional name"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionTable" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Complex expression structure representing a logical decision table. Generic on the meta-type of the result attribute of the branches, to allow specialised forms of if/else and case structures to be created"
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionBranche" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConditionChain">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Compound expression consisting of a chain of condition-gated expressions, and an ungated else member that as a whole, represents an if/then/elseif/else chains. Evaluated by iterating through items and for each one, evaluating its condition, which if True, causesthe evaluation result of the chain to be that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ELConditionExpression">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Conditional structure used in condition chain expressions. Evaluated by evaluating its condition,which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of expression"
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation"
+                 value="Compound expression consisting of a list of value-range / expression pairs, and an else member thatas a whole, represents a case statement flavour of decision table. Evaluated by iterating through items and for each one, comparing input to the item value_range. If the input is in the range, the evaluation result of the table is that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
+        />
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseStatement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCase">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
+
   <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract parent of statement types representing a locally defined routine body"/>
