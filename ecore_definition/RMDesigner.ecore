@@ -1953,6 +1953,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract parent of all typed expression meta-types"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="evalType" eType="#//BMM_Type" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Meta-type of expression entity used in type-checking and evaluation. Effected in descendants. (abstract=true)"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="isBoolean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if eval_type is notionally Boolean (i.e. a BMM_SIMPLE_TYPE with type_name() = Boolean). Post_result: Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
