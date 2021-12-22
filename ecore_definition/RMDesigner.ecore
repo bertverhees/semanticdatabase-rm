@@ -1964,14 +1964,20 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConstrained" abstract="true" eSuperTypes="#//expressions/BMM_ElExpression">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract parent for second-order or constrained forms of first-order expression meta-types."/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="baseExpression" eType="#//expressions/BMM_ElExpression" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The base expression of this constrained form."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBooleanExpression">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElBooleanExpression" eSuperTypes="#//expressions/BMM_ElConstrained">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Boolean-returning expression"/>
+        <details key="invariants" value="Inv_boolean_expression: base_expression.is_boolean()"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true">
