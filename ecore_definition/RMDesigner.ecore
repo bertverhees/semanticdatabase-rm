@@ -73,7 +73,30 @@
       </eOperations>
     </eClassifiers>
     <eSubpackages name="primitive">
-
+      <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//foundation/Any">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Ordered" eSuperTypes="#//foundation/Any" abstract="true">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Character" eSuperTypes="#//foundation/primitive/Ordered">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Octet" eSuperTypes="#//foundation/primitive/Ordered">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//foundation/primitive/Ordered">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Uri" eSuperTypes="#//foundation/primitive/String">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Numeric" eSuperTypes="#//foundation/Any" abstract="true">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="OrderedNumeric" eSuperTypes="#//foundation/Ordered, Numeric" abstract="true">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//foundation/primitive/OrderedNumeric">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Integer64" eSuperTypes="#//foundation/primitive/OrderedNumeric">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//foundation/primitive/OrderedNumeric">
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Double" eSuperTypes="#//foundation/primitive/OrderedNumeric">
+      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="structure">
 
