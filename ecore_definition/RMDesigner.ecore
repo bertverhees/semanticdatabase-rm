@@ -87,7 +87,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Numeric" eSuperTypes="#//foundation/Any" abstract="true">
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OrderedNumeric" eSuperTypes="#//foundation/Ordered, Numeric" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="OrderedNumeric" eSuperTypes="#//foundation/primitive/Ordered, #//foundation/primitive/Numeric" abstract="true">
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//foundation/primitive/OrderedNumeric">
       </eClassifiers>
