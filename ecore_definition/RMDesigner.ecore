@@ -11,7 +11,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract ancestor class for all other classes. Usually maps to a type like Any or Object in an object-oriented technology. Defined here to provide value and reference equality semantics."/>
       </eAnnotations>
-      <eOperations name="isEqual" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isEqual" lowerBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Value equality: return True if this and other are attached to objects considered to be equal in value. (abstract)"/>
@@ -23,7 +23,7 @@
           </eAnnotations>
         </eParameters>
       </eOperations>
-      <eOperations name="equal" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="equal" lowerBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="alias = or == Reference equality for reference types, value equality for value types."/>
@@ -40,14 +40,14 @@
           <details key="documentation"
                    value="Reference equality for reference types, value equality for value types."/>
         </eAnnotations>
-        <eParameters name="aType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="aType" lowerBound="1" eType="#//foundation/primitive/String">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation"
                      value="Create new instance of a type."/>
           </eAnnotations>
         </eParameters>
       </eOperations>
-      <eOperations name="typeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeOf" lowerBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Reference equality for reference types, value equality for value types."/>
@@ -59,7 +59,7 @@
           </eAnnotations>
         </eParameters>
       </eOperations>
-      <eOperations name="notEqual" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="notEqual" lowerBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="alias != True if current object not equal to other. Returns not equal()."/>
@@ -130,119 +130,119 @@
           <details key="documentation" value="Built-in type definition corresponding to the top `Any' type."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="createSchemaId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="createSchemaId" lowerBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Create schema id, formed from: a_model_publisher '-' a_schema_name '-' a_model_release e.g. openehr_rm_1.0.3 , openehr_test_1.0.1 , iso_13606_1_2008_2.1.2 ."/>
         </eAnnotations>
-        <eParameters name="aModelPublisher" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eParameters name="aSchemaName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eParameters name="aModelRelease" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="aModelPublisher" lowerBound="1" eType="#//foundation/primitive/String"/>
+        <eParameters name="aSchemaName" lowerBound="1" eType="#//foundation/primitive/String"/>
+        <eParameters name="aModelRelease" lowerBound="1" eType="#//foundation/primitive/String"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bmmInternalVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bmmInternalVersion" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Current internal version of bmm meta-model, used todetermine if a given schema can be processed by a givenimplementation of the model."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemanameDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="::">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="schemanameDelimiter" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="::">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Delimiter used to separate schema id from package path in afully qualified path."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagenameDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=".">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="packagenameDelimiter" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral=".">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Delimiter used to separate package names in a package path."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=":">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeDelimiter" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral=":">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Appears between a name and a type in a declaration or typesignature."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericLeftDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="&lt;">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="genericLeftDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="&lt;">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Left delimiter for generic class and generic type names, as usedin List&lt;T> ."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericRightDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=">">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="genericRightDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=">">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Right delimiter for generic class and generic type names, asused in List&lt;T> ."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericSeparator" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=",">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="genericSeparator" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=",">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Separator used in Generic types."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="genericConstraintDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=":">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="genericConstraintDelimiter" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=":">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Delimiter between formal type parameter and constraint type,as used in Sortable&lt;T: Ordered> ."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tupleLeftDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="[">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tupleLeftDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="[">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Left delimiter of a Tuple type and also instance. Example: [Integer, String] - a tuple type; [3, &quot;Quixote&quot;] - a tuple."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tupleRightDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="]">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tupleRightDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="]">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Right delimiter of a Tuple type and also instance"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tupleSeparator" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=",">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tupleSeparator" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral=",">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Separator used in Tuple types and instances."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraintLeftDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="«">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraintLeftDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="«">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Left delimiter used in serial form of instance constrainedenumeration."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraintRightDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="»">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraintRightDelim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar" defaultValueLiteral="»">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Right delimiter used in serial form of instance constrainedenumeration."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadatabmmVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="bmmVersion">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadatabmmVersion" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="bmmVersion">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'bmm_version' in .bmmschema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="schemaName">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataSchemaName" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="schemaName">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'schema_name' in .bmmschema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataRMPublisher" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rmPublisher">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRMPublisher" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="rmPublisher">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'rm_publisher' in .bmmschema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataRMRelease" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="rmRelease">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRMRelease" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="rmRelease">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'rm_release' in .bmmschema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaRevision" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataSchemaRevision" lowerBound="1" eType="#//foundation/primitive/String"
                            defaultValueLiteral="schemaRevision">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'schema_revision' in .bmmschema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaLifecycleState" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataSchemaLifecycleState" lowerBound="1" eType="#//foundation/primitive/String"
                            defaultValueLiteral="schemaLifecycleState">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'schema_lifecycle_state' in.bmm schema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaDescription" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataSchemaDescription" lowerBound="1" eType="#//foundation/primitive/String"
                            defaultValueLiteral="schemaDescription">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Attribute name of logical attribute 'schema_description' in.bmm schema file."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="metadataSchemaPath" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="schemaPath">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataSchemaPath" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="schemaPath">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Path of schema file."/>
         </eAnnotations>
@@ -254,7 +254,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Access to bmm models that have been loaded and validated from one or more schema sets."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaDirectories" ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="schemaDirectories" ordered="false" unique="false" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="List of directories where all the schemas loaded here arefound."/>
         </eAnnotations>
@@ -264,7 +264,7 @@
           <details key="documentation" value="All schemas found and loaded from schema_directory . Keyedby schema_id ."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//model_access/BMM_Schema"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -273,7 +273,7 @@
           <details key="documentation" value="Top-level (root) models in use, keyed by model_id ."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//model_structure/BMM_Model"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -292,7 +292,7 @@
           <details key="documentation" value="Computable form of model"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="schemaId" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Schema id, formed by {BMM_DEFINITIONS}.create_schema_id(meta_data.item({BMM_DEFINITIONS}.Metadata_model_publisher),meta_data.item({BMM_DEFINITIONS}.Metadata_schema_name),meta_data.item({BMM_DEFINITIONS}.Metadata_model_release) e.g. openehr_rm_1.0.3 , openehr_test_1.0.1 , iso_13606_1_2008_2.1.2 ."
@@ -304,21 +304,21 @@
           <details key="documentation" value="Table of {key, value} of schema meta-data, keys are stringvalues defined by {BMM_DEFINITIONS}.Metadata_* constants"/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1" name="includes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures xsi:type="ecore:EReference" lowerBound="0" upperBound="-1" name="includes" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifiers of schemas included by this schema"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isTopLevel" lowerBound="1">
+      <eOperations eType="#//foundation/primitive/Boolean" name="isTopLevel" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this is a top-level schema, i.e. is the root schema of a'model'. True if bmm_schema /= Void and then  /= Void"/>
         </eAnnotations>
       </eOperations>
-      <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isbmmCompatible" lowerBound="1">
+      <eOperations eType="#//foundation/primitive/Boolean" name="isbmmCompatible" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if the bmm version found in the schema (or assumed, ifnone) is compatible with that in this software."/>
         </eAnnotations>
@@ -349,12 +349,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Core properties of BMM_MODEL , may be used in a serial representation as well, such as P_BMM_SCHEMA."/>
       </eAnnotations>
-      <eStructuralFeatures name="rmPublisher" lowerBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures name="rmPublisher" lowerBound="1" xsi:type="ecore:EReference" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Publisher of model expressed in the schema"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="rmRelease" lowerBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures name="rmRelease" lowerBound="1" xsi:type="ecore:EReference" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Release of model expressed in the schema as a 3-part numeric,e.g. 3.1.0"/>
         </eAnnotations>
@@ -364,7 +364,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract parent of any persistable form of a bmm model, e.g. P_BMM_SCHEMA"/>
       </eAnnotations>
-      <eStructuralFeatures name="bmmVersion" xsi:type="ecore:EAttribute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures name="bmmVersion" xsi:type="ecore:EReference" lowerBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Version of bmm model, enabling schema evolutionreasoning. Persisted attribute"/>
         </eAnnotations>
@@ -376,7 +376,7 @@
           />
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//model_access/BMM_IncludeSpec"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -390,38 +390,38 @@
           <details key="documentation" value="Current processing state"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="modelName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures name="modelName" xsi:type="ecore:EReference" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this model, if this schema is a model rootpoint. Not set for sub-schemas that are notconsidered models on their own."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
+      <eStructuralFeatures name="schemaName" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation"
                    value="Name of model expressed in schema; a 'schema'usually contains all of the packages of one 'model'of a publisher. A publisher with more than onemodel can have multiple schemas."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaRevision" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
+      <eStructuralFeatures name="schemaRevision" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Revision of schema"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaLifecycleState" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
+      <eStructuralFeatures name="schemaLifecycleState" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Schema development lifecycle state"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaAuthor" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
+      <eStructuralFeatures name="schemaAuthor" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Primary author of schema"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaDescription" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1">
+      <eStructuralFeatures name="schemaDescription" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Description of schema"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="schemaContributors" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="-1">
+      <eStructuralFeatures name="schemaContributors" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Contributing authors of schema"/>
         </eAnnotations>
@@ -473,12 +473,12 @@
           <details key="documentation" value="abstract=true" />
         </eAnnotations>
       </eOperations>
-      <eOperations name="readToValidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"  lowerBound="1" upperBound="1" >
+      <eOperations name="readToValidate" eType="#//foundation/primitive/Boolean"  lowerBound="1" upperBound="1" >
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True when validation may be commenced: Post_state: state = State_includes_processed" />
         </eAnnotations>
       </eOperations>
-      <eOperations name="schemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"  lowerBound="1" upperBound="1">
+      <eOperations name="schemaId" eType="#//foundation/primitive/String"  lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifier of this schema, used for statinginclusions and identifying files. Formed as: {BMM_Definitions}.create_schema_id (rm_publisher,schema_name,rm_release) E.g. 'openehr_rm_ehr_1.0.4'" />
         </eAnnotations>
@@ -513,7 +513,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Schema inclusion structure"/>
       </eAnnotations>
-      <eStructuralFeatures name="id"  xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="id"  xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Full identifier of the included schema, e.g. 'openehr_primitive_types_1.0.2' ."></details>
         </eAnnotations>
@@ -527,7 +527,7 @@
                value="Abstract meta-type of bmm declared model elements. A declaration is a an element of a model within acontext, which defines the scope of the element. Thus, a class definition and its property and routinedefinitions are model elements, but Types are not, since they are derived from model elements"
       />
     </eAnnotations>
-    <eStructuralFeatures name="name"   xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+    <eStructuralFeatures name="name"   xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details value="Name of this model element." key="documentation"></details>
       </eAnnotations>
@@ -537,7 +537,7 @@
         <details key="documentation" value="Optional documentation of this element, as a keyed list. It is strongly recommended to use the following key /typecombinations for the relevant purposes: 'purpose': String, 'keywords': List[String], 'use': String, 'misuse': String, 'references': String, Other keys and value types may be freely added."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericType>
     </eStructuralFeatures>
@@ -551,11 +551,11 @@
         <details key="documentation" value="Optional meta-data of this element, as a keyed list. May be usedto extend the meta-model."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eOperations name="isRootScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+    <eOperations name="isRootScope" eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if this model element is the root of a model structurehierarchy."></details>
       </eAnnotations>
@@ -570,7 +570,7 @@
         <details key="documentation" value="Child packages."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         <eTypeArguments eClassifier="#//model_structure/BMM_Package"/>
       </eGenericType>
     </eStructuralFeatures>
@@ -580,7 +580,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eOperations name="packageAtPath" eType="#//model_structure/BMM_Package" lowerBound="0" upperBound="1">
-      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
+      <eParameters name="aPath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1" />
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Package at the path a_path."></details>
       </eAnnotations>
@@ -591,8 +591,8 @@
         <details key="documentation" value="Recursively execute action, which is a procedure taking a BMM_PACKAGE argument, on all members of packages"></details>
       </eAnnotations>
     </eOperations>
-    <eOperations name="hasPackagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
-      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1" />
+    <eOperations name="hasPackagePath" eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
+      <eParameters name="aPath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1" />
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if there is a package at the path a_path; paths are delimited with delimiter {BMM_DEFINITIONS}_Package_name_delimiter_."></details>
       </eAnnotations>
@@ -602,7 +602,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstraction of a package as a tree structure whose nodes can contain other packages and classes. The name may be qualified if it is a top-level package."/>
     </eAnnotations>
-    <eStructuralFeatures name="members" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1"  eType="#//model_structure/BMM_Module">
+    <eStructuralFeatures name="members" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1"  eType="#//model_structure/BMM_Module">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Member modules in this package."></details>
       </eAnnotations>
@@ -612,7 +612,7 @@
         <details key="documentation" value="Obtain the set of top-level classes in this package, either from this package itself or by recursing into the structure until classes are obtained from child packages. Recurse into each child only far enough to find the first level of classes."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations name="path" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eOperations name="path" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Full path of this package back to root package."></details>
       </eAnnotations>
@@ -627,7 +627,7 @@
         <details key="documentation" value="All classes in this model, keyed by type name."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         <eTypeArguments eClassifier="#//classes/BMM_Class"/>
       </eGenericType>
     </eStructuralFeatures>
@@ -641,11 +641,11 @@
         <details key="documentation" value="All classes in this model, keyed by type name."></details>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         <eTypeArguments eClassifier="#//model_structure/BMM_Module"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="modelId">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/String" name="modelId">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Identifier of this model, lower-case, formed from: [rm_publisher]_[model_name]_[rm_release] E.g. 'openehr_ehr_1.0.4'."></details>
       </eAnnotations>
@@ -654,43 +654,43 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition corresponding to a_type_name (which may contain a generic part)."></details>
       </eAnnotations>
-      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
     <eOperations lowerBound="0" upperBound="1" eType="#//classes/BMM_Class" name="typeDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition corresponding to a_type_name. If it contains a generic part, this will be removed if it is a fully open generic name, otherwise it will remain intact, i.e. if it is an effective generic name that identifies a BMM_GENERIC_CLASS_EFFECTIVE."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasTypeDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="hasTypeDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if a_type_name is already concretely known in the system, including if it is generic, which may be open, partially open or closed."></details>
       </eAnnotations>
-      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasClassDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="hasClassDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if a_class_name has a class definition in the model"></details>
       </eAnnotations>
-      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="hasEnumerationDefinition">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="hasEnumerationDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if a_class_name has enumeration definition."></details>
       </eAnnotations>
-      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
     <eOperations lowerBound="0" upperBound="1" eType="#//classes/BMM_Enumeration" name="enumerationDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the enumeration definition corresponding to a_type_name."></details>
       </eAnnotations>
-      <eParameters name="aName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="primitiveTypes">
+    <eOperations lowerBound="0" upperBound="-1" eType="#//foundation/primitive/String" name="primitiveTypes">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of keys in class_definitions of items marked as primitive types."></details>
       </eAnnotations>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="enumerationTypes">
+    <eOperations lowerBound="0" upperBound="-1" eType="#//foundation/primitive/String" name="enumerationTypes">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of keys in class_definitions of items that are enumeration types."></details>
       </eAnnotations>
@@ -699,56 +699,56 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the property definition for a_prop_name in flattened class corresponding to a_type_name."></details>
       </eAnnotations>
-      <eParameters name="aPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aPropertyName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aTypeName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="msConformantPropertyType">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="msConformantPropertyType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if a_ms_property_type is a valid 'MS' dynamic type for a_property in BMM type a_bmm_type_name. 'MS' conformance means 'model-semantic' conformance, which abstracts away container types like List[] Set[]etc and compares the dynamic type with the relation target type in the UML sense, i.e. regardless of whether there is single or multiple containment."></details>
       </eAnnotations>
-      <eParameters name="aBmmTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aBmmPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aMSPropertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aBmmTypeName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aBmmPropertyName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aMSPropertyName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
     <eOperations lowerBound="1" upperBound="1" eType="#//class_features/BMM_Property" name="propertyDefinitionAtPath">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the property definition for a_property_path in flattened class corresponding to a_type_name."></details>
       </eAnnotations>
-      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aTypeName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aPath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
     <eOperations lowerBound="1" upperBound="1" eType="#//classes/BMM_Class" name="classDefinitionAtPath">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Retrieve the class definition for the class that owns the terminal attribute in a_prop_path in flattened class corresponding to a_type_name"></details>
       </eAnnotations>
-      <eParameters name="aTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aTypeName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aPath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="allAncestorClasses">
+    <eOperations lowerBound="0" upperBound="-1" eType="#//foundation/primitive/String" name="allAncestorClasses">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Return all ancestor types of a_class_name up to root class (usually Any, Object or something similar). Does not include current class. Returns empty list if none."></details>
       </eAnnotations>
-      <eParameters name="aClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aClassName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="isDescendantOf">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="isDescendantOf">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="True if a_class_name is a descendant in the model of a_parent_class_name."></details>
       </eAnnotations>
-      <eParameters name="aClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="aParentClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aClassName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aParentClassName" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" name="typeConformsTo">
+    <eOperations lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean" name="typeConformsTo">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Check conformance of a_desc_type to an_anc_type; the types may be generic, and may contain open generic parameters like 'T' etc. These are replaced with their appropriate constrainer types, or Any during the conformance testing process. Conformance is found if: - [base class test] types are non-generic, and either type names are identical, or else a_desc_type has an_anc_type in its ancestors; - both types are generic and pass base class test; number of generic params matches, and each generic parameter type, after 'open parameter' substitution, recursively passes; type_name_conforms_to test descendant type is generic and ancestor type is not, and they pass base classes test."></details>
       </eAnnotations>
-      <eParameters name="aDescType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
-      <eParameters name="anAncType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aDescType" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="anAncType" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
-    <eOperations lowerBound="0" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="subTypes">
+    <eOperations lowerBound="0" upperBound="-1" eType="#//foundation/primitive/String" name="subTypes">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generate type substitutions for the supplied type, which may be simple, generic (closed, open or partially open), or a container type. In the generic and container cases, the result is the permutation of the base class type and type substitutions of all generic parameters. Parameters: a_type: Name of a type."></details>
       </eAnnotations>
-      <eParameters name="aType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1"></eParameters>
+      <eParameters name="aType" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1"></eParameters>
     </eOperations>
     <eOperations lowerBound="1" upperBound="1" eType="#//classes/BMM_SimpleClass" name="anyClassDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -792,7 +792,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract idea of specifying a type in some context. This is not the same as 'defining' a class. A typespecification is essentially a reference of some kind, that defines the type of an attribute, or functionresult or argument. It may include generic parameters that might or might not be bound. See subtypes"/>
       </eAnnotations>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="abstract='true'"/>
         </eAnnotations>
@@ -800,12 +800,12 @@
           <details key="documentation" value="Formal string form of the type as per UML."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Signature form of the type name, which for generics includes generic parameter constrainer types E.g. Interval[T:Ordered]. Defaults to the value of type_name()."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="abstract='true'"/>
         </eAnnotations>
@@ -813,7 +813,7 @@
           <details key="documentation" value="If true, indicates a type based on an abstract class, i.e. a type that cannot be directly instantiated."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="abstract='true'"/>
         </eAnnotations>
@@ -837,7 +837,7 @@
           <details key="documentation" value="Type with any container abstracted away, and any formal parameter replaced by its effective constraint type."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="abstract='true'"/>
         </eAnnotations>
@@ -865,7 +865,7 @@
           <details key="documentation" value="Result = self."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="typeBaseName" lowerBound="1" upperBound="1">
+      <eOperations eType="#//foundation/primitive/String" name="typeBaseName" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of base generator type, i.e. excluding any generic parts if present."></details>
         </eAnnotations>
@@ -875,7 +875,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a generic parameter in a class definition of a generic type"/>
       </eAnnotations>
-      <eStructuralFeatures name="name" lowerBound="1" upperBound="1" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eStructuralFeatures name="name" lowerBound="1" upperBound="1" xsi:type="ecore:EReference" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of the parameter, e.g. 'T' etc. The name is limited to 1 character and upper-case."></details>
         </eAnnotations>
@@ -890,17 +890,17 @@
           <details key="documentation" value="If set, is the corresponding generic parameter definition in an ancestor class."></details>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Signature form of the open type, including constrainer type if there is one, e.g. T:Ordered."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result = False - generic parameters are understood by definition to be non-abstract."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result = False - generic parameters are understood by definition to be non-primitive."></details>
         </eAnnotations>
@@ -910,12 +910,12 @@
           <details key="documentation" value="Generate ultimate conformance type, which is either flattened_conforms_to_type or if not set, 'Any'."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result is either flattened_conforms_to_type.flattened_type_list or the Any type."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="return name"></details>
         </eAnnotations>
@@ -940,12 +940,12 @@
           <details key="documentation" value="Base class of this type."></details>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeBaseName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeBaseName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result = base_class.name."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result = base_class.is_primitive."></details>
         </eAnnotations>
@@ -960,17 +960,17 @@
         <details key="documentation" value="Defining class of this type."/>
       </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result is base_class.name."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result is base_class.is_abstract."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result is base_class.name ."/>
         </eAnnotations>
@@ -995,27 +995,27 @@
           <details key="documentation" value="Defining generic class of this type."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return the full name of the type including generic parameters, e.g. DV_INTERVAL[T], TABLE[List[THING],String]."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if base_class.is_abstract or if any (non-open) parameter type is abstract."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Result is base_class.name followed by names of all generic parameter type names, which may be open or closed."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeSignature" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Signature form of the type, which for generics includes generic parameter constrainer types E.g. Interval[T:Ordered]."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPartiallyClosed" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isPartiallyClosed" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Returns True if there is any substituted generic parameter."/>
         </eAnnotations>
@@ -1025,7 +1025,7 @@
           <details key="documentation" value="Effective underlying class for this type, abstracting away any container type."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isOpen" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isOpen" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if all generic parameters from ancestor generic types have been substituted in this type."/>
         </eAnnotations>
@@ -1035,7 +1035,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Built-in meta-type representing the type of a tuple, i.e. an array of any number of other types. This includes both container and unitary types, since tuple instances represent concrete objects. Note that both open and closed generic parameters are allowed, as with any generic type, but opengeneric parameters are only valid within the scope of a generic class."/>
       </eAnnotations>
-      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Tuple' Base name (built-in)."/>
         </eAnnotations>
@@ -1045,11 +1045,11 @@
           <details key="documentation" value="List of types of the items of the tuple, keyed by purpose in the tuple."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//types/BMM_Type"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return the logical set (i.e. unique types) from the merge of flattened_type_list() called on each member of item_types."/>
         </eAnnotations>
@@ -1060,7 +1060,7 @@
         <details key="documentation"
                  value="Built-in meta-type that expresses the type structure of any referenceable element of a model. Consists of potential arguments and result, with constraints in descendants determining the exact form." />
       </eAnnotations>
-      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Signature' Base name (built-in)."/>
         </eAnnotations>
@@ -1075,7 +1075,7 @@
           <details key="documentation" value="Result type of signature."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return the logical set (i.e. unique items) consisting of argument_types.flattened_type_list() and result_type.flattened_type_list()."/>
         </eAnnotations>
@@ -1095,7 +1095,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Built-in meta-type representing action status, e.g. result of a call invocation"/>
       </eAnnotations>
-      <eStructuralFeatures name="baseName" xsi:type="ecore:EAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="baseName" xsi:type="ecore:EReference" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="base_name: String = 'Status' Base name (built-in)."/>
         </eAnnotations>
@@ -1115,27 +1115,27 @@
           <details key="documentation" value="The container item type."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValueLiteral="true">
+      <eStructuralFeatures name="isOrdered" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="0" upperBound="1" defaultValueLiteral="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = true} True indicates that order of the items in the container attribute is considered significant and must be preserved, e.g. across sessions, serialisation, deserialisation etc. Otherwise known as 'list' semantics."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" unsettable="false" defaultValueLiteral="false">
+      <eStructuralFeatures name="isUnique" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="0" upperBound="1" unsettable="false" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = false} True indicates that only unique instances of items in the container are allowed. Otherwise known as 'set' semantics."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return full type name, e.g. List[ELEMENT]."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isAbstract" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Post_is_abstract: Result = container_type.is_abstract"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="flattenedTypeList" lowerBound="1" upperBound="-1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Post_result: Result = item_type.flattened_type_list. Flattened list of type names of item_type, i.e. item_type.flattened_type_list()."/>
         </eAnnotations>
@@ -1145,7 +1145,7 @@
           <details key="documentation" value="Return item_type."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isPrimitive" lowerBound="1" upperBound="1" eType="#//foundation/primitive/Boolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Post_result: Result = item_type.is_primitive"/>
         </eAnnotations>
@@ -1165,7 +1165,7 @@
           <details key="documentation" value="Type of the element index, typically String or Integer, but may be a numeric type or indeed any type from which a hash value can be derived."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eOperations name="typeName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Return full type name, e.g. HashMap[String, ELEMENT]."/>
         </eAnnotations>
@@ -1182,7 +1182,7 @@
           <details key="documentation" value="List of immediate inheritance parents."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//types/BMM_ModelType"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -1196,11 +1196,11 @@
           <details key="documentation" value="Properties defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Property"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="sourceSchemaId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="sourceSchemaId" eType="#//foundation/primitive/String" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Reference to original source schema defining this class. Useful for UI tools to determine which original schema file to open for a given class for manual editing."/>
         </eAnnotations>
@@ -1210,7 +1210,7 @@
           <details key="documentation" value="List of computed references to base classes of immediate inheritance descendants, derived when members of ancestors are attached at creation time."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isOverride" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="isOverride" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this definition overrides a class of the same name in an included schema."/>
         </eAnnotations>
@@ -1220,7 +1220,7 @@
           <details key="documentation" value="Constants defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Constant"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -1229,7 +1229,7 @@
           <details key="documentation" value="Functions defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Function"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -1238,16 +1238,16 @@
           <details key="documentation" value="Procedures defined in this class (subset of features)."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
+      <eStructuralFeatures name="isPrimitive" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="0" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = false} True if this class represents a type considered to be primitive in the type system, i.e. any typically built-in or standard library type such as String, Date, Hash[K,V] etc."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1">
+      <eStructuralFeatures name="isAbstract" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="0" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="{default = false} True if this class is marked as abstract, i.e. direct instances cannot be created from its direct type."/>
         </eAnnotations>
@@ -1262,7 +1262,7 @@
           <details key="documentation" value="Subset of procedures that may be used to initialise a new instance of an object, and whose execution will guarantee that class invariants are satisfied."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -1271,7 +1271,7 @@
           <details key="documentation" value="Subset of creators that create a new instance from a single argument of another type."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//class_features/BMM_Procedure"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -1310,22 +1310,22 @@
           <details key="documentation" value="List of names of all classes in full supplier closure, including concrete generic parameters; (where generics are unconstrained, no class name is added, since logically it would be Any and this can always be assumed anyway). This list includes primitive types."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="packagePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="packagePath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Fully qualified package name, of form: package.package."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="classPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="classPath" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Fully qualified class name, of form: package.package.CLASS with package path in lower-case and class in original case."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+      <eOperations name="isPrimitive" eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this class is designated a primitive type within the overall type system of the schema. Set from schema."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+      <eOperations name="isAbstract" eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this class is abstract in its model. Value provided from an underlying data property set at creation or construction time."/>
         </eAnnotations>
@@ -1365,11 +1365,11 @@
           <details key="documentation" value="List of formal generic parameters, keyed by name. These are defined either directly on this class or by the inclusion of an ancestor class which is generic."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           <eTypeArguments eClassifier="#//types/BMM_ParameterType"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eOperations name="suppliers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="0" upperBound="-1">
+      <eOperations name="suppliers" eType="#//foundation/primitive/String" lowerBound="0" upperBound="-1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Add suppliers from generic parameters."/>
         </eAnnotations>
@@ -1379,18 +1379,18 @@
           <details key="documentation" value="Generate a fully open BMM_GENERIC_TYPE instance that corresponds to this class definition"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="genericParameterConformanceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="genericParameterConformanceType" eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="For a generic class, type to which generic parameter a_name conforms e.g. if this class is Interval [T:Comparable] then the Result will be the single type Comparable. For an unconstrained type T, the Result will be Any."/>
         </eAnnotations>
-        <eParameters name="aName" lowerBound="1" upperBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="aName" lowerBound="1" upperBound="1" eType="#//foundation/primitive/String"/>
       </eOperations>
     </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="BMM_Enumeration" eSuperTypes="#//classes/BMM_SimpleClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Definition of an enumeration class, understood as a class whose value range is constrained extensionally, i.e. by an explicit enumeration of named singleton instances. Only one inheritance ancestor is allowed in order to provide the base type to which the range constraint is applied. The common notion of a set of literals with no explicit defined values is represented as the degenerate subtype BMM_ENUMERATION_INTEGER, whose values are 0, 1, "/>
         </eAnnotations>
-        <eStructuralFeatures name="itemNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="-1">
+        <eStructuralFeatures name="itemNames" eType="#//foundation/primitive/String" xsi:type="ecore:EReference" lowerBound="0" upperBound="-1">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The list of names of the enumeration. If no values are supplied, the integer values 0, 1, 2, ... are assumed."/>
           </eAnnotations>
@@ -1405,8 +1405,8 @@
             <details key="documentation" value="Map of item_names to item_values (stringified)."/>
           </eAnnotations>
           <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+            <eTypeArguments eClassifier="#//foundation/primitive/String"/>
           </eGenericType>
         </eOperations>
       </eClassifiers>
@@ -1434,12 +1434,12 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Definition of a range-constrained class whose value range is defined by reference to a 'value set' withinan external resource, e.g. a reference data service." />
       </eAnnotations>
-      <eStructuralFeatures name="resourceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="resourceId" eType="#//foundation/primitive/String" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifier of a resource (typically available as a service) that contains legal values of a specific type. This is typically a URI but need not be."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="valueSetId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" lowerBound="1" upperBound="1">
+      <eStructuralFeatures name="valueSetId" eType="#//foundation/primitive/String" xsi:type="ecore:EReference" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Identifier of a value set within the resource identified by resource_id, which specifies the set of legal values of a type. This might be a URI, but need not be."/>
         </eAnnotations>
@@ -1456,7 +1456,7 @@
           <details key="documentation" value="Declared or inferred static type of the entity."></details>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures name="isNullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" lowerBound="0" upperBound="1" defaultValueLiteral="false">
+      <eStructuralFeatures name="isNullable" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" lowerBound="0" upperBound="1" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this element can be null (Void) at execution time. May be interpreted as optionality in subtypes."></details>
         </eAnnotations>
@@ -1466,7 +1466,7 @@
           <details key="documentation" value="Formal signature of this element, in the form: name [arg1_name: T_arg1, …][:T_value]. Specific implementations in descendants."></details>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isBoolean"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" lowerBound="1" upperBound="1">
+      <eOperations name="isBoolean"  eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if type is notionally Boolean (i.e. a BMM_SIMPLE_TYPE with type_name() = 'Boolean'). Post_result: Result = type().equal( {BMM_MODEL}.boolean_type_definition())"/>
         </eAnnotations>
@@ -1476,7 +1476,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A module-scoped formal element"/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="0" upperBound="1" name="isSynthesisedGeneric" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isSynthesisedGeneric" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this feature was synthesised due to generic substitution in an inherited type, or further constraining of a formal generic parameter."/>
         </eAnnotations>
@@ -1504,7 +1504,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A logical group of features, with a name and set of properties that applies to the group"/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute" defaultValueLiteral="feature">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="#//foundation/primitive/String" xsi:type="ecore:EReference" defaultValueLiteral="feature">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this feature group; defaults to 'feature'."/>
         </eAnnotations>
@@ -1514,8 +1514,8 @@
         <details key="documentation" value="Set of properties of this group, represented as name/value pairs. These are understood to apply logically to all of the features contained within the group."/>
       </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+        <eTypeArguments eClassifier="#//foundation/primitive/String"/>
       </eGenericType>
     </eStructuralFeatures>
       <eStructuralFeatures lowerBound="0" upperBound="1" name="features">
@@ -1570,17 +1570,17 @@
                  value="Meta-type of a property definition within a class definition of an object model. The is_composition attribute indicates whether the property has sub-part or an association semantics with respect to theowning class."
         />
       </eAnnotations>
-      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImRuntime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImRuntime" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this property is marked with info model im_runtime property"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImInfrastructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isImInfrastructure" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this property was marked with info model im_infrastructure flag."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures lowerBound="0" upperBound="1" name="isComposition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute" defaultValueLiteral="false">
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="isComposition" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference" defaultValueLiteral="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if this property instance is a compositional sub-part of the owning class instance. Equivalent to 'composition' in UML associations (but missing from UML properties without associations) and also 'cascade-delete' semantics in ER schemas."/>
         </eAnnotations>
@@ -1590,7 +1590,7 @@
           <details key="documentation" value="Interval form of 0..1, 1..1 etc, derived from is_nullable."/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="displayName"  eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this property to display in UI."/>
         </eAnnotations>
@@ -1620,7 +1620,7 @@
           <details key="documentation" value="Declared or inferred static type of the entity."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="displayName"  eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this property in form name: ContainerTypeName[]."/>
         </eAnnotations>
@@ -1635,7 +1635,7 @@
         <details key="documentation" value="Declared or inferred static type of the entity."/>
       </eAnnotations>
     </eStructuralFeatures>
-      <eOperations name="displayName"  eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" lowerBound="1" upperBound="1">
+      <eOperations name="displayName"  eType="#//foundation/primitive/String" lowerBound="1" upperBound="1">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this property in form name: ContainerTypeName[IndexTypeName, ...]"/>
         </eAnnotations>
@@ -1718,10 +1718,10 @@
           <details key="documentation" value="Set of String symbols that may be used to represent this operator in a textual representation of a BMM model"/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Formal name of the operator, e.g. 'minus' etc."/>
         </eAnnotations>
@@ -1788,7 +1788,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Automatically declared variable representing result instance of a Function call."/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Name of this model element."/>
         </eAnnotations>
@@ -1836,8 +1836,8 @@
           <details key="documentation" value="External call general meta-data, including target routine name, type mapping etc."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         </eGenericType>
       </eStructuralFeatures>
       <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="argumentMapping">
@@ -1845,8 +1845,8 @@
           <details key="documentation" value="Optional argument-mapping meta-data."/>
         </eAnnotations>
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+          <eTypeArguments eClassifier="#//foundation/primitive/String"/>
         </eGenericType>
       </eStructuralFeatures>
     </eClassifiers>
@@ -1860,7 +1860,7 @@
       <eTypeParameters name="T">
         <eBounds eClassifier="#//foundation/Any"/>
       </eTypeParameters>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="valueLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="valueLiteral" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A serial representation of the value."/>
         </eAnnotations>
@@ -1870,7 +1870,7 @@
           <details key="documentation" value="A native representation of the value, possibly derived by deserialising value_literal."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures lowerBound="0" upperBound="1" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="syntax" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Optional specification of formalism of the value_literal attribute for complex values. Value may be any of json | json5 | yawl | xml | odin | rdf or another value agreed by the user community. If not set, json is assumed."/>
         </eAnnotations>
@@ -1916,7 +1916,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal String value, for which type is fixed to the BMM_TYPE representing String and value."/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Native String value."/>
         </eAnnotations>
@@ -1926,7 +1926,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal Integer value, for which type is fixed to the BMM_TYPE representing Integer and value  Integer."/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Native Integer value."/>
         </eAnnotations>
@@ -1936,7 +1936,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Meta-type for a literal Boolean value, for which type is fixed to the BMM_TYPE representing Boolean and value  Boolean."/>
       </eAnnotations>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="value" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Native Boolean value."/>
         </eAnnotations>
@@ -1958,7 +1958,7 @@
           <details key="documentation" value="Meta-type of expression entity used in type-checking and evaluation. Effected in descendants. (abstract=true)"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures lowerBound="1" upperBound="1" name="isBoolean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" xsi:type="ecore:EAttribute">
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="isBoolean" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="True if eval_type is notionally Boolean (i.e. a BMM_SIMPLE_TYPE with type_name() = Boolean). Post_result: Result = eval_type().equal( {BMM_MODEL}.boolean_type_definition())"/>
         </eAnnotations>
@@ -1980,10 +1980,35 @@
         <details key="invariants" value="Inv_boolean_expression: base_expression.is_boolean()"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElOperator" abstract="true" eSuperTypes="#//expressions/BMM_ElSimple">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract parent of operator types"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="precedenceOverriden" eType="#//foundation/primitive/Boolean" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="True if the natural precedence of operators is overridden in the expression represented by this node of the expression tree. If True, parentheses should be introduced around the totality of the syntax expression corresponding to this operator node and its operands."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="0" upperBound="1" name="symbol" eType="#//foundation/primitive/String" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The symbol actually used in the expression, or intended to be used for serialisation. Must be a member of OPERATOR_DEF.symbols."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="definition" eType="#//BMM_Function" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Function equivalent to this operator, inferred by matching operator against functions defined in interface of principal operand."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="operatorDefinition"  eType="BMM_Operator" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Operator definition derived from definition.operator_definition()."/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="equivalentCall"  eType="BMM_ElFunctionCall" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Function call equivalent to this operator."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BMM_ElUnaryOperator">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2197,18 +2222,18 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicDefintions">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CR" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="15"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LF" lowerBound="1" upperBound="15" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="12">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CR" lowerBound="1" eType="#//foundation/primitive/Integer" defaultValueLiteral="15"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LF" lowerBound="1" upperBound="15" eType="#//foundation/primitive/Integer" defaultValueLiteral="12">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="char = '\012'  Line feed character."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anyTypeName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="any">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyTypeName" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral="any">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="any"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexAnyPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=".*">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regexAnyPattern" lowerBound="1" eType="#//foundation/primitive/String" defaultValueLiteral=".*">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value=".*"/>
       </eAnnotations>
