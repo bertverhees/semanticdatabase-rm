@@ -2070,22 +2070,32 @@
         />
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElPredicate" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElPredicate" abstract="true" eSuperTypes="#//expressions/BMM_ElTerminal">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Parent type of predicate of any object reference"/>
       </eAnnotations>
+      <eStructuralFeatures lowerBound="1" upperBound="1" name="operand" eType="#//expressions/BMM_InstanceRef" xsi:type="ecore:EReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The target instance of this predicate."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eOperations name="evalType"  eType="BMM_ElSimpleType" lowerBound="1" upperBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Return {BMM_MODEL}.boolean_type_definition()."/>
+        </eAnnotations>
+      </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDefined">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDefined" eSuperTypes="#//expressions/BMM_ElPredicate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A predicate taking one external variable reference argument, that returns true if the reference isresolvable, i.e. the external value is obtainable"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAttached">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAttached" eSuperTypes="#//expressions/BMM_ElPredicate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A predicate on any object reference (including function call) that returns True if the reference isattached, i.e. non-Void"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstanceRef" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstanceRef" abstract="true" eSuperTypes="#//expressions/BMM_ElTerminal">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation"
                  value="A reference to a formal element (BMM_FORMAL_ELEMENT) that at runtime represents an instance or else atype (BMM_TYPE). This may be via computation (e.g. function call) or static representation"
