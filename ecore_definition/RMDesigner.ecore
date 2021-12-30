@@ -2570,45 +2570,129 @@
                 </eAnnotations>
             </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableFeatureRef">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElInstantiableFeatureRef" eSuperTypes="#//expressions/BMM_ElInstiableRef">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value="Reference to an instantiable feature, i.e. constant or property."/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="definition" eType="#//BMM_InstantiableFeature"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Feature definition (within class)."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgentCall" abstract="true">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="A call made to a 'closed' agent, i.e. one with no remaining open arguments"/>
+                <details key="invariants" value="Inv_valid_call: agent.is_callable()"/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="agent" eType="#//BMM_ElAgent"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="The agent being called."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionCall">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionCall" eSuperTypes="#//expressions/BMM_ElAgentCall, #//expressions/BMM_ElScopedRef">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="A call made on a closed function agent, returning a result. Equivalent to an 'application' of a function inLambda calculus."/>
+                <details key="invariants" value="Inv_valid_call: agent.is_callable()"/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="agent" eType="#//expressions/BMM_ElFunctionAgent"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="The function agent being called."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eOperations name="evalType" eType="BMM_Type" lowerBound="1" upperBound="1">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation" value="Return agent.definition.type."/>
+                </eAnnotations>
+            </eOperations>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgent" abstract="true">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElAgent" abstract="true" eSuperTypes="#//expressions/BMM_ElScopedRef">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="A delayed routine call, whose arguments may be open, partially closed or closed. Instances may includeclosed delayed calls like calculate_age (dob='1987-09-13', today='2019-06-03') but also partiallyopen calls such as format_structure (struct=?, style=3) , where struct is an open argument.  BMM_SIGNATURE"
                 />
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="name" eType="#//foundation/primitive/String"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Name of the routine being called."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="closedArgs" eType="#//expressions/BMM_ElTuple"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Closed arguments of a routine call as a tuple of objects."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="0" upperBound="1" xsi:type="ecore:EReference" name="openArgs">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Optional list of names of open arguments of the call. If not provided, and the name refers to a routine with more arguments than supplied in closed_args, the missing arguments are inferred from the definition."/>
+                </eAnnotations>
+                <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+                    <eTypeArguments eClassifier="#//foundation/primitive/String"/>
+                </eGenericType>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="definition" eType="#//BMM_Routine"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Reference to definition of a routine for which this is an agent, if one exists."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eOperations name="evalType" eType="BMM_Signature" lowerBound="1" upperBound="1">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation" value="Eval type is the signature corresponding to the (remaining) open arguments and return type, if any."/>
+                    <details key="post_result_validity" value="Result = definition.signature"/>
+                </eAnnotations>
+            </eOperations>
+            <eOperations name="isCallable" eType="#//foundation/primitive/Boolean" lowerBound="1" upperBound="1">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation" value="Return agent.definition.type."/>
+                    <details key="post_result_validity" value="Result = open_arguments = Void"/>
+                </eAnnotations>
+            </eOperations>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionAgent">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElFunctionAgent" eSuperTypes="#//expressions/BMM_ElAgent">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="An agent whose signature is of a function, i.e. has a result type."/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="definition" eType="#//BMM_Function"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Reference to definition of a routine for which this is a direct call instance, if one exists."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElProcedureAgent">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElProcedureAgent" eSuperTypes="#//expressions/BMM_ElAgent">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="An agent whose signature is of a procedure, i.e. has no result type."/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="definition" eType="#//BMM_Procedure"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Reference to definition of a routine for which this is a direct call instance, if one exists."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTuple">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-                <details key="documentation" value="Defines an array of optionally named items each of any type. "/>
+                <details key="documentation" value="Reference to definition of routine for which this is a call instance."/>
             </eAnnotations>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTupleItem">
