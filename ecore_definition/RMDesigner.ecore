@@ -2694,11 +2694,46 @@
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value="Reference to definition of routine for which this is a call instance."/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="items">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Items in the tuple, potentially with names. Typical use is to represent an argument list to routine call."/>
+                </eAnnotations>
+                <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+                    <eTypeArguments eClassifier="#//expressions/BMM_ElTupleItem"/>
+                </eGenericType>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="type" eType="#//BMM_TupleType"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Static type inferred from literal value."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eOperations name="evalType" eType="BMM_Type" lowerBound="1" upperBound="1">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation" value="Return type."/>
+                </eAnnotations>
+            </eOperations>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElTupleItem">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value="A single tuple item, with an optional name"/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="item" eType="#//expressions/BMM_ElExpression"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Reference to value entity. If Void, this indicates that the item in this position is Void, e.g. within a routine call parameter list"/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="0" upperBound="1" name="name" eType="#//foundation/primitive/String"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Optional name of tuple item."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElDecisionTable" abstract="true">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
