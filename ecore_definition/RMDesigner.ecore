@@ -2775,20 +2775,46 @@
                              value="Result expression of conditional, if its condition evaluates to True."/>
                 </eAnnotations>
             </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="items">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement."/>
+                </eAnnotations>
+                <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+                    <eTypeArguments eClassifier="#//expressions/BMM_ElDecisionBranch"/>
+                </eGenericType>
+            </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConditionChain">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElConditionChain" eSuperTypes="#//expressions/BMM_ElDecisionTable">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="Compound expression consisting of a chain of condition-gated expressions, and an ungated else member that as a whole, represents an if/then/elseif/else chains. Evaluated by iterating through items and for each one, evaluating its condition, which if True, causesthe evaluation result of the chain to be that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
                 />
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="items">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement."/>
+                </eAnnotations>
+                <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+                    <eTypeArguments eClassifier="#//expressions/BMM_ElConditionalExpression"/>
+                </eGenericType>
+            </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ELConditionExpression">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ELConditionExpression" eSuperTypes="#//expressions/BMM_ElDecisionBranch">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="Conditional structure used in condition chain expressions. Evaluated by evaluating its condition,which is a Boolean-returning expression, and if this returns True, the result is the evaluation result of expression"
                 />
+                <details key="invariants" value="Inv_condition_boolean: condition.is_boolean()"/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="condition" eType="#//expressions/BMM_ElSimple"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Gate expression that acts as the condition under which the target expression is returned."/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
