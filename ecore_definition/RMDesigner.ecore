@@ -2816,78 +2816,102 @@
                 </eAnnotations>
             </eStructuralFeatures>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseTable" eSuperTypes="#//expressions/BMM_ElDecisionTable">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="Compound expression consisting of a list of value-range / expression pairs, and an else member thatas a whole, represents a case statement flavour of decision table. Evaluated by iterating through items and for each one, comparing input to the item value_range. If the input is in the range, the evaluation result of the table is that item’s result evaluation result. If no member of items has a True-returning condition, the evaluation result is the result of evaluating the else expression."
                 />
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="input" eType="#//expressions/BMM_ElSimple"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Input value that is compared against each items[i].value_range to determine the overall result."/>
+                </eAnnotations>
+            </eStructuralFeatures>
+            <eStructuralFeatures lowerBound="1" upperBound="1" xsi:type="ecore:EReference" name="items">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value="Members of the chain, equivalent to branches in an if/then/else chain and cases in a case statement."/>
+                </eAnnotations>
+                <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EList">
+                    <eTypeArguments eClassifier="#//expressions/BMM_ElCase"/>
+                </eGenericType>
+            </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCaseStatement">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value=""/>
             </eAnnotations>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCase">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ElCase" eSuperTypes="#//expressions/BMM_ElDecisionBranch">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value=""/>
             </eAnnotations>
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="input" eType="#//aom/AOM_CObject"
+                                 xsi:type="ecore:EReference">
+                <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                    <details key="documentation"
+                             value=""/>
+                </eAnnotations>
+            </eStructuralFeatures>
         </eClassifiers>
     </eSubpackages>
-
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="Abstract parent of statement types representing a locally defined routine body"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementBlock">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="A statement 'block' corresponding to the programming language concept of the same name. May beused to establish scope in specific languages"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Statement" abstract="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="Abstract parent of 'statement' types that may be defined to implement bmm Routines"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleStatement" abstract="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="Simple statement, i.e. statement with one logical element - a single expression, procedure call etc."/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ProcedureCall">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="A call made on a closed procedure agent"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Assignment">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="Statement type representing an assignment from a value-generating source to a writable entity, i.e. avariable reference or property."/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_Assertion">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings). May be rendered in syntax as assert condition or similar"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionTable">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="Multi-branch conditional statement structure"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionDecisionTable">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation"
-                     value="Specialised form of Decision Table that allows only procedure call agents (lambdas) as the result of branches"/>
-        </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BasicDefintions">
+    <eSubpackages name="statements">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="Abstract parent of statement types representing a locally defined routine body"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementBlock">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="A statement 'block' corresponding to the programming language concept of the same name. May beused to establish scope in specific languages"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_Statement" abstract="true">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="Abstract parent of 'statement' types that may be defined to implement bmm Routines"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_SimpleStatement" abstract="true">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="Simple statement, i.e. statement with one logical element - a single expression, procedure call etc."/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ProcedureCall">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation" value="A call made on a closed procedure agent"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_Assignment">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="Statement type representing an assignment from a value-generating source to a writable entity, i.e. avariable reference or property."/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_Assertion">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="A statement that asserts the truth of its expression. If not, generates an exception (depending on run-time settings). May be rendered in syntax as assert condition or similar"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionTable">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation" value="Multi-branch conditional statement structure"/>
+            </eAnnotations>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_ActionDecisionTable">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+                <details key="documentation"
+                         value="Specialised form of Decision Table that allows only procedure call agents (lambdas) as the result of branches"/>
+            </eAnnotations>
+        </eClassifiers>
+    </eSubpackages>
+    <eClassifiers xsi:type="ecore:EClass" name="BasicDefinitions">
         <eStructuralFeatures xsi:type="ecore:EReference" name="CR" lowerBound="1"
                              eType="#//foundation/primitive/Integer" defaultValueLiteral="15"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="LF" lowerBound="1" upperBound="15"
