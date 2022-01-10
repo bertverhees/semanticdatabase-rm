@@ -2848,7 +2848,7 @@
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation" value=""/>
             </eAnnotations>
-            <eStructuralFeatures lowerBound="1" upperBound="1" name="input" eType="#//aom/AOM_CObject"
+            <eStructuralFeatures lowerBound="1" upperBound="1" name="input" eType="#//aom/AOM2_CObject"
                                  xsi:type="ecore:EReference">
                 <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                     <details key="documentation"
@@ -2858,7 +2858,7 @@
         </eClassifiers>
     </eSubpackages>
     <eSubpackages name="statements">
-        <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true">
+        <eClassifiers xsi:type="ecore:EClass" name="BMM_StatementItem" abstract="true" eSuperTypes="BMM_RoutineBody">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
                 <details key="documentation"
                          value="Abstract parent of statement types representing a locally defined routine body"/>
